@@ -21,7 +21,7 @@ const translations = {
         home_stat2: 'Modern UI patterns with practical usability',
         home_stat3: 'Landing pages, portfolios, and web applications',
         home_get_eyebrow: 'What you get',
-        home_get_h2: 'One system for design, layout, and interaction.',
+        home_get_h2: 'Modern design, layout, and interaction.',
         home_get1: 'Responsive layout with mobile-first navigation',
         home_get2: 'Fast-loading static structure with clean CSS',
         home_get3: 'Ready for portfolios, SaaS sites, and app demos',
