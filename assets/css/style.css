@@ -4,7 +4,7 @@
     --surface: rgba(78, 85, 116, 0.78);
     --surface-2: rgba(255, 255, 255, 0.171);
     --border: rgba(255, 255, 255, 0.10);
-    --text: #edf2ff;
+    --text: #ebeffa;
     --muted: #b7c0dd;
     --accent: #82aaff;
     --accent-strong: #5eead4;
@@ -120,6 +120,8 @@ img {
 
 .desktop-nav a:hover {
     color: var(--text);
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 .lang-switcher {
@@ -275,7 +277,7 @@ img {
 }
 
 .hero-copy h1 {
-    font-size: clamp(2.8rem, 6vw, 5.8rem);
+    font-size: clamp(2rem, 6vw, 5.8rem);
     max-width: 11ch;
 }
 
