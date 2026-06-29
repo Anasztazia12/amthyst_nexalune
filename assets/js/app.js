@@ -1,0 +1,456 @@
+const translations = {
+    en: {
+        logo_home_aria: 'Amethyst Nexalune home',
+        language_switcher: 'Language switcher',
+        primary_nav: 'Primary navigation',
+        mobile_nav: 'Mobile menu',
+        menu_open_aria: 'Open menu',
+        nav_home: 'Home',
+        nav_about: 'About',
+        nav_portfolio: 'Portfolio',
+        nav_contact: 'Contact',
+        footer_brand: 'Amethyst Nexalune',
+        footer_tagline: 'Modern websites and web applications',
+        index_title: 'Amethyst Nexalune | Web Sites & Web Apps',
+        home_eyebrow: 'Modern responsive web design',
+        home_h1: 'Websites and web apps built to feel fast, clean, and focused.',
+        home_lead: 'I design and build digital products for people who want a clear first impression, smooth mobile behavior, and a professional finish that feels current.',
+        home_btn_portfolio: 'View portfolio',
+        home_btn_contact: 'Start a project',
+        home_stat1: 'Clear structure that works on every screen',
+        home_stat2: 'Modern UI patterns with practical usability',
+        home_stat3: 'Landing pages, portfolios, and web applications',
+        home_get_eyebrow: 'What you get',
+        home_get_h2: 'One system for design, layout, and interaction.',
+        home_get1: 'Responsive layout with mobile-first navigation',
+        home_get2: 'Fast-loading static structure with clean CSS',
+        home_get3: 'Ready for portfolios, SaaS sites, and app demos',
+        home_get4: 'Accessible buttons, menu states, and readable contrast',
+        home_build_eyebrow: 'What I build',
+        home_build_h2: 'Modern digital products with a sharp first impression.',
+        home_card1_kicker: 'Web sites',
+        home_card1_h3: 'Landing pages that convert attention into action.',
+        home_card1_p: 'Hero sections, service blocks, social proof, and a clear call to action built into a single responsive flow.',
+        home_card2_kicker: 'Web apps',
+        home_card2_h3: 'Interfaces that keep complex tasks easy to read.',
+        home_card2_p: 'Dashboards, forms, menus, and workspace views that stay tidy on tablets and phones.',
+        home_card3_kicker: 'Brand systems',
+        home_card3_h3: 'Reusable visual language for the whole product.',
+        home_card3_p: 'Colors, spacing, cards, and components that keep the site consistent from page to page.',
+        home_responsive_eyebrow: 'Responsive by default',
+        home_responsive_h2: 'Designed for mobile, polished for desktop.',
+        home_responsive_lead: 'The layout adapts instead of shrinking. Navigation becomes compact, cards stack cleanly, and spacing stays readable across breakpoints.',
+        home_check1: 'Fluid spacing with CSS clamp()',
+        home_check2: 'Flexible cards and content sections',
+        home_check3: 'Accessible menu toggles and focus states',
+        home_check4: 'Easy to extend with more pages or components',
+        home_cta_eyebrow: 'Ready to build',
+        home_cta_h2: 'Turn the idea into a clean, responsive product.',
+        home_cta_btn: 'Contact me',
+        about_title: 'About | Amethyst Nexalune',
+        about_eyebrow: 'About the studio',
+        about_h1: 'Built around clarity, pacing, and practical screens.',
+        about_lead: 'Amethyst Nexalune focuses on web sites and web applications that feel modern without getting noisy. The goal is simple: make the product easy to understand, easy to use, and easy to grow.',
+        about_values_label: 'Core values',
+        about_value1: 'Design choices that support the message, not distract from it',
+        about_value2: 'Layouts that stay consistent from phone to desktop',
+        about_value3: 'Reusable structure that makes future pages easier to add',
+        about_value4: 'Interfaces that feel polished without becoming heavy',
+        about_section_eyebrow: 'What matters',
+        about_section_h2: 'Three principles guide every project.',
+        about_card1_kicker: 'Structure',
+        about_card1_h3: 'Strong layout before styling tricks.',
+        about_card1_p: 'A clear content flow helps users understand the page instantly and keeps the experience stable on narrow screens.',
+        about_card2_kicker: 'Responsiveness',
+        about_card2_h3: 'One design that adapts instead of breaks.',
+        about_card2_p: 'Spacing, grids, and navigation adjust fluidly so the page still feels intentional on tablets and mobile devices.',
+        about_card3_kicker: 'Maintainability',
+        about_card3_h3: 'Clean components that are easy to extend.',
+        about_card3_p: 'The site is designed so that new pages, new sections, and new features can be added without starting over.',
+        about_workflow_eyebrow: 'Workflow',
+        about_workflow_h2: 'From idea to release in a few focused steps.',
+        about_workflow_lead: 'Every project starts with the content hierarchy, then moves into the visual system, and finishes with the responsive behavior that makes the product usable everywhere.',
+        about_step1: 'Define the message and the most important actions',
+        about_step2: 'Build the layout, spacing, and navigation pattern',
+        about_step3: 'Style the interface with a consistent visual system',
+        about_step4: 'Check mobile behavior and tighten the details',
+        portfolio_title: 'Portfolio | Amethyst Nexalune',
+        portfolio_eyebrow: 'Selected work',
+        portfolio_h1: 'Projects that combine clean design with practical behavior.',
+        portfolio_lead: 'A portfolio should show more than visuals. It should show how the layout behaves, how the information is structured, and how well the interface works on smaller screens.',
+        portfolio_types_label: 'Project types',
+        portfolio_type1: 'Service websites and landing pages',
+        portfolio_type2: 'Dashboards and internal web apps',
+        portfolio_type3: 'Portfolio sites and campaign microsites',
+        portfolio_type4: 'Form-heavy interfaces with clear flows',
+        portfolio_card1_kicker: 'Tool',
+        portfolio_card1_h3: 'Business card generator',
+        portfolio_card1_p: 'Design a business card and download it as JPG. The layout keeps the editing flow simple and the exported result clean.',
+        portfolio_card1_point1: 'Custom name card builder',
+        portfolio_card1_point2: 'JPG export ready',
+        portfolio_card1_point3: 'Simple and fast workflow',
+        portfolio_card1_alt: 'Business card generator preview',
+        portfolio_card2_kicker: 'Game app',
+        portfolio_card2_h3: 'Maths apps',
+        portfolio_card2_p: 'Practice the four basic operations with selectable difficulty levels, score tracking, avatars, built-in games, daily challenges, and registration.',
+        portfolio_card2_point1: 'Multiplication mode with typed answers',
+        portfolio_card2_point2: '6 or 12 second timed rounds',
+        portfolio_card2_point3: 'Progress tracking and avatar choice',
+        portfolio_card2_alt: 'Math practice app preview',
+        portfolio_card3_kicker: 'Product concept',
+        portfolio_card3_h3: 'Responsive business card',
+        portfolio_card3_p: 'A responsive take on the business card experience, tuned for different devices and clean visual presentation.',
+        portfolio_card3_point1: 'Device-friendly layout',
+        portfolio_card3_point2: 'Portfolio-style preview',
+        portfolio_card3_point3: 'Flexible presentation',
+        portfolio_card3_alt: 'Responsive business card preview',
+        portfolio_card4_kicker: 'Fitness app',
+        portfolio_card4_h3: 'Fitness responsive',
+        portfolio_card4_p: 'Fitness website where users can view classes, check schedules, and book available training times quickly.',
+        portfolio_card4_point1: 'Class timetable overview',
+        portfolio_card4_point2: 'Bookable appointment slots',
+        portfolio_card4_point3: 'Training schedule tracking',
+        portfolio_card4_alt: 'Fitness scheduling app preview',
+        portfolio_card5_kicker: 'Logbook app',
+        portfolio_card5_h3: 'Responsive devices mockup',
+        portfolio_card5_p: 'Fishing logbook concept for saving catches, photos, catch data, locations, and favorite fishing spots. Includes registration and guest mode.',
+        portfolio_card5_point1: 'Catch history and photo storage',
+        portfolio_card5_point2: 'Location and fishing spot tracking',
+        portfolio_card5_point3: 'Guest mode and registration',
+        portfolio_card5_alt: 'Fishing logbook app preview',
+        portfolio_card6_kicker: 'Website',
+        portfolio_card6_h3: 'Responsive mockup',
+        portfolio_card6_p: 'A simple CV website concept with a clean structure, mobile-friendly behavior, and a straightforward presentation.',
+        portfolio_card6_point1: 'CV-style page structure',
+        portfolio_card6_point2: 'Clean responsive layout',
+        portfolio_card6_point3: 'Easy to navigate',
+        portfolio_card6_alt: 'Responsive CV website preview',
+        portfolio_cta_eyebrow: 'Need something similar?',
+        portfolio_cta_h2: 'Bring the next web project into a cleaner, more modern shape.',
+        portfolio_cta_btn: 'Start here',
+        contact_title: 'Contact | Amethyst Nexalune',
+        contact_eyebrow: 'Contact',
+        contact_h1: 'Let’s turn the next idea into a polished web experience.',
+        contact_lead: 'If you need a responsive website, a portfolio, or a web app interface, send the details and I’ll help shape the right structure and direction.',
+        contact_quick_label: 'Quick details',
+        contact_email_label: 'Email',
+        contact_email_value: 'hello@amethystnexalune.com',
+        contact_focus_label: 'Focus',
+        contact_focus_value: 'Web sites, web apps, and responsive UI',
+        contact_process_label: 'Process',
+        contact_process_value: 'Clear structure, clean style, and practical interaction',
+        contact_include_eyebrow: 'What to include',
+        contact_include_h2: 'Give a quick summary and the type of product you want.',
+        contact_include1: 'What the site or app needs to do',
+        contact_include2: 'How many pages or screens it needs',
+        contact_include3: 'Any style references or brand direction',
+        contact_include4: 'Your preferred timeline or launch target',
+        contact_form_kicker: 'Send a message',
+        contact_name_label: 'Name',
+        contact_name_placeholder: 'Your name',
+        contact_email_input_label: 'Email',
+        contact_email_placeholder: 'you@example.com',
+        contact_project_label: 'Project type',
+        contact_project_placeholder: 'Website, web app, portfolio...',
+        contact_message_label: 'Message',
+        contact_message_placeholder: 'Tell me about the project',
+        contact_send_btn: 'Send request',
+        contact_status_default: 'The form is ready. Connect it to a backend or email service when you want live delivery.',
+        contact_status_success: 'Thanks - this demo form is ready to connect to a backend or email service.',
+        language_en: 'EN',
+        language_hu: 'HU'
+    },
+    hu: {
+        logo_home_aria: 'Amethyst Nexalune kezdőlap',
+        language_switcher: 'Nyelvválasztó',
+        primary_nav: 'Elsődleges navigáció',
+        mobile_nav: 'Mobil menü',
+        menu_open_aria: 'Menü megnyitása',
+        nav_home: 'Főoldal',
+        nav_about: 'Rólunk',
+        nav_portfolio: 'Portfólió',
+        nav_contact: 'Kapcsolat',
+        footer_brand: 'Amethyst Nexalune',
+        footer_tagline: 'Modern weboldalak és webalkalmazások',
+        index_title: 'Amethyst Nexalune | Weboldalak és webalkalmazások',
+        home_eyebrow: 'Modern, reszponzív webdesign',
+        home_h1: 'Gyors, letisztult és fókuszált weboldalak és webappok.',
+        home_lead: 'Olyan digitális termékeket tervezek és készítek, amelyek erős első benyomást adnak, jól működnek mobilon, és modern, profi hatást keltenek.',
+        home_btn_portfolio: 'Portfólió megtekintése',
+        home_btn_contact: 'Projekt indítása',
+        home_stat1: 'Tiszta struktúra minden képernyőn',
+        home_stat2: 'Modern UI minták gyakorlatias használattal',
+        home_stat3: 'Landing oldalak, portfóliók és webalkalmazások',
+        home_get_eyebrow: 'Mit kapsz',
+        home_get_h2: 'Modern design, elrendezés és interakciók.',
+        home_get1: 'Reszponzív elrendezés mobil-első navigációval',
+        home_get2: 'Gyorsan betöltődő, tiszta CSS-re épülő szerkezet',
+        home_get3: 'Portfóliókhoz, SaaS oldalakhoz és app demókhoz is alkalmas',
+        home_get4: 'Hozzáférhető gombok, menüállapotok és jól olvasható kontraszt',
+        home_build_eyebrow: 'Mit építek',
+        home_build_h2: 'Modern digitális termékek erős első benyomással.',
+        home_card1_kicker: 'Weboldalak',
+        home_card1_h3: 'Landing oldalak, amelyek figyelemből cselekvést hoznak létre.',
+        home_card1_p: 'Hero szekciók, szolgáltatásblokkok, social proof és egyértelmű CTA egyetlen reszponzív folyamatba rendezve.',
+        home_card2_kicker: 'Webappok',
+        home_card2_h3: 'Felületek, amelyek a bonyolult feladatokat is könnyen olvashatóvá teszik.',
+        home_card2_p: 'Dashboardok, űrlapok, menük és munkaterületek, amelyek tablet- és telefonméreten is rendezettek maradnak.',
+        home_card3_kicker: 'Arculati rendszerek',
+        home_card3_h3: 'Újrahasználható vizuális nyelv az egész termékhez.',
+        home_card3_p: 'Színek, térközök, kártyák és komponensek, amelyek minden oldalon egységesek maradnak.',
+        home_responsive_eyebrow: 'Alapból reszponzív',
+        home_responsive_h2: 'Mobilra tervezve, asztalira kifinomítva.',
+        home_responsive_lead: 'Az elrendezés nem csak összébb húzódik. A navigáció kompaktabb lesz, a kártyák szépen egymás alá rendeződnek, és a térközök minden törésponton olvashatók maradnak.',
+        home_check1: 'Folyékony térközök CSS clamp()-pel',
+        home_check2: 'Rugalmas kártyák és tartalomblokkok',
+        home_check3: 'Hozzáférhető menüváltás és fókuszállapotok',
+        home_check4: 'Könnyen bővíthető további oldalakkal és komponensekkel',
+        home_cta_eyebrow: 'Készen áll a megvalósításra',
+        home_cta_h2: 'Az ötletből legyen letisztult, reszponzív termék.',
+        home_cta_btn: 'Kapcsolatfelvétel',
+        about_title: 'Rólunk | Amethyst Nexalune',
+        about_eyebrow: 'A stúdióról',
+        about_h1: 'Az átláthatóság, ritmus és a gyakorlatias képernyők köré építve.',
+        about_lead: 'Az Amethyst Nexalune olyan weboldalakra és webalkalmazásokra fókuszál, amelyek modernek, de nem túlzsúfoltak. A cél egyszerű: a termék legyen könnyen érthető, könnyen használható és könnyen bővíthető.',
+        about_values_label: 'Alapelvek',
+        about_value1: 'A mondanivalót támogató, nem elnyomó design-döntések',
+        about_value2: 'Olyan elrendezés, amely telefonon és asztali gépen is egységes marad',
+        about_value3: 'Új oldalak hozzáadását megkönnyítő újrahasználható struktúra',
+        about_value4: 'Kifinomult, de nem nehézkes felületek',
+        about_section_eyebrow: 'Mi számít igazán',
+        about_section_h2: 'Három elv vezet minden projektben.',
+        about_card1_kicker: 'Struktúra',
+        about_card1_h3: 'Erős elrendezés a trükkös stílusok előtt.',
+        about_card1_p: 'Az átlátható tartalomfolyam segít azonnal érteni az oldalt, és stabil marad szűk képernyőkön is.',
+        about_card2_kicker: 'Reszponzivitás',
+        about_card2_h3: 'Egy design, amely alkalmazkodik ahelyett, hogy szétesne.',
+        about_card2_p: 'A térközök, a rácsok és a navigáció gördülékenyen igazodik, így az oldal tudatos marad tableten és mobilon is.',
+        about_card3_kicker: 'Karbantarthatóság',
+        about_card3_h3: 'Tiszta komponensek, amelyek könnyen bővíthetők.',
+        about_card3_p: 'A rendszer úgy készült, hogy új oldalak, új szekciók és új funkciók hozzáadása ne induljon nulláról.',
+        about_workflow_eyebrow: 'Munkafolyamat',
+        about_workflow_h2: 'Az ötlettől a kiadásig néhány fókuszált lépésben.',
+        about_workflow_lead: 'Minden projekt a tartalmi hierarchiával indul, majd a vizuális rendszerre vált, végül a reszponzív viselkedéssel zárul, hogy a termék mindenhol használható legyen.',
+        about_step1: 'A mondanivaló és a legfontosabb műveletek meghatározása',
+        about_step2: 'Az elrendezés, a térközök és a navigáció felépítése',
+        about_step3: 'A felület egységes vizuális rendszerrel történő kialakítása',
+        about_step4: 'A mobil viselkedés ellenőrzése és a részletek finomítása',
+        portfolio_title: 'Portfólió | Amethyst Nexalune',
+        portfolio_eyebrow: 'Kiválasztott munkák',
+        portfolio_h1: 'Letisztult design és praktikus működés együttesen.',
+        portfolio_lead: 'Egy portfóliónak többet kell mutatnia a látványnál. Azt is meg kell mutatnia, hogyan viselkedik az elrendezés, hogyan szerveződik az információ, és mennyire jól működik a felület kisebb képernyőkön is.',
+        portfolio_types_label: 'Projekt típusok',
+        portfolio_type1: 'Szolgáltatói weboldalak és landing oldalak',
+        portfolio_type2: 'Dashboardok és belső webappok',
+        portfolio_type3: 'Portfólió oldalak és kampány microsite-ok',
+        portfolio_type4: 'Űrlap-központú felületek tiszta folyamatokkal',
+        portfolio_card1_kicker: 'Eszköz',
+        portfolio_card1_h3: 'Névjegykártya generátor',
+        portfolio_card1_p: 'Névjegykártya készítés, JPG formátumú letöltéssel. A szerkesztési folyamat egyszerű, az exportált eredmény pedig letisztult.',
+        portfolio_card1_point1: 'Egyedi névkártya-építő',
+        portfolio_card1_point2: 'JPG export támogatás',
+        portfolio_card1_point3: 'Egyszerű, gyors munkafolyamat',
+        portfolio_card1_alt: 'Névjegykártya generátor előnézet',
+        portfolio_card2_kicker: 'Játék app',
+        portfolio_card2_h3: 'Matematika appok',
+        portfolio_card2_p: 'A négy alapművelet gyakorlása választható nehézségi szintekkel, eredménykövetéssel, avatarválasztással, beépített játékkal, napi challenge-dzsel és regisztrációval.',
+        portfolio_card2_point1: 'Szorzásnál gépelhető válasz',
+        portfolio_card2_point2: '6 vagy 12 másodperces időzítés',
+        portfolio_card2_point3: 'Eredménykövetés és avatarválasztás',
+        portfolio_card2_alt: 'Matek gyakorló app előnézet',
+        portfolio_card3_kicker: 'Termék koncepció',
+        portfolio_card3_h3: 'Reszponzív névjegykártya',
+        portfolio_card3_p: 'A névjegykártya élmény reszponzív változata, különböző eszközökre igazítva és tiszta vizuális prezentációval.',
+        portfolio_card3_point1: 'Eszközbarát elrendezés',
+        portfolio_card3_point2: 'Portfólió-szerű előnézet',
+        portfolio_card3_point3: 'Rugalmas megjelenítés',
+        portfolio_card3_alt: 'Reszponzív névjegykártya előnézet',
+        portfolio_card4_kicker: 'Fitness app',
+        portfolio_card4_h3: 'Fitness responsive',
+        portfolio_card4_p: 'Fitness oldal, ahol meg lehet nézni az órákat és időpontokat, illetve közvetlenül időpontot lehet foglalni edzésre.',
+        portfolio_card4_point1: 'Fitness órarend áttekintés',
+        portfolio_card4_point2: 'Foglalható időpontok',
+        portfolio_card4_point3: 'Edzésidőpont követés',
+        portfolio_card4_alt: 'Fitness időpontfoglaló app előnézet',
+        portfolio_card5_kicker: 'Logbook app',
+        portfolio_card5_h3: 'Reszponzív eszköz mockup',
+        portfolio_card5_p: 'Horgász napló koncepció fogások, képek, fogási adatok, helyszínek és kedvenc horgászhelyek mentésére. Bejelentkezés és vendég mód is tartozik hozzá.',
+        portfolio_card5_point1: 'Fogáselőzmények és fotótárolás',
+        portfolio_card5_point2: 'Helyadatok és spot mentés',
+        portfolio_card5_point3: 'Vendég mód és regisztráció',
+        portfolio_card5_alt: 'Horgász napló app előnézet',
+        portfolio_card6_kicker: 'Weboldal',
+        portfolio_card6_h3: 'Reszponzív mockup',
+        portfolio_card6_p: 'Egyszerű CV weboldal koncepció letisztult szerkezettel, mobilbarát működéssel és könnyen áttekinthető bemutatással.',
+        portfolio_card6_point1: 'CV jellegű oldalszerkezet',
+        portfolio_card6_point2: 'Tiszta reszponzív layout',
+        portfolio_card6_point3: 'Egyszerű navigálhatóság',
+        portfolio_card6_alt: 'Reszponzív CV weboldal előnézet',
+        portfolio_cta_eyebrow: 'Hasonlóra van szükséged?',
+        portfolio_cta_h2: 'A következő webprojektből legyen tisztább, modernebb felület.',
+        portfolio_cta_btn: 'Itt kezdd',
+        contact_title: 'Kapcsolat | Amethyst Nexalune',
+        contact_eyebrow: 'Kapcsolat',
+        contact_h1: 'Alakítsuk a következő ötletet egy kifinomult webélménnyé.',
+        contact_lead: 'Ha reszponzív weboldalra, portfólióra vagy webapp-felületre van szükséged, küldd el a részleteket, és segítek megtalálni a megfelelő szerkezetet és irányt.',
+        contact_quick_label: 'Gyors infók',
+        contact_email_label: 'E-mail',
+        contact_email_value: 'hello@amethystnexalune.com',
+        contact_focus_label: 'Fókusz',
+        contact_focus_value: 'Weboldalak, webappok és reszponzív UI',
+        contact_process_label: 'Folyamat',
+        contact_process_value: 'Tiszta struktúra, letisztult stílus és gyakorlatias interakció',
+        contact_include_eyebrow: 'Mit érdemes megadni',
+        contact_include_h2: 'Egy rövid összefoglaló és a kívánt terméktípus elég.',
+        contact_include1: 'Mit kell tudnia az oldalnak vagy appnak',
+        contact_include2: 'Hány oldalra vagy képernyőre van szükség',
+        contact_include3: 'Milyen stílus vagy arculati irányt szeretnél',
+        contact_include4: 'Milyen határidőben vagy indulásban gondolkodsz',
+        contact_form_kicker: 'Üzenet küldése',
+        contact_name_label: 'Név',
+        contact_name_placeholder: 'A neved',
+        contact_email_input_label: 'E-mail',
+        contact_email_placeholder: 'te@pelda.hu',
+        contact_project_label: 'Projekt típusa',
+        contact_project_placeholder: 'Weboldal, webapp, portfólió...',
+        contact_message_label: 'Üzenet',
+        contact_message_placeholder: 'Írd le röviden a projektet',
+        contact_send_btn: 'Küldés',
+        contact_status_default: 'Az űrlap készen áll. Kapcsold backendhez vagy e-mail szolgáltatáshoz, ha élő küldést szeretnél.',
+        contact_status_success: 'Köszönöm - ez a demó űrlap készen áll egy backend vagy e-mail szolgáltatás bekötésére.',
+        language_en: 'EN',
+        language_hu: 'HU'
+    }
+};
+
+const languageButtons = document.querySelectorAll('[data-lang]');
+let currentLanguage = 'en';
+
+const hamburger = document.getElementById('hamburger');
+const menu = document.getElementById('menu');
+
+const contactForm = document.querySelector('.contact-form');
+const formStatus = document.getElementById('form-status');
+
+const applyLanguage = (language) => {
+    const dictionary = translations[language] || translations.en;
+
+    currentLanguage = translations[language] ? language : 'en';
+    document.documentElement.lang = currentLanguage;
+
+    document.querySelectorAll('[data-i18n]').forEach((element) => {
+        const key = element.dataset.i18n;
+        if (dictionary[key] !== undefined) {
+            element.textContent = dictionary[key];
+        }
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
+        const key = element.dataset.i18nPlaceholder;
+        if (dictionary[key] !== undefined) {
+            element.setAttribute('placeholder', dictionary[key]);
+        }
+    });
+
+    document.querySelectorAll('[data-i18n-aria-label]').forEach((element) => {
+        const key = element.dataset.i18nAriaLabel;
+        if (dictionary[key] !== undefined) {
+            element.setAttribute('aria-label', dictionary[key]);
+        }
+    });
+
+    document.querySelectorAll('[data-i18n-alt]').forEach((element) => {
+        const key = element.dataset.i18nAlt;
+        if (dictionary[key] !== undefined) {
+            element.setAttribute('alt', dictionary[key]);
+        }
+    });
+
+    document.querySelectorAll('[data-i18n-title]').forEach((element) => {
+        const key = element.dataset.i18nTitle;
+        if (dictionary[key] !== undefined) {
+            element.setAttribute('title', dictionary[key]);
+        }
+    });
+
+    languageButtons.forEach((button) => {
+        const isActive = button.dataset.lang === currentLanguage;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-pressed', String(isActive));
+    });
+
+    if (contactForm && formStatus && !contactForm.dataset.submitted) {
+        formStatus.textContent = dictionary.contact_status_default;
+    }
+
+    localStorage.setItem('amethyst-language', currentLanguage);
+};
+
+const savedLanguage = localStorage.getItem('amethyst-language');
+const initialLanguage = translations[savedLanguage]
+    ? savedLanguage
+    : (navigator.language || '').toLowerCase().startsWith('hu')
+        ? 'hu'
+        : 'en';
+
+applyLanguage(initialLanguage);
+
+languageButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        applyLanguage(button.dataset.lang);
+    });
+});
+
+if (hamburger && menu) {
+    const toggle = () => {
+        const isOpen = menu.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+        menu.setAttribute('aria-hidden', String(!isOpen));
+    };
+
+    hamburger.addEventListener('click', (event) => {
+        event.stopPropagation();
+        toggle();
+    });
+
+    menu.addEventListener('click', (event) => {
+        if (event.target.closest('a')) {
+            menu.classList.remove('open');
+            hamburger.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            menu.setAttribute('aria-hidden', 'true');
+        }
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+            if (menu.classList.contains('open')) {
+                menu.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+                menu.setAttribute('aria-hidden', 'true');
+            }
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menu.classList.contains('open')) {
+            menu.classList.remove('open');
+            hamburger.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            menu.setAttribute('aria-hidden', 'true');
+            hamburger.focus();
+        }
+    });
+}
+
+if (contactForm && formStatus) {
+    contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        contactForm.dataset.submitted = 'true';
+        formStatus.textContent = translations[currentLanguage].contact_status_success;
+        formStatus.style.color = '#5eead4';
+        contactForm.reset();
+    });
+}

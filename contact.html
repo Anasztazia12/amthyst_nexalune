@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title data-i18n="contact_title">Contact | Amethyst Nexalune</title>
+		<link rel="stylesheet" href="assets/css/style.css">
+	</head>
+	<body>
+		<header class="topbar">
+			<a class="brand-lockup" href="index.html" aria-label="Amethyst Nexalune home" data-i18n-aria-label="logo_home_aria">
+				<span class="logo">
+					<img src="assets/images/logo.png" alt="Amethyst Nexalune logo" data-i18n-alt="logo_home_aria">
+				</span>
+				<span class="brand" data-i18n="footer_brand">Amethyst Nexalune</span>
+			</a>
+			<button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="menu" aria-label="Open menu" data-i18n-aria-label="menu_open_aria">
+				<span class="line"></span>
+				<span class="line"></span>
+				<span class="line"></span>
+			</button>
+			<div class="topbar-actions">
+				<div class="lang-switcher" role="group" aria-label="Language switcher" data-i18n-aria-label="language_switcher">
+					<button type="button" class="lang-button" data-lang="en" data-i18n-title="language_en">EN</button>
+					<button type="button" class="lang-button" data-lang="hu" data-i18n-title="language_hu">HU</button>
+				</div>
+				<nav class="desktop-nav" aria-label="Primary" data-i18n-aria-label="primary_nav">
+					<a href="index.html" data-i18n="nav_home">Home</a>
+					<a href="about.html" data-i18n="nav_about">About</a>
+					<a href="portfolio.html" data-i18n="nav_portfolio">Portfolio</a>
+					<a href="contact.html" data-i18n="nav_contact">Contact</a>
+				</nav>
+			</div>
+		</header>
+
+		<nav class="hamburger-content" id="menu" aria-hidden="true" aria-label="Mobile menu" data-i18n-aria-label="mobile_nav">
+			<a href="index.html" data-i18n="nav_home">Home</a>
+			<a href="about.html" data-i18n="nav_about">About</a>
+			<a href="portfolio.html" data-i18n="nav_portfolio">Portfolio</a>
+			<a href="contact.html" data-i18n="nav_contact">Contact</a>
+		</nav>
+
+		<main>
+			<section class="section hero-section">
+				<div class="section-inner hero-grid">
+					<div class="hero-copy">
+						<p class="eyebrow" data-i18n="contact_eyebrow">Contact</p>
+						<h1 data-i18n="contact_h1">Let’s turn the next idea into a polished web experience.</h1>
+						<p class="lead" data-i18n="contact_lead">If you need a responsive website, a portfolio, or a web app interface, send the details and I’ll help shape the right structure and direction.</p>
+					</div>
+
+					<aside class="hero-panel">
+						<p class="card-label" data-i18n="contact_quick_label">Quick details</p>
+						<ul class="contact-links">
+							<li>
+								<strong data-i18n="contact_email_label">Email</strong>
+								<span data-i18n="contact_email_value">hello@amethystnexalune.com</span>
+							</li>
+							<li>
+								<strong data-i18n="contact_focus_label">Focus</strong>
+								<span data-i18n="contact_focus_value">Web sites, web apps, and responsive UI</span>
+							</li>
+							<li>
+								<strong data-i18n="contact_process_label">Process</strong>
+								<span data-i18n="contact_process_value">Clear structure, clean style, and practical interaction</span>
+							</li>
+						</ul>
+					</aside>
+				</div>
+			</section>
+
+			<section class="section">
+				<div class="section-inner contact-grid">
+					<div class="contact-card">
+						<p class="eyebrow" data-i18n="contact_include_eyebrow">What to include</p>
+						<h2 data-i18n="contact_include_h2">Give a quick summary and the type of product you want.</h2>
+						<ul class="feature-list">
+							<li data-i18n="contact_include1">What the site or app needs to do</li>
+							<li data-i18n="contact_include2">How many pages or screens it needs</li>
+							<li data-i18n="contact_include3">Any style references or brand direction</li>
+							<li data-i18n="contact_include4">Your preferred timeline or launch target</li>
+						</ul>
+					</div>
+
+					<form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+						<input type="hidden" name="access_key" value="7b67f80e-cda2-4a15-a721-bc6023b9ef0d">
+						<p class="card-kicker" data-i18n="contact_form_kicker">Send a message</p>
+
+						<label>
+							<span data-i18n="contact_name_label">Name</span>
+							<input type="text" name="name" placeholder="Your name" required data-i18n-placeholder="contact_name_placeholder">
+						</label>
+
+						<label>
+							<span data-i18n="contact_email_input_label">Email</span>
+							<input type="email" name="email" placeholder="you@example.com" required data-i18n-placeholder="contact_email_placeholder">
+						</label>
+
+						<label>
+							<span data-i18n="contact_project_label">Project type</span>
+							<input type="text" name="project" placeholder="Website, web app, portfolio..." required data-i18n-placeholder="contact_project_placeholder">
+						</label>
+
+						<label>
+							<span data-i18n="contact_message_label">Message</span>
+							<textarea name="message" placeholder="Tell me about the project" required data-i18n-placeholder="contact_message_placeholder"></textarea>
+						</label>
+
+						<button class="button button-primary" type="submit" data-i18n="contact_send_btn">Send request</button>
+						<p class="contact-note" id="form-status" data-i18n="contact_status_default">The form is ready. Connect it to a backend or email service when you want live delivery.</p>
+					</form>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<div class="footer-inner">
+				<span data-i18n="footer_brand">@Amethyst Nexalune 2026</span>
+				<span data-i18n="footer_tagline">Modern websites and web applications</span>
+			</div>
+		</footer>
+
+		<script src="assets/js/app.js" defer></script>
+	</body>
+</html>
