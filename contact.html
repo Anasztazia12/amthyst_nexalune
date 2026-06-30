@@ -104,6 +104,16 @@
 							<input type="text" name="project" placeholder="Website, web app, portfolio..." required data-i18n-placeholder="contact_project_placeholder">
 						</label>
 
+                        <label>
+                            <span data-i18n="contact_package_label">Package type</span>
+                             <select name="package" non-required>
+                                <option value="" disabled selected>Select a package</option>
+                                <option value="Basic">Basic</option>
+                                <option value="Premium">Premium</option>
+                                <option value="Enterprise">Enterprise</option>
+                            </select>
+                        </label>
+
 						<label>
 							<span data-i18n="contact_message_label">Message</span>
 							<textarea name="message" placeholder="Tell me about the project" required data-i18n-placeholder="contact_message_placeholder"></textarea>

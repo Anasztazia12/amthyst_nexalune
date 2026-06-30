@@ -254,54 +254,93 @@ const translations = {
         services_web_premium_point11: '1 month of free maintenance, plus a 90-minute handover training',
         services_web_premium_point12: 'Typical turnaround: 6–8 weeks',
         services_start_btn: 'Start with this package',
+        package_modal_kicker: 'Selected package',
+        package_modal_h2: 'Tell me a bit about yourself',
+        package_modal_close_aria: 'Close',
+        package_phone_label: 'Phone',
+        package_phone_placeholder: '+36 20 123 4567',
+        package_message_label: 'Message (optional)',
+        package_message_placeholder: 'Anything you’d like to add...',
         services_app_eyebrow: 'For web apps',
         services_app_h2: 'Pick the level of functionality your app needs.',
         services_app_alap_kicker: 'Alap',
         services_app_alap_h3: 'A single-purpose tool.',
         services_app_alap_scope: 'One core feature',
-        services_app_alap_point1: 'One core feature or workflow — calculator, generator, or tracker',
-        services_app_alap_point2: 'Client-side logic, no account system needed',
-        services_app_alap_point3: 'Responsive, touch-friendly interface',
-        services_app_alap_point4: 'Simple, fast, and easy to use',
+        services_app_alap_point1: '1-hour kickoff consultation',
+        services_app_alap_point2: 'One core feature or workflow — calculator, generator, or tracker',
+        services_app_alap_point3: 'Custom UI design for the core flow',
+        services_app_alap_point4: 'Responsive, touch-friendly interface — desktop and mobile',
+        services_app_alap_point5: 'Light and dark mode support',
+        services_app_alap_point6: 'Client-side logic, no account system needed',
+        services_app_alap_point7: 'Fast-loading, optimized performance',
+        services_app_alap_point8: '1-hour handover training',
+        services_app_alap_point9: 'Typical turnaround: 2–3 weeks',
         services_app_ultra_tag: 'Most popular',
         services_app_ultra_kicker: 'Ultra',
         services_app_ultra_h3: 'A multi-screen app with accounts.',
         services_app_ultra_scope: 'Multiple screens',
-        services_app_ultra_point1: 'Multiple connected screens and views',
-        services_app_ultra_point2: 'User accounts and saved data',
-        services_app_ultra_point3: 'Dashboards with basic data visualization',
-        services_app_ultra_point4: 'Forms, filters, and interactive states',
+        services_app_ultra_point1: 'Kickoff consultation plus a short discovery questionnaire',
+        services_app_ultra_point2: 'Multiple connected screens and views',
+        services_app_ultra_point3: 'User accounts, login, and saved data',
+        services_app_ultra_point4: 'Custom UI design system across the app',
+        services_app_ultra_point5: 'Responsive layout — desktop, tablet, and mobile',
+        services_app_ultra_point6: 'Light and dark mode support',
+        services_app_ultra_point7: 'Dashboards with basic data visualization',
+        services_app_ultra_point8: 'Forms, filters, and interactive states',
+        services_app_ultra_point9: 'Bilingual interface support (EN/HU)',
+        services_app_ultra_point10: 'Performance optimization and clean code structure',
+        services_app_ultra_point11: '1-hour handover training',
+        services_app_ultra_point12: 'Typical turnaround: 4–6 weeks',
         services_app_premium_kicker: 'Premium',
         services_app_premium_h3: 'A full-featured application.',
         services_app_premium_scope: 'Full feature set',
-        services_app_premium_point1: 'Full authentication and user roles',
-        services_app_premium_point2: 'Database-backed features and persistent data',
-        services_app_premium_point3: 'Advanced interactivity and real-time updates',
-        services_app_premium_point4: 'Built to scale as your user base grows',
+        services_app_premium_point1: 'Detailed project questionnaire and a 1-hour consultation',
+        services_app_premium_point2: 'Full authentication and user roles',
+        services_app_premium_point3: 'Database-backed features and persistent data',
+        services_app_premium_point4: 'Custom UI design system, fully responsive across devices',
+        services_app_premium_point5: 'Light and dark mode support, saved as a user preference',
+        services_app_premium_point6: 'Advanced interactivity and real-time updates',
+        services_app_premium_point7: 'Bilingual interface support (EN/HU)',
+        services_app_premium_point8: 'Dashboards with advanced data visualization',
+        services_app_premium_point9: 'Performance optimization, built to scale as your user base grows',
+        services_app_premium_point10: '1 month of free maintenance after launch',
+        services_app_premium_point11: '90-minute handover training',
+        services_app_premium_point12: 'Typical turnaround: 6–10 weeks',
         services_brand_eyebrow: 'For branding',
         services_brand_h2: 'Pick the depth of identity you need.',
         services_brand_alap_kicker: 'Alap',
         services_brand_alap_h3: 'A simple, ready-to-use identity.',
         services_brand_alap_scope: 'Logo + basics',
-        services_brand_alap_point1: 'Logo design with 1–2 initial concepts',
-        services_brand_alap_point2: 'Basic color palette and typography pairing',
-        services_brand_alap_point3: 'One-page usage guide',
-        services_brand_alap_point4: 'Delivered in standard file formats',
+        services_brand_alap_point1: 'Discovery questionnaire to understand your brand',
+        services_brand_alap_point2: 'Logo design with 1–2 initial concepts',
+        services_brand_alap_point3: 'Basic color palette and typography pairing',
+        services_brand_alap_point4: 'One-page usage guide',
+        services_brand_alap_point5: 'Delivered in standard file formats (PNG, SVG, PDF)',
+        services_brand_alap_point6: 'One round of revisions',
+        services_brand_alap_point7: 'Typical turnaround: 1–2 weeks',
         services_brand_ultra_tag: 'Most popular',
         services_brand_ultra_kicker: 'Ultra',
         services_brand_ultra_h3: 'A complete visual identity.',
         services_brand_ultra_scope: 'Full identity system',
-        services_brand_ultra_point1: 'Multiple logo concepts with refinement rounds',
-        services_brand_ultra_point2: 'Full color palette, typography, and visual style guide',
-        services_brand_ultra_point3: 'Social media templates and core brand assets',
+        services_brand_ultra_point1: '1-hour kickoff consultation plus a short brand questionnaire',
+        services_brand_ultra_point2: 'Multiple logo concepts with refinement rounds',
+        services_brand_ultra_point3: 'Full color palette, typography, and visual style guide',
         services_brand_ultra_point4: 'Moodboard and visual direction exploration',
+        services_brand_ultra_point5: 'Social media templates and core brand assets',
+        services_brand_ultra_point6: 'Business card and basic stationery design',
+        services_brand_ultra_point7: 'Two rounds of revisions',
+        services_brand_ultra_point8: 'Typical turnaround: 2–4 weeks',
         services_brand_premium_kicker: 'Premium',
         services_brand_premium_h3: 'A full brand system with ongoing support.',
         services_brand_premium_scope: 'Brand system + collateral',
-        services_brand_premium_point1: 'Complete identity system — logo, palette, type, icons, imagery style',
-        services_brand_premium_point2: 'Full brand guideline document',
-        services_brand_premium_point3: 'Marketing collateral templates — business cards, social, presentation',
-        services_brand_premium_point4: 'Ongoing design consulting and revisions',
+        services_brand_premium_point1: 'Detailed brand questionnaire and a 1-hour consultation',
+        services_brand_premium_point2: 'Complete identity system — logo, palette, type, icons, imagery style',
+        services_brand_premium_point3: 'Full brand guideline document',
+        services_brand_premium_point4: 'Moodboard and visual direction exploration',
+        services_brand_premium_point5: 'Marketing collateral templates — business cards, social, presentation',
+        services_brand_premium_point6: 'Email signature and document templates',
+        services_brand_premium_point7: 'Unlimited revisions within scope',
+        services_brand_premium_point8: 'Typical turnaround: 4–6 weeks',
         services_cta_eyebrow: 'Not sure which fits?',
         services_cta_h2: 'Tell me about the project and get the right starting point.',
         services_price_note: 'Pricing depends on the exact scope of the project. If the numbers above don’t quite match your budget, reach out anyway — we’ll figure out the right fit together.',
@@ -564,54 +603,93 @@ const translations = {
         services_web_premium_point11: '1 hónap díjmentes karbantartás és 90 perces betanítás',
         services_web_premium_point12: 'Elkészítési idő: kb. 6–8 hét',
         services_start_btn: 'Ezzel indulnék el',
+        package_modal_kicker: 'Kiválasztott csomag',
+        package_modal_h2: 'Mesélj egy kicsit magadról',
+        package_modal_close_aria: 'Bezárás',
+        package_phone_label: 'Telefonszám',
+        package_phone_placeholder: '+36 20 123 4567',
+        package_message_label: 'Üzenet (opcionális)',
+        package_message_placeholder: 'Bármi, amit hozzá szeretnél tenni...',
         services_app_eyebrow: 'Webalkalmazásokhoz',
         services_app_h2: 'Válaszd ki, milyen szintű funkcionalitásra van szükséged.',
         services_app_alap_kicker: 'Alap',
         services_app_alap_h3: 'Egy egycélú eszköz.',
         services_app_alap_scope: 'Egy fő funkció',
-        services_app_alap_point1: 'Egy fő funkció vagy folyamat — kalkulátor, generátor vagy nyomkövető',
-        services_app_alap_point2: 'Kliensoldali logika, fiókrendszer nélkül',
-        services_app_alap_point3: 'Reszponzív, érintésbarát felület',
-        services_app_alap_point4: 'Egyszerű, gyors és könnyen használható',
+        services_app_alap_point1: '1 órás nyitó konzultáció',
+        services_app_alap_point2: 'Egy fő funkció vagy folyamat — kalkulátor, generátor vagy nyomkövető',
+        services_app_alap_point3: 'Egyedi felületdesign a fő folyamathoz',
+        services_app_alap_point4: 'Reszponzív, érintésbarát felület — asztali és mobil nézet',
+        services_app_alap_point5: 'Világos és sötét mód támogatás',
+        services_app_alap_point6: 'Kliensoldali logika, fiókrendszer nélkül',
+        services_app_alap_point7: 'Gyors, optimalizált teljesítmény',
+        services_app_alap_point8: '1 órás betanítás',
+        services_app_alap_point9: 'Elkészítési idő: kb. 2–3 hét',
         services_app_ultra_tag: 'Legnépszerűbb',
         services_app_ultra_kicker: 'Ultra',
         services_app_ultra_h3: 'Több képernyős app fiókkezeléssel.',
         services_app_ultra_scope: 'Több képernyő',
-        services_app_ultra_point1: 'Több összekapcsolt képernyő és nézet',
-        services_app_ultra_point2: 'Felhasználói fiókok és mentett adatok',
-        services_app_ultra_point3: 'Dashboardok alapvető adatvizualizációval',
-        services_app_ultra_point4: 'Űrlapok, szűrők és interaktív állapotok',
+        services_app_ultra_point1: 'Nyitó konzultáció rövid igényfelmérő kérdőívvel',
+        services_app_ultra_point2: 'Több összekapcsolt képernyő és nézet',
+        services_app_ultra_point3: 'Felhasználói fiókok, bejelentkezés és mentett adatok',
+        services_app_ultra_point4: 'Egyedi UI design rendszer az egész alkalmazásban',
+        services_app_ultra_point5: 'Reszponzív elrendezés — asztali, tablet és mobil nézet',
+        services_app_ultra_point6: 'Világos és sötét mód támogatás',
+        services_app_ultra_point7: 'Dashboardok alapvető adatvizualizációval',
+        services_app_ultra_point8: 'Űrlapok, szűrők és interaktív állapotok',
+        services_app_ultra_point9: 'Kétnyelvű felület támogatás (EN/HU)',
+        services_app_ultra_point10: 'Teljesítmény optimalizálás és tiszta kódszerkezet',
+        services_app_ultra_point11: '1 órás betanítás',
+        services_app_ultra_point12: 'Elkészítési idő: kb. 4–6 hét',
         services_app_premium_kicker: 'Premium',
         services_app_premium_h3: 'Teljes funkcionalitású alkalmazás.',
         services_app_premium_scope: 'Teljes funkciókészlet',
-        services_app_premium_point1: 'Teljes hitelesítés és felhasználói szerepkörök',
-        services_app_premium_point2: 'Adatbázis-alapú funkciók és tartós adattárolás',
-        services_app_premium_point3: 'Komplex interaktivitás és valós idejű frissítések',
-        services_app_premium_point4: 'Skálázhatóan felépítve, a felhasználói bázis növekedésével',
+        services_app_premium_point1: 'Részletes kérdőív és 1 órás konzultáció',
+        services_app_premium_point2: 'Teljes hitelesítés és felhasználói szerepkörök',
+        services_app_premium_point3: 'Adatbázis-alapú funkciók és tartós adattárolás',
+        services_app_premium_point4: 'Egyedi UI design rendszer, teljesen reszponzív minden eszközön',
+        services_app_premium_point5: 'Világos és sötét mód támogatás, felhasználói beállításként mentve',
+        services_app_premium_point6: 'Komplex interaktivitás és valós idejű frissítések',
+        services_app_premium_point7: 'Kétnyelvű felület támogatás (EN/HU)',
+        services_app_premium_point8: 'Dashboardok fejlett adatvizualizációval',
+        services_app_premium_point9: 'Teljesítmény optimalizálás, skálázhatóan a felhasználói bázis növekedésével',
+        services_app_premium_point10: '1 hónap díjmentes karbantartás a kiadás után',
+        services_app_premium_point11: '90 perces betanítás',
+        services_app_premium_point12: 'Elkészítési idő: kb. 6–10 hét',
         services_brand_eyebrow: 'Brandinghez',
         services_brand_h2: 'Válaszd ki, milyen mélységű arculatra van szükséged.',
         services_brand_alap_kicker: 'Alap',
         services_brand_alap_h3: 'Egyszerű, azonnal használható arculat.',
         services_brand_alap_scope: 'Logó + alapok',
-        services_brand_alap_point1: 'Logótervezés 1–2 kezdeti koncepcióval',
-        services_brand_alap_point2: 'Alap színpaletta és tipográfiai párosítás',
-        services_brand_alap_point3: 'Egyoldalas használati útmutató',
-        services_brand_alap_point4: 'Szabványos fájlformátumokban szállítva',
+        services_brand_alap_point1: 'Igényfelmérő kérdőív a márkád megismeréséhez',
+        services_brand_alap_point2: 'Logótervezés 1–2 kezdeti koncepcióval',
+        services_brand_alap_point3: 'Alap színpaletta és tipográfiai párosítás',
+        services_brand_alap_point4: 'Egyoldalas használati útmutató',
+        services_brand_alap_point5: 'Szabványos fájlformátumokban szállítva (PNG, SVG, PDF)',
+        services_brand_alap_point6: 'Egy módosítási kör',
+        services_brand_alap_point7: 'Elkészítési idő: kb. 1–2 hét',
         services_brand_ultra_tag: 'Legnépszerűbb',
         services_brand_ultra_kicker: 'Ultra',
         services_brand_ultra_h3: 'Teljes vizuális arculat.',
         services_brand_ultra_scope: 'Teljes arculati rendszer',
-        services_brand_ultra_point1: 'Több logókoncepció finomítási körökkel',
-        services_brand_ultra_point2: 'Teljes színpaletta, tipográfia és vizuális stílusútmutató',
-        services_brand_ultra_point3: 'Social media sablonok és alap márka-elemek',
+        services_brand_ultra_point1: '1 órás nyitó konzultáció rövid márkakérdőívvel',
+        services_brand_ultra_point2: 'Több logókoncepció finomítási körökkel',
+        services_brand_ultra_point3: 'Teljes színpaletta, tipográfia és vizuális stílusútmutató',
         services_brand_ultra_point4: 'Moodboard és vizuális irány feltérképezése',
+        services_brand_ultra_point5: 'Social media sablonok és alap márka-elemek',
+        services_brand_ultra_point6: 'Névjegykártya és alap papíráru design',
+        services_brand_ultra_point7: 'Két módosítási kör',
+        services_brand_ultra_point8: 'Elkészítési idő: kb. 2–4 hét',
         services_brand_premium_kicker: 'Premium',
         services_brand_premium_h3: 'Teljes márkarendszer folyamatos támogatással.',
         services_brand_premium_scope: 'Márkarendszer + anyagok',
-        services_brand_premium_point1: 'Teljes arculati rendszer — logó, paletta, tipográfia, ikonok, képi stílus',
-        services_brand_premium_point2: 'Teljes arculati kézikönyv',
-        services_brand_premium_point3: 'Marketinganyag-sablonok — névjegykártya, social media, prezentáció',
-        services_brand_premium_point4: 'Folyamatos design tanácsadás és módosítások',
+        services_brand_premium_point1: 'Részletes márkakérdőív és 1 órás konzultáció',
+        services_brand_premium_point2: 'Teljes arculati rendszer — logó, paletta, tipográfia, ikonok, képi stílus',
+        services_brand_premium_point3: 'Teljes arculati kézikönyv',
+        services_brand_premium_point4: 'Moodboard és vizuális irány feltérképezése',
+        services_brand_premium_point5: 'Marketinganyag-sablonok — névjegykártya, social media, prezentáció',
+        services_brand_premium_point6: 'E-mail aláírás és dokumentumsablonok',
+        services_brand_premium_point7: 'Korlátlan módosítás a megállapodott kereteken belül',
+        services_brand_premium_point8: 'Elkészítési idő: kb. 4–6 hét',
         services_cta_eyebrow: 'Nem biztos, melyik illik hozzád?',
         services_cta_h2: 'Mesélj a projektről, és megtaláljuk a megfelelő kiindulópontot.',
         services_price_note: 'Az ár a projekt pontos terjedelmétől függ. Ha a fenti számok nem passzolnak teljesen a büdzsédhez, akkor is írj nyugodtan — együtt megtaláljuk a megfelelő megoldást.',
@@ -627,8 +705,12 @@ let currentLanguage = 'en';
 const hamburger = document.getElementById('hamburger');
 const menu = document.getElementById('menu');
 
-const contactForm = document.querySelector('.contact-form');
+const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
+
+const packageModalOverlay = document.getElementById('package-modal-overlay');
+const packageForm = document.getElementById('package-form');
+const packageFormStatus = document.getElementById('package-form-status');
 
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.desktop-nav a, .hamburger-content a').forEach((link) => {
@@ -686,6 +768,10 @@ const applyLanguage = (language) => {
 
     if (contactForm && formStatus && !contactForm.dataset.submitted) {
         formStatus.textContent = dictionary.contact_status_default;
+    }
+
+    if (packageForm && packageFormStatus && !packageForm.dataset.submitted) {
+        packageFormStatus.textContent = dictionary.contact_status_default;
     }
 
     localStorage.setItem('amethyst-language', currentLanguage);
@@ -750,40 +836,112 @@ if (hamburger && menu) {
     });
 }
 
-if (contactForm && formStatus) {
-    const submitButton = contactForm.querySelector('button[type="submit"]');
+const getWeb3FormsFallbackFrame = () => {
+    let frame = document.getElementById('web3forms-fallback-frame');
+    if (!frame) {
+        frame = document.createElement('iframe');
+        frame.id = 'web3forms-fallback-frame';
+        frame.name = 'web3forms-fallback-frame';
+        frame.style.display = 'none';
+        frame.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(frame);
+    }
+    return frame;
+};
 
-    contactForm.addEventListener('submit', async (event) => {
+const wireWeb3Form = (form, statusEl, onSuccess) => {
+    if (!form || !statusEl) return;
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', async (event) => {
         event.preventDefault();
         const dictionary = translations[currentLanguage] || translations.en;
 
         if (submitButton) submitButton.disabled = true;
-        formStatus.textContent = dictionary.contact_status_sending;
-        formStatus.style.color = '';
+        statusEl.textContent = dictionary.contact_status_sending;
+        statusEl.style.color = '';
 
         try {
-            const response = await fetch(contactForm.action, {
+            const response = await fetch(form.action, {
                 method: 'POST',
                 headers: { Accept: 'application/json' },
-                body: new FormData(contactForm),
+                body: new FormData(form),
             });
             const result = await response.json();
 
             if (response.ok && result.success) {
-                contactForm.dataset.submitted = 'true';
-                formStatus.textContent = dictionary.contact_status_success;
-                formStatus.style.color = '#5eead4';
-                contactForm.reset();
+                form.dataset.submitted = 'true';
+                statusEl.textContent = dictionary.contact_status_success;
+                statusEl.style.color = '#5eead4';
+                form.reset();
+                if (onSuccess) onSuccess();
             } else {
-                formStatus.textContent = dictionary.contact_status_error;
-                formStatus.style.color = '#f87171';
+                statusEl.textContent = dictionary.contact_status_error;
+                statusEl.style.color = '#f87171';
             }
         } catch (error) {
-            formStatus.textContent = dictionary.contact_status_error;
-            formStatus.style.color = '#f87171';
+            // fetch can be blocked by CORS in local/dev environments — fall back to a
+            // plain form POST through a hidden iframe, which isn't subject to CORS.
+            getWeb3FormsFallbackFrame();
+            form.target = 'web3forms-fallback-frame';
+            form.submit();
+            form.removeAttribute('target');
+            form.dataset.submitted = 'true';
+            statusEl.textContent = dictionary.contact_status_success;
+            statusEl.style.color = '#5eead4';
+            form.reset();
+            if (onSuccess) onSuccess();
         } finally {
             if (submitButton) submitButton.disabled = false;
         }
+    });
+};
+
+wireWeb3Form(contactForm, formStatus);
+
+if (packageModalOverlay && packageForm && packageFormStatus) {
+    const packageSelectedName = document.getElementById('package-modal-selected-name');
+    const packageFormPackageInput = document.getElementById('package-form-package');
+    const packageFormSubjectInput = document.getElementById('package-form-subject');
+    const packageModalClose = document.getElementById('package-modal-close');
+
+    const openPackageModal = (packageName) => {
+        if (packageFormPackageInput) packageFormPackageInput.value = packageName;
+        if (packageFormSubjectInput) packageFormSubjectInput.value = `New package inquiry: ${packageName}`;
+        if (packageSelectedName) packageSelectedName.textContent = packageName;
+        delete packageForm.dataset.submitted;
+        const dictionary = translations[currentLanguage] || translations.en;
+        packageFormStatus.textContent = dictionary.contact_status_default;
+        packageFormStatus.style.color = '';
+        packageModalOverlay.hidden = false;
+        document.body.style.overflow = 'hidden';
+        const nameInput = packageForm.querySelector('input[name="name"]');
+        if (nameInput) nameInput.focus();
+    };
+
+    const closePackageModal = () => {
+        packageModalOverlay.hidden = true;
+        document.body.style.overflow = '';
+    };
+
+    document.querySelectorAll('.js-package-btn').forEach((button) => {
+        button.addEventListener('click', () => {
+            openPackageModal(button.dataset.packageName || '');
+        });
+    });
+
+    packageModalClose?.addEventListener('click', closePackageModal);
+
+    packageModalOverlay.addEventListener('click', (event) => {
+        if (event.target === packageModalOverlay) closePackageModal();
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !packageModalOverlay.hidden) closePackageModal();
+    });
+
+    wireWeb3Form(packageForm, packageFormStatus, () => {
+        setTimeout(closePackageModal, 2200);
     });
 }
 
