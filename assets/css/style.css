@@ -302,6 +302,11 @@ img {
     font-size: 1.02rem;
 }
 
+.hero-copy p:not(.lead) {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
