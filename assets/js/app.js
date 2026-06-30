@@ -834,19 +834,6 @@ if (hamburger && menu) {
     });
 }
 
-const getWeb3FormsFallbackFrame = () => {
-    let frame = document.getElementById('web3forms-fallback-frame');
-    if (!frame) {
-        frame = document.createElement('iframe');
-        frame.id = 'web3forms-fallback-frame';
-        frame.name = 'web3forms-fallback-frame';
-        frame.style.display = 'none';
-        frame.setAttribute('aria-hidden', 'true');
-        document.body.appendChild(frame);
-    }
-    return frame;
-};
-
 const wireWeb3Form = (form, statusEl, onSuccess) => {
     if (!form || !statusEl) return;
     const submitButton = form.querySelector('button[type="submit"]');
@@ -878,17 +865,8 @@ const wireWeb3Form = (form, statusEl, onSuccess) => {
                 statusEl.style.color = '#f87171';
             }
         } catch (error) {
-            // fetch can be blocked by CORS in local/dev environments — fall back to a
-            // plain form POST through a hidden iframe, which isn't subject to CORS.
-            getWeb3FormsFallbackFrame();
-            form.target = 'web3forms-fallback-frame';
-            form.submit();
-            form.removeAttribute('target');
-            form.dataset.submitted = 'true';
-            statusEl.textContent = dictionary.contact_status_success;
-            statusEl.style.color = '#5eead4';
-            form.reset();
-            if (onSuccess) onSuccess();
+            statusEl.textContent = dictionary.contact_status_error;
+            statusEl.style.color = '#f87171';
         } finally {
             if (submitButton) submitButton.disabled = false;
         }
