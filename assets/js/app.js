@@ -9,7 +9,7 @@ const translations = {
         nav_about: 'About',
         nav_portfolio: 'Portfolio',
         nav_contact: 'Contact',
-        footer_brand: 'Amethyst Nexalune',
+        footer_brand: '© Amethyst Nexalune 2026',
         footer_tagline: 'Modern websites and web applications',
         index_title: 'Amethyst Nexalune | Web Sites & Web Apps',
         home_eyebrow: 'Modern responsive web design',
@@ -52,9 +52,13 @@ const translations = {
         home_cta_h2: 'Turn the idea into a clean, responsive product.',
         home_cta_btn: 'Contact me',
         about_title: 'About | Amethyst Nexalune',
-        about_eyebrow: 'About the studio',
-        about_h1: 'Built around clarity, pacing, and practical screens.',
-        about_lead: 'Amethyst Nexalune focuses on web sites and web applications that feel modern without getting noisy. The goal is simple: make the product easy to understand, easy to use, and easy to grow.',
+        about_eyebrow: 'About me',
+        about_h1: 'I build modern web experiences that feel simple, predictable, and visually balanced.',
+        about_lead: 'I’m a Web Application Developer who loves building clean, modern interfaces.',
+        about_p1: 'I care about clarity, structure, and making digital products feel simple — even when the logic behind them is complex.',
+        about_p2: 'I enjoy the mix of design and development: creating layouts that look good, behave well, and guide the user without friction.',
+        about_p3: 'For me, good design is not about trends. It’s about making things easy.',
+        about_p4: 'I am also a lifelong learner, always eager to stay updated with the latest industry trends and technologies.',
         about_values_label: 'My qualifications/certifications',
         about_value1: 'Web Application Developer',
         about_value2: 'Responsive Webdesign Developer',
@@ -87,6 +91,8 @@ const translations = {
         portfolio_type2: 'Dashboards and internal web apps',
         portfolio_type3: 'Portfolio sites and campaign microsites',
         portfolio_type4: 'Form-heavy interfaces with clear flows',
+        portfolio_projects_eyebrow: 'Recent work',
+        portfolio_h2: 'A selection from my recent projects',
         portfolio_card1_kicker: 'Tool',
         portfolio_card1_h3: 'Business card generator',
         portfolio_card1_p: 'Design a business card and download it as JPG. The layout keeps the editing flow simple and the exported result clean.',
@@ -134,8 +140,8 @@ const translations = {
         portfolio_cta_btn: 'Start here',
         contact_title: 'Contact | Amethyst Nexalune',
         contact_eyebrow: 'Contact',
-        contact_h1: 'Let’s turn the next idea into a polished web experience.',
-        contact_lead: 'If you need a responsive website, a portfolio, or a web app interface, send the details and I’ll help shape the right structure and direction.',
+        contact_h1: 'Have a project in mind? Let’s talk it through.',
+        contact_lead: 'Tell me what you’re building — a website, a portfolio, a web app — and I’ll get back to you with a clear plan for structure and design.',
         contact_quick_label: 'Quick details',
         contact_email_label: 'Email',
         contact_email_value: 'hello@amethystnexalune.com',
@@ -144,7 +150,7 @@ const translations = {
         contact_process_label: 'Process',
         contact_process_value: 'Clear structure, clean style, and practical interaction',
         contact_include_eyebrow: 'What to include',
-        contact_include_h2: 'Give a quick summary and the type of product you want.',
+        contact_include_h2: 'A short summary and the product type is all I need to get started.',
         contact_include1: 'What the site or app needs to do',
         contact_include2: 'How many pages or screens it needs',
         contact_include3: 'Any style references or brand direction',
@@ -159,8 +165,10 @@ const translations = {
         contact_message_label: 'Message',
         contact_message_placeholder: 'Tell me about the project',
         contact_send_btn: 'Send request',
-        contact_status_default: 'The form is ready. Connect it to a backend or email service when you want live delivery.',
-        contact_status_success: 'Thanks - this demo form is ready to connect to a backend or email service.',
+        contact_status_default: 'Fill in the form and I’ll get back to you within 1–2 business days.',
+        contact_status_sending: 'Sending your message...',
+        contact_status_success: 'Thanks! Your message is on its way — I’ll reply within 1–2 business days.',
+        contact_status_error: 'Something went wrong. Please try again, or email me directly at hello@amethystnexalune.com.',
         language_en: 'EN',
         language_hu: 'HU'
     },
@@ -174,7 +182,7 @@ const translations = {
         nav_about: 'Rólunk',
         nav_portfolio: 'Portfólió',
         nav_contact: 'Kapcsolat',
-        footer_brand: 'Amethyst Nexalune',
+        footer_brand: '©Amethyst Nexalune 2026',
         footer_tagline: 'Modern weboldalak és webalkalmazások',
         index_title: 'Amethyst Nexalune | Weboldalak és webalkalmazások',
         home_eyebrow: 'Modern, reszponzív webdesign',
@@ -217,9 +225,13 @@ const translations = {
         home_cta_h2: 'Az ötletből legyen letisztult, reszponzív termék.',
         home_cta_btn: 'Kapcsolatfelvétel',
         about_title: 'Rólunk | Amethyst Nexalune',
-        about_eyebrow: 'A stúdióról',
-        about_h1: 'Az átláthatóság, ritmus és a gyakorlatias képernyők köré építve.',
-        about_lead: 'Az Amethyst Nexalune olyan weboldalakra és webalkalmazásokra fókuszál, amelyek modernek, de nem túlzsúfoltak. A cél egyszerű: a termék legyen könnyen érthető, könnyen használható és könnyen bővíthető.',
+        about_eyebrow: 'Rólam',
+        about_h1: 'Modern webes élményeket építek, amelyek egyszerűek, kiszámíthatóak és vizuálisan kiegyensúlyozottak.',
+        about_lead: 'Webes alkalmazásfejlesztő vagyok, aki szeret letisztult, modern felületeket építeni.',
+        about_p1: 'Fontos számomra az átláthatóság, a struktúra, és hogy a digitális termékek egyszerűnek tűnjenek — még akkor is, ha a mögöttes logika összetett.',
+        about_p2: 'Szeretem a design és a fejlesztés keveredését: olyan elrendezéseket készíteni, amelyek jól néznek ki, jól működnek, és súrlódásmentesen vezetik a felhasználót.',
+        about_p3: 'Számomra a jó design nem a trendekről szól. Arról szól, hogy könnyűvé tegyük a dolgokat.',
+        about_p4: 'Emellett örök tanuló vagyok, mindig szívesen követem az iparág legújabb trendjeit és technológiáit.',
         about_values_label: 'Bizonyítványok és képesítések',
         about_value1: 'Webes Alkalmazás Fejlesztő',
         about_value2: 'Responsive Webdesign Fejlesztő',
@@ -252,6 +264,8 @@ const translations = {
         portfolio_type2: 'Dashboardok és belső webappok',
         portfolio_type3: 'Portfólió oldalak és kampány microsite-ok',
         portfolio_type4: 'Űrlap-központú felületek tiszta folyamatokkal',
+        portfolio_projects_eyebrow: 'Legutóbbi munkák',
+        portfolio_h2: 'Válogatás a legutóbbi projektjeimből',
         portfolio_card1_kicker: 'Eszköz',
         portfolio_card1_h3: 'Névjegykártya generátor',
         portfolio_card1_p: 'Névjegykártya készítés, JPG formátumú letöltéssel. A szerkesztési folyamat egyszerű, az exportált eredmény pedig letisztult.',
@@ -299,8 +313,8 @@ const translations = {
         portfolio_cta_btn: 'Itt kezdd',
         contact_title: 'Kapcsolat | Amethyst Nexalune',
         contact_eyebrow: 'Kapcsolat',
-        contact_h1: 'Alakítsuk a következő ötletet egy kifinomult webélménnyé.',
-        contact_lead: 'Ha reszponzív weboldalra, portfólióra vagy webapp-felületre van szükséged, küldd el a részleteket, és segítek megtalálni a megfelelő szerkezetet és irányt.',
+        contact_h1: 'Van egy projektötleted? Beszéljük át.',
+        contact_lead: 'Mondd el, mit szeretnél építeni — weboldalt, portfóliót vagy webalkalmazást —, és visszajelzek egy világos tervvel a szerkezetre és a designra.',
         contact_quick_label: 'Gyors infók',
         contact_email_label: 'E-mail',
         contact_email_value: 'hello@amethystnexalune.com',
@@ -309,7 +323,7 @@ const translations = {
         contact_process_label: 'Folyamat',
         contact_process_value: 'Tiszta struktúra, letisztult stílus és gyakorlatias interakció',
         contact_include_eyebrow: 'Mit érdemes megadni',
-        contact_include_h2: 'Egy rövid összefoglaló és a kívánt terméktípus elég.',
+        contact_include_h2: 'Egy rövid összefoglaló és a terméktípus elég ahhoz, hogy elinduljunk.',
         contact_include1: 'Mit kell tudnia az oldalnak vagy appnak',
         contact_include2: 'Hány oldalra vagy képernyőre van szükség',
         contact_include3: 'Milyen stílus vagy arculati irányt szeretnél',
@@ -324,8 +338,10 @@ const translations = {
         contact_message_label: 'Üzenet',
         contact_message_placeholder: 'Írd le röviden a projektet',
         contact_send_btn: 'Küldés',
-        contact_status_default: 'Az űrlap készen áll. Kapcsold backendhez vagy e-mail szolgáltatáshoz, ha élő küldést szeretnél.',
-        contact_status_success: 'Köszönöm - ez a demó űrlap készen áll egy backend vagy e-mail szolgáltatás bekötésére.',
+        contact_status_default: 'Töltsd ki az űrlapot, és 1–2 munkanapon belül válaszolok.',
+        contact_status_sending: 'Üzenet küldése...',
+        contact_status_success: 'Köszönöm! Az üzeneted elindult — 1–2 munkanapon belül válaszolok.',
+        contact_status_error: 'Hiba történt. Próbáld újra, vagy írj közvetlenül a hello@amethystnexalune.com címre.',
         language_en: 'EN',
         language_hu: 'HU'
     }
@@ -454,11 +470,38 @@ if (hamburger && menu) {
 }
 
 if (contactForm && formStatus) {
-    contactForm.addEventListener('submit', (event) => {
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+
+    contactForm.addEventListener('submit', async (event) => {
         event.preventDefault();
-        contactForm.dataset.submitted = 'true';
-        formStatus.textContent = translations[currentLanguage].contact_status_success;
-        formStatus.style.color = '#5eead4';
-        contactForm.reset();
+        const dictionary = translations[currentLanguage] || translations.en;
+
+        if (submitButton) submitButton.disabled = true;
+        formStatus.textContent = dictionary.contact_status_sending;
+        formStatus.style.color = '';
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                headers: { Accept: 'application/json' },
+                body: new FormData(contactForm),
+            });
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+                contactForm.dataset.submitted = 'true';
+                formStatus.textContent = dictionary.contact_status_success;
+                formStatus.style.color = '#5eead4';
+                contactForm.reset();
+            } else {
+                formStatus.textContent = dictionary.contact_status_error;
+                formStatus.style.color = '#f87171';
+            }
+        } catch (error) {
+            formStatus.textContent = dictionary.contact_status_error;
+            formStatus.style.color = '#f87171';
+        } finally {
+            if (submitButton) submitButton.disabled = false;
+        }
     });
 }

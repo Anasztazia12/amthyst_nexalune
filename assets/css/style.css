@@ -97,6 +97,9 @@ img {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     white-space: nowrap;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .topbar-actions {
@@ -231,12 +234,12 @@ img {
     background: rgba(255, 255, 255, 0.06);
 }
 
-.hero-section {
-    padding-top: clamp(34px, 5vw, 68px);
-}
-
 .section {
     padding: clamp(24px, 4vw, 56px) clamp(18px, 4vw, 48px);
+}
+
+.section.hero-section {
+    padding-top: clamp(34px, 5vw, 68px);
 }
 
 .section-inner {
@@ -277,8 +280,8 @@ img {
 }
 
 .hero-copy h1 {
-    font-size: clamp(2rem, 6vw, 5.8rem);
-    max-width: 11ch;
+    font-size: clamp(2.2rem, 5vw, 4.6rem);
+    max-width: 13ch;
 }
 
 .section-heading h2,
@@ -322,12 +325,17 @@ img {
 .button-primary {
     background: linear-gradient(135deg, var(--accent), var(--accent-strong));
     color: #07111e;
-    box-shadow: 0 14px 30px rgba(94, 234, 212, 0.18);
+    box-shadow: 0 14px 34px rgba(94, 234, 212, 0.32);
 }
 
 .button-secondary {
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.button-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.14);
 }
 
 .stats-grid,
@@ -339,12 +347,12 @@ img {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 18px;
 }
 
 .stats-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
 .stat-card,
@@ -424,16 +432,16 @@ img {
 }
 
 .card-grid,
-.project-grid,
 .value-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .card h3,
 .project-card h3,
 .contact-card h3 {
     margin: 0 0 12px;
-    font-size: 1.3rem;
+    font-size: clamp(1.2rem, 1.6vw, 1.45rem);
+    line-height: 1.2;
 }
 
 .card-kicker,
@@ -600,12 +608,12 @@ img {
 @media (max-width: 960px) {
     .hero-grid,
     .split-grid,
-    .contact-grid,
-    .card-grid,
-    .project-grid,
-    .value-grid,
-    .stats-grid {
+    .contact-grid {
         grid-template-columns: 1fr;
+    }
+
+    .hero-grid {
+        min-height: auto;
     }
 
     .cta-card {
@@ -640,9 +648,9 @@ img {
     }
 
     .logo {
-        width: 60px;
-        height: 60px;
-        padding: 8px;
+        width: 46px;
+        height: 46px;
+        padding: 6px;
         border-radius: 12px;
     }
 
