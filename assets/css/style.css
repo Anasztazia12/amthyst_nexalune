@@ -507,6 +507,12 @@ hr {
     background: linear-gradient(135deg, var(--accent), var(--accent-strong));
 }
 
+.price-card .button {
+    margin-top: auto;
+    width: 100%;
+    justify-content: center;
+}
+
 .feature-list,
 .checklist,
 .project-meta,
