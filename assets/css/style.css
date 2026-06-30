@@ -382,8 +382,17 @@ img {
 }
 
 .stat-card span {
+    display: block;
+    color: var(--text);
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.stat-card p {
+    margin: 8px 0 0;
     color: var(--muted);
-    line-height: 1.6;
+    font-size: 0.92rem;
+    line-height: 1.5;
 }
 
 .hero-panel,
