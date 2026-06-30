@@ -63,7 +63,8 @@ const translations = {
         about_h1: 'Hi, I am Anasztázia',
         about_lead: 'I’m a Web Application Developer who loves building clean, modern interfaces.',
         about_p1: 'I care about clarity and structure, mixing design and development to create layouts that look good, behave well, and guide the user without friction. For me, good design isn’t about trends — it’s about making things easy.',
-        about_values_label: 'My IT qualifications/certifications',
+        about_values_label: 'What I learned',
+        about_h2: 'My IT qualifications/certifications',
         about_value1: 'Web Application Developer',
         about_value2: 'Responsive Design Developer',
         about_value3: 'Cyber Security Certificate',
@@ -99,6 +100,7 @@ const translations = {
         portfolio_h1: 'Projects that combine clean design with practical behavior.',
         portfolio_lead: 'A portfolio should show more than visuals. It should show how the layout behaves, how the information is structured, and how well the interface works on smaller screens.',
         portfolio_types_label: 'Project types',
+        portfolio_panel_h2: 'The kind of work I do.',
         portfolio_type1: 'Service websites and landing pages',
         portfolio_type2: 'Dashboards and internal web apps',
         portfolio_type3: 'Portfolio sites and campaign microsites',
@@ -262,7 +264,8 @@ const translations = {
         about_h1: 'Szia! Anasztázia vagyok.',
         about_lead: 'Webes alkalmazásfejlesztő vagyok, aki szeret letisztult, modern felületeket építeni.',
         about_p1: 'Fontos számomra az átláthatóság és a struktúra — a design és a fejlesztés keverékéből olyan elrendezéseket alkotok, amelyek jól néznek ki, jól működnek, és súrlódásmentesen vezetik a felhasználót. Számomra a jó design nem a trendekről szól — arról szól, hogy könnyűvé tegyük a dolgokat.',
-        about_values_label: 'IT bizonyítványaim és képesítéseim',
+        about_values_label: 'Amit megtanultam',
+        about_h2: 'IT bizonyítványaim és képesítéseim',
         about_value1: 'Webes Alkalmazás Fejlesztő',
         about_value2: 'Responsive Design Fejlesztő',
         about_value3: 'Cyber Biztonsági Tanúsítvány',
@@ -298,6 +301,7 @@ const translations = {
         portfolio_h1: 'Letisztult design és praktikus működés együttesen.',
         portfolio_lead: 'Egy portfóliónak többet kell mutatnia a látványnál. Azt is meg kell mutatnia, hogyan viselkedik az elrendezés, hogyan szerveződik az információ, és mennyire jól működik a felület kisebb képernyőkön is.',
         portfolio_types_label: 'Projekt típusok',
+        portfolio_panel_h2: 'Amilyen munkákat csinálok.',
         portfolio_type1: 'Szolgáltatói weboldalak és landing oldalak',
         portfolio_type2: 'Dashboardok és belső webappok',
         portfolio_type3: 'Portfólió oldalak és kampány microsite-ok',
@@ -558,12 +562,3 @@ if (contactForm && formStatus) {
     });
 }
 
-const form = document.getElementById('YOUR_FORM_ID');
-
-form.addEventListener('submit', function(e) {
-    const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
-    if (!hCaptcha) {
-        e.preventDefault();
-        alert("Please fill out captcha field");
-    }
-});
