@@ -63,15 +63,19 @@ const translations = {
         about_h1: 'Hi, I am Anasztázia',
         about_lead: 'I’m a Web Application Developer who loves building clean, modern interfaces.',
         about_p1: 'I care about clarity and structure, mixing design and development to create layouts that look good, behave well, and guide the user without friction. For me, good design isn’t about trends — it’s about making things easy.',
-        about_p4: 'I am also a lifelong learner, always eager to stay updated with the latest industry trends and technologies.',
-        about_p5: 'My healthcare background taught me precision and responsibility — skills I now use in writing reliable code.',
-        about_p6: 'Childcare and psychology helped me understand people and how they think. Sport and personal training gave me discipline and consistency, which I bring into every project.',
-        about_p7: 'Because I’ve worked across different fields, I have a wider perspective — it helps me support clients not just technically, but in how their users think and behave.',
         about_values_label: 'My IT qualifications/certifications',
         about_value1: 'Web Application Developer',
         about_value2: 'Responsive Design Developer',
         about_value3: 'Cyber Security Certificate',
         about_value4: 'User Experience Designer',
+        about_story_eyebrow: 'My story',
+        about_story_h2: 'How I got here.',
+        about_story1_kicker: 'The beginnings',
+        about_story1_p: 'I didn’t start in tech. I worked in healthcare, childcare, psychology, and sport — fields that taught me precision, empathy, and discipline. For a long time I was exploring different directions, learning how people think and behave, and trying to find the place where everything finally fits. When I discovered web design and development, it felt like the missing piece: structure, clarity, creativity, and real problem-solving.',
+        about_story2_kicker: 'My studies',
+        about_story2_p: 'Since then, I’ve been building my skills in web application development, UX/UI, responsive design, and digital communication. I enjoy learning and improving, and I love combining my diverse background with modern development practices to create clean, calm, user-friendly digital experiences.',
+        about_story3_kicker: 'My goals',
+        about_story3_p: 'With this website, I want to show the kind of work I care about: simple, clear, supportive interfaces that help people achieve their goals. My aim is to build websites and web apps that feel good to use and make sense instantly. Every project is a collaboration — and every success feels shared.',
         about_section_eyebrow: 'What matters',
         about_section_h2: 'Three principles stand behind every project.',
         about_card1_kicker: 'Structure',
@@ -258,15 +262,19 @@ const translations = {
         about_h1: 'Szia! Anasztázia vagyok.',
         about_lead: 'Webes alkalmazásfejlesztő vagyok, aki szeret letisztult, modern felületeket építeni.',
         about_p1: 'Fontos számomra az átláthatóság és a struktúra — a design és a fejlesztés keverékéből olyan elrendezéseket alkotok, amelyek jól néznek ki, jól működnek, és súrlódásmentesen vezetik a felhasználót. Számomra a jó design nem a trendekről szól — arról szól, hogy könnyűvé tegyük a dolgokat.',
-        about_p4: 'Emellett örök tanuló vagyok, mindig szívesen követem az iparág legújabb trendjeit és technológiáit.',
-        about_p5: 'Az egészségügyi hátterem precizitásra és felelősségtudatra tanított — ezeket a készségeket ma megbízható kód írásában kamatoztatom.',
-        about_p6: 'A gyermekfelügyelet és a pszichológia megtanított embereket és a gondolkodásmódjukat megérteni. A sport és a személyi edzői munka fegyelmet és kitartást adott, amit minden projektbe beviszek.',
-        about_p7: 'Mivel több területen is dolgoztam, szélesebb rálátásom van — ez segít abban, hogy az ügyfeleimet ne csak technikailag támogassam, hanem abban is, hogyan gondolkodnak és viselkednek a felhasználóik.',
         about_values_label: 'IT bizonyítványaim és képesítéseim',
         about_value1: 'Webes Alkalmazás Fejlesztő',
         about_value2: 'Responsive Design Fejlesztő',
         about_value3: 'Cyber Biztonsági Tanúsítvány',
         about_value4: 'Felhasználói Élmény Tervező (UX/UI)',
+        about_story_eyebrow: 'A történetem',
+        about_story_h2: 'Hogyan jutottam el idáig.',
+        about_story1_kicker: 'A kezdetek',
+        about_story1_p: 'Nem a technológiával kezdtem. Dolgoztam az egészségügyben, gyermekfelügyeletben, pszichológiában és sportban — olyan területeken, amelyek precizitásra, empátiára és fegyelemre tanítottak. Sokáig kerestem a saját utamat, megismertem, hogyan gondolkodnak és viselkednek az emberek, és próbáltam megtalálni azt a helyet, ahol minden összeáll. Amikor felfedeztem a webdesignt és -fejlesztést, úgy éreztem, megtaláltam a hiányzó darabot: struktúrát, tisztaságot, kreativitást és valódi problémamegoldást.',
+        about_story2_kicker: 'Tanulmányaim',
+        about_story2_p: 'Azóta folyamatosan fejlesztem a tudásom webalkalmazás-fejlesztésben, UX/UI tervezésben, reszponzív designban és digitális kommunikációban. Szeretek tanulni és fejlődni, és szeretem ötvözni a sokszínű hátteremet a modern fejlesztési gyakorlatokkal, hogy letisztult, nyugodt, felhasználóbarát digitális élményeket hozzak létre.',
+        about_story3_kicker: 'A céljaim',
+        about_story3_p: 'Ezzel a weboldallal azt a fajta munkát szeretném megmutatni, ami igazán fontos számomra: egyszerű, érthető, támogató felületeket, amelyek segítenek az embereknek elérni a céljaikat. Az a célom, hogy olyan weboldalakat és webalkalmazásokat építsek, amelyeket jó használni, és amelyek azonnal érthetők. Minden projekt egy közös munka — és minden siker közös siker.',
         about_section_eyebrow: 'Mi számít igazán',
         about_section_h2: 'Három fő elv minden projekt mögött.',
         about_card1_kicker: 'Struktúra',
@@ -549,3 +557,13 @@ if (contactForm && formStatus) {
         }
     });
 }
+
+const form = document.getElementById('YOUR_FORM_ID');
+
+form.addEventListener('submit', function(e) {
+    const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
+    if (!hCaptcha) {
+        e.preventDefault();
+        alert("Please fill out captcha field");
+    }
+});
