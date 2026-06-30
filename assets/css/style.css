@@ -249,6 +249,12 @@ hr {
     background: rgba(255, 255, 255, 0.06);
 }
 
+.hamburger-content a.active {
+    color: var(--accent);
+    font-weight: 700;
+    background: rgba(130, 170, 255, 0.12);
+}
+
 .section {
     padding: clamp(24px, 4vw, 56px) clamp(18px, 4vw, 48px);
 }
@@ -382,7 +388,8 @@ hr {
 .feature-panel,
 .cta-card,
 .contact-card,
-.contact-form {
+.contact-form,
+.price-card {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
@@ -420,8 +427,84 @@ hr {
 .feature-panel,
 .cta-card,
 .contact-card,
-.contact-form {
+.contact-form,
+.price-card {
     padding: clamp(20px, 3vw, 30px);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.price-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+}
+
+.price-card.featured {
+    border-color: var(--gold);
+    box-shadow: var(--shadow), 0 0 0 1px var(--gold-soft), 0 18px 40px rgba(216, 183, 101, 0.18);
+}
+
+.price-card-tag {
+    position: absolute;
+    top: -14px;
+    right: 22px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+    color: #1c1408;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    box-shadow: 0 8px 18px rgba(216, 183, 101, 0.35);
+}
+
+.price-card h3 {
+    margin: 0;
+    font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+    line-height: 1.2;
+}
+
+.price-scope {
+    color: var(--accent-strong);
+    font-weight: 700;
+    font-size: 0.92rem;
+    margin: 0;
+}
+
+.price-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+    flex: 1;
+}
+
+.price-list li {
+    position: relative;
+    padding-left: 22px;
+    color: var(--muted);
+    line-height: 1.5;
+    font-size: 0.92rem;
+}
+
+.price-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
 }
 
 .feature-list,
