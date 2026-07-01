@@ -215,9 +215,10 @@ hr {
 }
 
 .hamburger-content {
-    position: fixed;
-    top: 78px;
-    left: 18px;
+    position: absolute;
+    top: 100%;
+    margin-top: 10px;
+    right: 18px;
     width: min(280px, calc(100vw - 36px));
     display: grid;
     gap: 4px;
@@ -229,7 +230,7 @@ hr {
     visibility: hidden;
     opacity: 0;
     transform: translateY(-10px) scale(0.98);
-    transform-origin: top left;
+    transform-origin: top right;
     transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
     z-index: 29;
 }
@@ -835,10 +836,6 @@ hr {
         flex: 1 1 100%;
     }
 
-    .hamburger {
-        margin-left: auto;
-    }
-
     .brand {
         font-size: 0.92rem;
     }
@@ -869,7 +866,7 @@ hr {
     }
 
     .hamburger-content {
-        left: 12px;
+        right: 12px;
         width: calc(100vw - 24px);
     }
 }
