@@ -1,7 +1,7 @@
  :root {
     --bg-0: #010516;
-    --bg-1: #141725;
-    --surface: rgba(2, 9, 73, 0.89);
+    --bg-1: #0a0d1a;
+    --surface: rgba(1, 4, 31, 0.945);
     --surface-2: rgba(255, 255, 255, 0.171);
     --border: rgba(216, 183, 101, 0.35);
     --text: #ebeffa;
@@ -612,6 +612,76 @@ hr {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.project-card-media.carousel {
+    position: relative;
+}
+
+.carousel-slide {
+    display: none;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    background: rgba(8, 12, 24, 0.55);
+    color: var(--text);
+    font-size: 0.85rem;
+    line-height: 1;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    transition: background 0.2s ease;
+}
+
+.carousel-arrow:hover {
+    background: rgba(8, 12, 24, 0.82);
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.carousel-dot {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+    transition: width 0.2s ease, background 0.2s ease;
+}
+
+.carousel-dot.active {
+    width: 18px;
+    background: var(--accent-strong);
 }
 
 .project-card-body {

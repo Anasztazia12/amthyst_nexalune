@@ -846,6 +846,60 @@ if (hamburger && menu) {
     });
 }
 
+document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const dots = carousel.querySelectorAll('.carousel-dot');
+    const prevButton = carousel.querySelector('.carousel-prev');
+    const nextButton = carousel.querySelector('.carousel-next');
+
+    if (slides.length < 2) return;
+
+    const AUTOPLAY_DELAY = 4500;
+    let activeIndex = 0;
+    let autoplayTimer = null;
+
+    const showSlide = (index) => {
+        activeIndex = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === activeIndex));
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === activeIndex));
+    };
+
+    const stopAutoplay = () => {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+    };
+
+    const startAutoplay = () => {
+        stopAutoplay();
+        autoplayTimer = setInterval(() => showSlide(activeIndex + 1), AUTOPLAY_DELAY);
+    };
+
+    prevButton?.addEventListener('click', (event) => {
+        event.stopPropagation();
+        showSlide(activeIndex - 1);
+        startAutoplay();
+    });
+
+    nextButton?.addEventListener('click', (event) => {
+        event.stopPropagation();
+        showSlide(activeIndex + 1);
+        startAutoplay();
+    });
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', (event) => {
+            event.stopPropagation();
+            showSlide(i);
+            startAutoplay();
+        });
+    });
+
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
+
+    startAutoplay();
+});
+
 const wireWeb3Form = (form, statusEl, onSuccess) => {
     if (!form || !statusEl) return;
     const submitButton = form.querySelector('button[type="submit"]');
