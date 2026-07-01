@@ -897,6 +897,29 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
     carousel.addEventListener('mouseenter', stopAutoplay);
     carousel.addEventListener('mouseleave', startAutoplay);
 
+    const SWIPE_THRESHOLD = 40;
+    let touchStartX = 0;
+    let touchDeltaX = 0;
+
+    carousel.addEventListener('touchstart', (event) => {
+        touchStartX = event.touches[0].clientX;
+        touchDeltaX = 0;
+        stopAutoplay();
+    }, { passive: true });
+
+    carousel.addEventListener('touchmove', (event) => {
+        touchDeltaX = event.touches[0].clientX - touchStartX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', () => {
+        if (touchDeltaX > SWIPE_THRESHOLD) {
+            showSlide(activeIndex - 1);
+        } else if (touchDeltaX < -SWIPE_THRESHOLD) {
+            showSlide(activeIndex + 1);
+        }
+        startAutoplay();
+    });
+
     startAutoplay();
 });
 
