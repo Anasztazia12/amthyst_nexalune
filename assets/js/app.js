@@ -59,7 +59,7 @@ const translations = {
         about_title: 'About | Amethyst Nexalune',
         about_eyebrow: 'About me',
         about_h1: 'Hi, I am Anasztázia',
-        about_lead: 'I’m a Web Application Developer who loves building clean, modern interfaces.',
+        about_lead: 'I’m a Web Application Developer who loves building clean, modern interfaces and apps.',
         about_p1: 'I care about clarity and structure, mixing design and development to create layouts that look good, behave well, and guide the user without friction. For me, good design isn’t about trends — it’s about making things easy.',
         about_values_label: 'What I learned',
         about_h2: 'My IT qualifications/certifications',
@@ -360,7 +360,7 @@ const translations = {
         mobile_nav: 'Mobil menü',
         menu_open_aria: 'Menü megnyitása',
         nav_home: 'Főoldal',
-        nav_about: 'Rólunk',
+        nav_about: 'Rólam',
         nav_portfolio: 'Portfólió',
         nav_services: 'Szolgáltatások',
         nav_contact: 'Kapcsolat',
@@ -413,7 +413,7 @@ const translations = {
         about_title: 'Rólunk | Amethyst Nexalune',
         about_eyebrow: 'Rólam',
         about_h1: 'Szia! Anasztázia vagyok.',
-        about_lead: 'Webes alkalmazásfejlesztő vagyok, aki szeret letisztult, modern felületeket építeni.',
+        about_lead: 'Webes alkalmazásfejlesztő, aki szeret letisztult, modern felületeket, appokat építeni.',
         about_p1: 'Fontos számomra az átláthatóság és a struktúra — a design és a fejlesztés keverékéből olyan elrendezéseket alkotok, amelyek jól néznek ki, jól működnek, és súrlódásmentesen vezetik a felhasználót. Számomra a jó design nem a trendekről szól — arról szól, hogy könnyűvé tegyük a dolgokat.',
         about_values_label: 'Amit megtanultam',
         about_h2: 'IT bizonyítványaim és képesítéseim',
@@ -971,6 +971,7 @@ if (packageModalOverlay && packageForm && packageFormStatus) {
     const packageModalClose = document.getElementById('package-modal-close');
 
     const openPackageModal = (packageName) => {
+        packageForm.reset();
         if (packageFormPackageInput) packageFormPackageInput.value = packageName;
         if (packageFormSubjectInput) packageFormSubjectInput.value = `New package inquiry: ${packageName}`;
         if (packageSelectedName) packageSelectedName.textContent = packageName;
