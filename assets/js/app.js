@@ -72,12 +72,12 @@ const translations = {
         about_eyebrow: 'About me',
         about_h1: 'Hi, I am Anasztázia',
         about_lead: 'I’m a Web Application Developer who loves building clean, modern interfaces and apps.',
-        about_p1: 'About me — a multidisciplinary developer. Clarity and structure are essential to me — I combine design and development to create layouts that look good, work well, and guide the user effortlessly. For me, good design isn’t about trends; it’s about making things easy.',
-        about_p2: 'Before stepping into web development, I worked in several fields that shaped how I think about usability and human experience. I’m a pharmacy dispensing assistant, a personal trainer, and by qualification also a legal assistant, fitness instructor, child and youth supervisor, and Mental Health First Aid & Advocacy in the Workplace certified professional.',
-        about_p3: 'I’ve always wanted to understand how digital products are built, so when I discovered web development, I jumped in — and it was the right decision. My previous experience gives me a unique perspective: I don’t just see things through a developer’s lens, but also through the eyes of the people who use them. Whether it’s healthcare, sport, or education, I can design and build web apps that truly fit their audience — functional, clear, and meaningful.',
+        about_p1: 'About me — a multidisciplinary developer. Clarity and structure matter to me — I build websites and web apps that look good, work well, and are user-friendly. For me, good design isn’t about trends, it’s about making things easy.',
+        about_p2: 'Before turning to web development, I worked in several fields that shaped how I think. Among other things, I’ve worked as a pharmacy dispensing assistant and a personal trainer, and I’m also qualified as a legal assistant, fitness instructor, back pain specialist instructor, and child and youth supervisor (child psychology, psychology, pedagogy), as well as holding a Mental Health First Aid and Advocacy in the Workplace certificate.',
+        about_p3: 'I’ve always been interested in how digital products are built, so when I discovered web development, I dove in — and it was the right decision. My previous experience and studies give me a unique perspective: I don’t just see things through a developer’s eyes, but also as a healthcare, sports, education, and legal professional. I can design and build websites and web apps that truly fit their audience — functional, clear, and valuable.',
         about_btn_portfolio: 'See my portfolio',
         about_btn_contact: 'Get in touch',
-        about_values_label: 'What I learned',
+        about_values_label: 'IT studies and certifications',
         about_h2: 'My IT qualifications/certifications',
         about_value1: 'Cyber Security Certificate',
         about_value2: 'Responsive Web Design Certificate',
@@ -229,6 +229,17 @@ const translations = {
         services_eyebrow: 'Pricing',
         services_h1: 'Packages built around your project size.',
         services_lead: 'Clear starting points for websites and web apps — pick the package that matches where you are now, and scale up any time the project grows.',
+        services_currency_note: 'All prices below are listed in GBP (£).',
+        services_price_from: 'From',
+        services_web_alap_price: '£199',
+        services_web_ultra_price: '£399',
+        services_web_premium_price: '£799',
+        services_app_alap_price: '£299',
+        services_app_ultra_price: '£499',
+        services_app_premium_price: '£999',
+        services_brand_alap_price: '£1',
+        services_brand_ultra_price: '£320',
+        services_brand_premium_price: '£550',
         services_panel_label: 'How it works',
         services_panel_h2: 'Start small, scale anytime.',
         services_step1: 'Start with the package that matches your current needs',
@@ -288,6 +299,9 @@ const translations = {
         package_modal_h2: 'Tell me a bit about yourself',
         feedback_modal_kicker: 'Feedback',
         feedback_modal_h2: 'Tell me what you think',
+        currency_modal_kicker: 'Heads up',
+        currency_modal_title: 'Prices are listed in GBP (£)',
+        currency_modal_text: 'If you’d like an estimate in another currency, just ask — I’ll work it out for you!',
         package_modal_close_aria: 'Close',
         package_phone_label: 'Phone',
         package_phone_placeholder: '+44 7012 34567',
@@ -295,7 +309,7 @@ const translations = {
         package_message_placeholder: 'Anything you’d like to add...',
         services_app_eyebrow: 'For web apps',
         services_app_h2: 'Pick the level of functionality your app needs.',
-        services_app_alap_kicker: 'Alap',
+        services_app_alap_kicker: 'Basic',
         services_app_alap_h3: 'A single-purpose tool.',
         services_app_alap_scope: 'One core feature',
         services_app_alap_point1: '1-hour kickoff consultation',
@@ -340,7 +354,7 @@ const translations = {
         services_app_premium_point12: 'Typical turnaround: 12–16 weeks',
         services_brand_eyebrow: 'For branding',
         services_brand_h2: 'Pick the depth of identity you need.',
-        services_brand_alap_kicker: 'Alap',
+        services_brand_alap_kicker: 'Basic',
         services_brand_alap_h3: 'A simple, ready-to-use identity.',
         services_brand_alap_scope: 'Logo + basics',
         services_brand_alap_point1: 'Discovery questionnaire to understand your brand',
@@ -372,8 +386,8 @@ const translations = {
         services_brand_premium_point7: 'Two rounds of revisions',
         services_brand_premium_point8: 'Typical turnaround: 4–6 weeks',
         services_cta_eyebrow: 'Not sure which fits?',
-        services_cta_h2: 'Tell me about the project and get the right starting point.',
-        services_price_note: 'Pricing depends on the exact scope of the project. If the numbers above don’t quite match your budget, reach out anyway — we’ll figure out the right fit together.',
+        services_cta_h2: 'Tell me what you need, and we’ll figure out the right starting point.',
+        services_price_note: 'Pricing depends on the complexity and difficulty of the build. If the numbers above don’t quite match your budget, reach out anyway — we’ll adjust the solution together so it works for both of us.',
         services_cta_btn: 'Contact me',
         language_en: 'EN',
         language_hu: 'HU'
@@ -451,12 +465,12 @@ const translations = {
         about_eyebrow: 'Rólam',
         about_h1: 'Szia! Anasztázia vagyok.',
         about_lead: 'Webes alkalmazásfejlesztő, aki szeret letisztult, modern felületeket, appokat építeni.',
-        about_p1: 'Rólam — multidiszciplináris fejlesztő. Fontos számomra az átláthatóság és a struktúra — a design és a fejlesztés keverékéből olyan elrendezéseket alkotok, amelyek jól néznek ki, jól működnek, és súrlódásmentesen vezetik a felhasználót. Számomra a jó design nem a trendekről szól, hanem arról, hogy könnyűvé tegyük a dolgokat.',
-        about_p2: 'Mielőtt a webfejlesztés felé fordultam, több olyan területen dolgoztam, amelyek meghatározták, hogyan gondolkodom a használhatóságról és az emberi tapasztalatról. Gyógyszertári kiadássegéd és személyi edző vagyok, emellett képesítésem van jogi asszisztensként, fitness oktatóként, gyermek- és ifjúságfelügyelőként, valamint Mental Health First Aid & Advocacy in the Workplace tanúsítvánnyal is rendelkezem.',
-        about_p3: 'Mindig is érdekelt, hogyan épülnek fel a digitális termékek, ezért amikor felfedeztem a webfejlesztést, belevágtam — és ez volt a helyes döntés. A korábbi tapasztalataim egyedi perspektívát adnak: nemcsak fejlesztői szemmel nézem a dolgokat, hanem azok szemével is, akik ténylegesen használják őket. Legyen szó egészségügyről, sportról vagy oktatásról, olyan weboldalakat és webalkalmazásokat tudok tervezni és építeni, amelyek valóban illeszkednek a célközönségükhöz — funkcionálisak, érthetőek és értékteremtőek.',
+        about_p1: 'Rólam — multidiszciplináris fejlesztő. Fontos számomra az átláthatóság és a struktúra — olyan weboldalakat és webalkalmazásokat építek, amelyek jól néznek ki, jól működnek, és felhasználóbarátak. Számomra a jó design nem a trendekről szól, hanem arról, hogy könnyűvé tegyük a dolgokat.',
+        about_p2: 'Mielőtt a webfejlesztés felé fordultam, több olyan területen dolgoztam, amelyek meghatározzák, hogyan gondolkodom. Többek közt gyógyszerkiadói szakasszisztensként és személyi edzőként, emellett jogi asszisztens, fitness instruktor, derékfájásra specializálódott instruktor, gyermek- és ifjúságfelügyelő (gyermeklélektan, pszichológia, pedagógia), valamint mentális elsősegély és érdekképviselet a munkahelyen tanúsítvánnyal is rendelkezem.',
+        about_p3: 'Mindig is érdekelt, hogyan épülnek fel a digitális termékek, ezért amikor felfedeztem a webfejlesztést, belevágtam — és ez volt a helyes döntés. A korábbi tapasztalataim, iskolai tanulmányaim egyedi perspektívát adnak: nemcsak fejlesztői szemmel nézem a dolgokat, hanem egészségügyi, sport, pedagógiai es jogi szakemberként is. Olyan weboldalakat és webalkalmazásokat tudok tervezni és építeni, amelyek valóban illeszkednek a célközönségükhöz — funkcionálisak, érthetőek és értékteremtőek.',
         about_btn_portfolio: 'Nézd meg a portfóliómat',
         about_btn_contact: 'Vedd fel velem a kapcsolatot',
-        about_values_label: 'Amit megtanultam',
+        about_values_label: 'IT Tanulmányaim',
         about_h2: 'IT bizonyítványaim és képesítéseim',
         about_value1: 'Cyber Biztonsági Tanúsítvány',
         about_value2: 'Responsive Webdesign Tanúsítvány',
@@ -608,6 +622,17 @@ const translations = {
         services_eyebrow: 'Árazás',
         services_h1: 'Csomagok, amelyek a projekted méretéhez igazodnak.',
         services_lead: 'Világos kiindulópontok weboldalakhoz és webalkalmazásokhoz — válaszd a hozzád illő csomagot, majd bármikor léphetsz feljebb, ahogy a projekt növekszik.',
+        services_currency_note: 'Az árak fontban (GBP) szerepelnek — forintban az összeg eltérően alakulhat, a pontos árajánlatért írj nekem.',
+        services_price_from: 'Már ettől',
+        services_web_alap_price: '£199',
+        services_web_ultra_price: '£399',
+        services_web_premium_price: '£799',
+        services_app_alap_price: '£299',
+        services_app_ultra_price: '£499',
+        services_app_premium_price: '£999',
+        services_brand_alap_price: '£120',
+        services_brand_ultra_price: '£320',
+        services_brand_premium_price: '£550',
         services_panel_label: 'Hogyan működik',
         services_panel_h2: 'Kezdd kicsiben, bővítsd bármikor.',
         services_step1: 'Kezdd azzal a csomaggal, ami most a legjobban illik hozzád',
@@ -667,6 +692,9 @@ const translations = {
         package_modal_h2: 'Mesélj egy kicsit magadról',
         feedback_modal_kicker: 'Visszajelzés',
         feedback_modal_h2: 'Mondd el, mit gondolsz',
+        currency_modal_kicker: 'Figyelem',
+        currency_modal_title: 'Az árak fontban (GBP) szerepelnek',
+        currency_modal_text: 'Forintban az összeg eltérően alakulhat. A pontos árért írj!',
         package_modal_close_aria: 'Bezárás',
         package_phone_label: 'Telefonszám',
         package_phone_placeholder: '+44 7012 34567',
@@ -734,27 +762,25 @@ const translations = {
         services_brand_ultra_h3: 'Teljes vizuális arculat.',
         services_brand_ultra_scope: 'Teljes arculati rendszer',
         services_brand_ultra_point1: '1 órás nyitó konzultáció rövid márkakérdőívvel',
-        services_brand_ultra_point2: 'Több logókoncepció finomítási körökkel',
-        services_brand_ultra_point3: 'Teljes színpaletta, tipográfia és vizuális stílusútmutató',
-        services_brand_ultra_point4: 'Moodboard és vizuális irány feltérképezése',
-        services_brand_ultra_point5: 'Social media sablonok és alap márka-elemek',
-        services_brand_ultra_point6: 'Névjegykártya és alap papíráru design',
+        services_brand_ultra_point2: '2 logókoncepció egy finomítási körrel',
+        services_brand_ultra_point3: 'Színpaletta és tipográfiai útmutató',
+        services_brand_ultra_point5: 'Néhány alap social media sablon',
+        services_brand_ultra_point6: 'Névjegykártya design',
         services_brand_ultra_point7: 'Két módosítási kör',
         services_brand_ultra_point8: 'Elkészítési idő: kb. 2–4 hét',
         services_brand_premium_kicker: 'Premium',
         services_brand_premium_h3: 'Teljes márkarendszer folyamatos támogatással.',
         services_brand_premium_scope: 'Márkarendszer + anyagok',
         services_brand_premium_point1: 'Részletes márkakérdőív és 1 órás konzultáció',
-        services_brand_premium_point2: 'Teljes arculati rendszer — logó, paletta, tipográfia, ikonok, képi stílus',
-        services_brand_premium_point3: 'Teljes arculati kézikönyv',
-        services_brand_premium_point4: 'Moodboard és vizuális irány feltérképezése',
-        services_brand_premium_point5: 'Marketinganyag-sablonok — névjegykártya, social media, prezentáció',
+        services_brand_premium_point2: 'Teljes arculati rendszer — logó, paletta, tipográfia, ikonok',
+        services_brand_premium_point3: 'Arculati kézikönyv',
+        services_brand_premium_point5: 'Marketingsablonok — névjegykártya és social media',
         services_brand_premium_point6: 'E-mail aláírás és dokumentumsablonok',
-        services_brand_premium_point7: 'Korlátlan módosítás a megállapodott kereteken belül',
+        services_brand_premium_point7: 'Két módosítási kör',
         services_brand_premium_point8: 'Elkészítési idő: kb. 4–6 hét',
         services_cta_eyebrow: 'Nem biztos, melyik illik hozzád?',
-        services_cta_h2: 'Mesélj a projektről, és megtaláljuk a megfelelő kiindulópontot.',
-        services_price_note: 'Az ár a projekt pontos terjedelmétől függ. Ha a fenti számok nem passzolnak teljesen a büdzsédhez, akkor is írj nyugodtan — együtt megtaláljuk a megfelelő megoldást.',
+        services_cta_h2: 'Írd le, mire van szükséged, és meghatározzuk a projekt kiindulópontját.',
+        services_price_note: 'Az ár a fejlesztés összetettségétől és nehézségétől függ. Ha a fenti összegek nem illeszkednek a pénztárcádhoz, jelezd nyugodtan — rugalmasan igazítjuk a megoldást, hogy mindkét fél számára megfelelő legyen.',
         services_cta_btn: 'Kapcsolatfelvétel',
         language_en: 'EN',
         language_hu: 'HU'
@@ -853,6 +879,43 @@ languageButtons.forEach((button) => {
         applyLanguage(button.dataset.lang);
     });
 });
+
+const currencyModalOverlay = document.getElementById('currency-modal-overlay');
+if (currencyModalOverlay) {
+    const currencyModalClose = document.getElementById('currency-modal-close');
+    const CURRENCY_MODAL_SESSION_KEY = 'amethyst-currency-modal-shown';
+
+    const showCurrencyModal = () => {
+        currencyModalOverlay.hidden = false;
+        document.body.style.overflow = 'hidden';
+        sessionStorage.setItem(CURRENCY_MODAL_SESSION_KEY, 'true');
+    };
+
+    const closeCurrencyModal = () => {
+        currencyModalOverlay.hidden = true;
+        document.body.style.overflow = '';
+    };
+
+    currencyModalClose?.addEventListener('click', closeCurrencyModal);
+
+    currencyModalOverlay.addEventListener('click', (event) => {
+        if (event.target === currencyModalOverlay) closeCurrencyModal();
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !currencyModalOverlay.hidden) closeCurrencyModal();
+    });
+
+    languageButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            if (button.dataset.lang === 'hu') showCurrencyModal();
+        });
+    });
+
+    if (currentLanguage === 'hu' && !sessionStorage.getItem(CURRENCY_MODAL_SESSION_KEY)) {
+        setTimeout(showCurrencyModal, 700);
+    }
+}
 
 if (hamburger && menu) {
     const toggle = () => {
