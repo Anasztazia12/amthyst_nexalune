@@ -17,8 +17,8 @@ const translations = {
         home_eyebrow: 'Modern responsive web design',
         home_h1: 'Websites and web apps built to feel fast, clean, and focused.',
         home_lead: 'I design and build digital products for people who want a clear first impression, smooth mobile behavior, and a professional finish that feels current.',
-        home_btn_portfolio: 'View portfolio',
-        home_btn_contact: 'Packages and what’s included',
+        home_btn_consultation: 'Get in touch for a free consultation',
+        home_btn_packages: 'Packages and what’s included',
         home_stat1: 'Responsive Website (Static)',
         home_stat1_p: 'Clean, responsive websites for landing pages, portfolios, and small business sites — easy to navigate, on every screen.',
         home_stat2: 'Web Applications',
@@ -210,6 +210,7 @@ const translations = {
         contact_status_sending: 'Sending your message...',
         contact_status_success: 'Thanks! Your message is on its way — I’ll reply within 1–2 business days.',
         contact_status_error: 'Something went wrong. Please try again, or email me directly at contact@amethyst-nexalune.co.uk.',
+        contact_status_captcha: 'Please complete the captcha before sending.',
         services_title: 'Services & Packages | Amethyst Nexalune',
         services_eyebrow: 'Pricing',
         services_h1: 'Packages built around your project size.',
@@ -381,8 +382,8 @@ const translations = {
         home_eyebrow: 'Modern, reszponzív webdesign',
         home_h1: 'Gyors, letisztult és fókuszált weboldalak és webappok.',
         home_lead: 'Olyan digitális termékeket tervezek és készítek, amelyek erős első benyomást adnak, jól működnek mobilon, és modern, profi hatást keltenek.',
-        home_btn_portfolio: 'Portfólió megtekintése',
-        home_btn_contact: 'Csomagok és szolgáltatások',
+        home_btn_consultation: 'Jelentkezz ingyenes konzultációra',
+        home_btn_packages: 'Csomagok és szolgáltatások',
         home_stat1: 'Reszponzív weboldal (statikus)',
         home_stat1_p: 'Letisztult, reszponzív weboldalak landing oldalakhoz, portfóliókhoz és kisvállalkozásokhoz — átlátható, könnyen navigálható, minden képernyőn.',
         home_stat2: 'Webalkalmazások',
@@ -574,6 +575,7 @@ const translations = {
         contact_status_sending: 'Üzenet küldése...',
         contact_status_success: 'Köszönöm! Az üzeneted elindult — 1–2 munkanapon belül válaszolok.',
         contact_status_error: 'Hiba történt. Próbáld újra, vagy írj közvetlenül a contact@amethyst-nexalune.co.uk címre.',
+        contact_status_captcha: 'Kérlek, oldd meg a captchát a küldés előtt.',
         services_title: 'Szolgáltatások és csomagok | Amethyst Nexalune',
         services_eyebrow: 'Árazás',
         services_h1: 'Csomagok, amelyek a projekted méretéhez igazodnak.',
@@ -950,6 +952,15 @@ const wireWeb3Form = (form, statusEl, onSuccess) => {
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
         const dictionary = translations[currentLanguage] || translations.en;
+
+        if (form.querySelector('.h-captcha')) {
+            const captchaField = form.querySelector('textarea[name="h-captcha-response"]');
+            if (!captchaField || !captchaField.value) {
+                statusEl.textContent = dictionary.contact_status_captcha;
+                statusEl.style.color = '#f87171';
+                return;
+            }
+        }
 
         if (submitButton) submitButton.disabled = true;
         statusEl.textContent = dictionary.contact_status_sending;
