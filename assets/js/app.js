@@ -213,7 +213,7 @@ const translations = {
         services_step5: 'We’ll talk through the direction together, so you know exactly where to start',
         services_web_eyebrow: 'For websites',
         services_web_h2: 'Pick the page count and depth you need.',
-        services_web_alap_kicker: 'Alap',
+        services_web_alap_kicker: 'Basic',
         services_web_alap_h3: 'A focused, single-purpose site.',
         services_web_alap_scope: '1–3 pages',
         services_web_alap_point1: '1-hour kickoff consultation',
