@@ -564,7 +564,7 @@ const translations = {
         contact_project_placeholder: 'Weboldal, webapp, portfólió...',
         contact_package_label: 'Csomag típusa',
         contact_package_option_select: 'Válassz csomagot',
-        contact_package_option_basic: 'Basic',
+        contact_package_option_basic: 'Alap',
         contact_package_option_ultra: 'Ultra',
         contact_package_option_premium: 'Premium',
         contact_message_label: 'Üzenet',
