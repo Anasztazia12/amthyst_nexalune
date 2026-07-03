@@ -13,8 +13,17 @@ A static, bilingual (EN/HU) portfolio and services showcase website. No build st
 ## Structure
 
 - `assets/css/style.css` — styling for the whole site
-- `assets/js/app.js` — language switching (EN/HU translations in one place), mobile hamburger menu logic, package selection modal, Web3Forms-based form submission
-- `assets/images/` — logo and other images
+- `assets/js/app.js` — language switching (EN/HU translations in one place), mobile hamburger menu, portfolio image carousels, consultation/package modal, Web3Forms-based form submission
+- `assets/images/` — logo and portfolio screenshots, all served as optimized WebP
+
+## Features
+
+- **Bilingual EN/HU** via `data-i18n*` attributes, with the chosen language saved to `localStorage`
+- **Responsive layout** with a mobile hamburger menu (anchored to the header, opens below it at every breakpoint)
+- **Portfolio carousels** — each project card can cycle through multiple screenshots: autoplay (pauses on hover), swipe on touch devices, and prev/next arrows + dots
+- **Consultation / package request modal** — used both on the Home page ("Free consultation" buttons) and the Services page (per-package "Start with this package" buttons). Submits to Web3Forms with an hCaptcha widget; client-side validation blocks submission (with a clear message) if the captcha hasn't been completed, instead of silently failing
+- **Google Analytics** (gtag.js) on every page
+- Images are converted to WebP and resized for their display size — the original PNG exports (some 5–15 MB each) are not used on the live site
 
 ## Deploy
 
@@ -24,15 +33,9 @@ The site runs on Vercel as a static site — no build command needed, it serves 
 
 The project has no automated test suite (static site, no build), so changes are verified manually and with a headless browser (Playwright):
 
-- Mobile viewports (390px and 700px width) on every page
-- Hamburger menu: open/close, navigation and closing after clicking a link
-- Language switching (EN/HU) and the saved language preference (localStorage)
-- Contact form and the package selection modal submission
-
-### Known fix — mobile hamburger menu
-
-Since an earlier commit (the "deleted the duplicated code" cleanup), the hamburger menu didn't open at all on mobile because the `#menu` element was missing, and the button itself wasn't on the right side either — it sat detached in the middle of the header, away from the language switcher. Fixed:
-
-- Restored the missing mobile navigation (`#menu`) on all 5 pages
-- The hamburger button now appears on the right edge of the header at every breakpoint
-- The dropdown menu is anchored to the header (opens right below it), so it no longer overlaps the header on narrow screens
+- Mobile and desktop viewports on every page
+- Hamburger menu: open/close, navigation, closing after clicking a link
+- Language switching (EN/HU), localStorage persistence, and a full key-parity audit (every `data-i18n*` key must exist in both the EN and HU dictionaries in `app.js`)
+- Portfolio carousels: slide count matches dot count on every card, autoplay advances and pauses on hover, swipe and tap navigation both work, no broken image references
+- Contact form and the consultation/package modal: correct package name shown, hCaptcha renders, submission is blocked client-side until the captcha is completed, form resets when reopened for a different package
+- Internal links and image paths checked against what actually exists on disk
