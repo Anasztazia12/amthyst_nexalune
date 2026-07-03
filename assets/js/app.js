@@ -286,6 +286,8 @@ const translations = {
         services_start_btn: 'Start with this package',
         package_modal_kicker: 'Selected package',
         package_modal_h2: 'Tell me a bit about yourself',
+        feedback_modal_kicker: 'Feedback',
+        feedback_modal_h2: 'Tell me what you think',
         package_modal_close_aria: 'Close',
         package_phone_label: 'Phone',
         package_phone_placeholder: '+36 20 123 4567',
@@ -1025,17 +1027,32 @@ wireWeb3Form(contactForm, formStatus);
 
 if (packageModalOverlay && packageForm && packageFormStatus) {
     const packageSelectedName = document.getElementById('package-modal-selected-name');
+    const packageModalKicker = document.getElementById('package-modal-kicker');
+    const packageModalTitle = document.getElementById('package-modal-title');
     const packageFormPackageInput = document.getElementById('package-form-package');
     const packageFormSubjectInput = document.getElementById('package-form-subject');
     const packageModalClose = document.getElementById('package-modal-close');
 
     const openPackageModal = (packageName) => {
         packageForm.reset();
-        if (packageFormPackageInput) packageFormPackageInput.value = packageName;
-        if (packageFormSubjectInput) packageFormSubjectInput.value = `New package inquiry: ${packageName}`;
-        if (packageSelectedName) packageSelectedName.textContent = packageName;
-        delete packageForm.dataset.submitted;
         const dictionary = translations[currentLanguage] || translations.en;
+        const isFeedback = packageName === 'Feedback';
+
+        if (packageFormPackageInput) packageFormPackageInput.value = packageName;
+        if (packageFormSubjectInput) {
+            packageFormSubjectInput.value = isFeedback ? 'New feedback submission' : `New package inquiry: ${packageName}`;
+        }
+        if (packageModalKicker) {
+            packageModalKicker.textContent = isFeedback ? dictionary.feedback_modal_kicker : dictionary.package_modal_kicker;
+        }
+        if (packageModalTitle) {
+            packageModalTitle.textContent = isFeedback ? dictionary.feedback_modal_h2 : dictionary.package_modal_h2;
+        }
+        if (packageSelectedName) {
+            packageSelectedName.textContent = isFeedback ? '' : packageName;
+            packageSelectedName.hidden = isFeedback;
+        }
+        delete packageForm.dataset.submitted;
         packageFormStatus.textContent = dictionary.contact_status_default;
         packageFormStatus.style.color = '';
         packageModalOverlay.hidden = false;
