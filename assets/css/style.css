@@ -286,6 +286,11 @@ hr {
     padding-bottom: clamp(10px, 1.5vw, 20px);
 }
 
+.section.tech-stack {
+    padding-top: clamp(10px, 1.5vw, 20px);
+    padding-bottom: clamp(10px, 1.5vw, 20px);
+}
+
 .cta-subhead {
     display: block;
     margin-top: 6px;
@@ -956,6 +961,25 @@ hr {
     justify-content: space-between;
     gap: 16px;
     flex-wrap: wrap;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    list-style: none;
+    padding: 0;
+    margin: 28px 0 0;
+}
+
+.tech-list-badges li {
+    display: flex;
+}
+
+.tech-list-badges img {
+    height: 32px;
+    border-radius: 6px;
+    display: block;
 }
 
 @media (max-width: 960px) {
