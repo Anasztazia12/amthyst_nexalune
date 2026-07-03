@@ -78,6 +78,13 @@ img {
     object-fit: cover;
 }
 
+.hero-identity {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
 .profile-image {
     width: 140px;
     height: 140px;
@@ -85,7 +92,29 @@ img {
     border-radius: 50%;
     border: 2px solid var(--gold-soft);
     box-shadow: var(--shadow), 0 0 24px rgba(216, 183, 101, 0.2);
-    margin-bottom: 20px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.qr-code-link {
+    display: inline-block;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.qr-code-link:hover,
+.qr-code-link:focus-visible {
+    transform: scale(1.05);
+}
+
+.qr-code {
+    width: 90px;
+    height: 90px;
+    padding: 6px;
+    background: #fff;
+    border-radius: 8px;
+    border: 2px solid var(--gold-soft);
+    box-shadow: var(--shadow);
 }
 
 hr {
