@@ -577,6 +577,16 @@ hr {
     margin: 0 0 12px;
 }
 
+.card-grid .card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-grid .card .button {
+    align-self: flex-start;
+    margin-top: auto;
+}
+
 .split-grid {
     grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
     align-items: start;
