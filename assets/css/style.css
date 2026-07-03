@@ -718,6 +718,44 @@ hr {
     background: var(--accent-strong);
 }
 
+.testimonial-carousel {
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(32px, 5vw, 56px) clamp(52px, 7vw, 84px) clamp(56px, 7vw, 76px);
+    text-align: center;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+}
+
+.testimonial-slide {
+    display: none;
+}
+
+.testimonial-slide.active {
+    display: block;
+}
+
+.testimonial-quote {
+    margin: 0 0 16px;
+    color: var(--text);
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+.testimonial-name {
+    margin: 0;
+    color: var(--accent-strong);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.testimonial-name::before {
+    content: "— ";
+}
+
 .project-card-body {
     display: grid;
     gap: 12px;
