@@ -266,6 +266,20 @@ hr {
     padding-top: clamp(34px, 5vw, 68px);
 }
 
+.section.cta-section-compact {
+    padding-top: clamp(10px, 1.5vw, 20px);
+    padding-bottom: clamp(10px, 1.5vw, 20px);
+}
+
+.cta-subhead {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.55em;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: normal;
+}
+
 .section-inner {
     max-width: 1180px;
     margin: 0 auto;
