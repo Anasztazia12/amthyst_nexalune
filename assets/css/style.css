@@ -70,10 +70,10 @@ img {
    Header / navigation (logo, nav links, language switcher, hamburger menu)
    ========================================================================== */
 .logo {
-    width: 60px;
-    height: 60px;
+    width: 84px;
+    height: 84px;
     padding: 4px;
-    border-radius: 14px;
+    border-radius: 18px;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid var(--gold-soft);
     backdrop-filter: blur(12px);
@@ -1163,10 +1163,10 @@ hr {
     }
 
     .logo {
-        width: 46px;
-        height: 46px;
-        padding: 6px;
-        border-radius: 12px;
+        width: 60px;
+        height: 60px;
+        padding: 5px;
+        border-radius: 14px;
     }
 
     .lang-button {
