@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node keyout.js)",
+      "Bash(node -e \"require\\('sharp'\\)\\('C:\\\\\\\\\\\\\\\\Users\\\\\\\\\\\\\\\\rkara\\\\\\\\\\\\\\\\OneDrive\\\\\\\\\\\\\\\\Asztali gép\\\\\\\\\\\\\\\\Amethyst Nexalune\\\\\\\\\\\\\\\\assets\\\\\\\\\\\\\\\\images\\\\\\\\\\\\\\\\logo3.png'\\).metadata\\(\\).then\\(m=>console.log\\(m\\)\\)\")"
+    ]
+  }
+}
