@@ -888,6 +888,19 @@ languageButtons.forEach((button) => {
     });
 });
 
+const setBodyScrollLocked = (locked) => {
+    document.body.style.overflow = locked ? 'hidden' : '';
+};
+
+const wireOverlayDismiss = (overlay, closeFn) => {
+    overlay.addEventListener('click', (event) => {
+        if (event.target === overlay) closeFn();
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !overlay.hidden) closeFn();
+    });
+};
+
 const currencyModalOverlay = document.getElementById('currency-modal-overlay');
 if (currencyModalOverlay) {
     const currencyModalClose = document.getElementById('currency-modal-close');
@@ -895,24 +908,17 @@ if (currencyModalOverlay) {
 
     const showCurrencyModal = () => {
         currencyModalOverlay.hidden = false;
-        document.body.style.overflow = 'hidden';
+        setBodyScrollLocked(true);
         sessionStorage.setItem(CURRENCY_MODAL_SESSION_KEY, 'true');
     };
 
     const closeCurrencyModal = () => {
         currencyModalOverlay.hidden = true;
-        document.body.style.overflow = '';
+        setBodyScrollLocked(false);
     };
 
     currencyModalClose?.addEventListener('click', closeCurrencyModal);
-
-    currencyModalOverlay.addEventListener('click', (event) => {
-        if (event.target === currencyModalOverlay) closeCurrencyModal();
-    });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && !currencyModalOverlay.hidden) closeCurrencyModal();
-    });
+    wireOverlayDismiss(currencyModalOverlay, closeCurrencyModal);
 
     languageButtons.forEach((button) => {
         button.addEventListener('click', () => {
@@ -1127,14 +1133,14 @@ if (packageModalOverlay && packageForm && packageFormStatus) {
         packageFormStatus.textContent = dictionary.contact_status_default;
         packageFormStatus.style.color = '';
         packageModalOverlay.hidden = false;
-        document.body.style.overflow = 'hidden';
+        setBodyScrollLocked(true);
         const nameInput = packageForm.querySelector('input[name="name"]');
         if (nameInput) nameInput.focus();
     };
 
     const closePackageModal = () => {
         packageModalOverlay.hidden = true;
-        document.body.style.overflow = '';
+        setBodyScrollLocked(false);
     };
 
     document.querySelectorAll('.js-package-btn').forEach((button) => {
@@ -1144,14 +1150,7 @@ if (packageModalOverlay && packageForm && packageFormStatus) {
     });
 
     packageModalClose?.addEventListener('click', closePackageModal);
-
-    packageModalOverlay.addEventListener('click', (event) => {
-        if (event.target === packageModalOverlay) closePackageModal();
-    });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && !packageModalOverlay.hidden) closePackageModal();
-    });
+    wireOverlayDismiss(packageModalOverlay, closePackageModal);
 
     wireWeb3Form(packageForm, packageFormStatus, () => {
         setTimeout(closePackageModal, 2200);
