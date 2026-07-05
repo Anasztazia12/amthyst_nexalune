@@ -25,6 +25,15 @@ A static, bilingual (EN/HU) portfolio and services showcase website. No build st
 - **Google Analytics** (gtag.js) on every page
 - Images are converted to WebP and resized for their display size — the original PNG exports (some 5–15 MB each) are not used on the live site
 
+  Example (CarnovoX Motor portfolio card, resized to 1600px wide and re-encoded):
+
+  | File | Before | After |
+  | --- | --- | --- |
+  | responsive-car | 8.6 MB PNG | 213 KB JPG |
+  | car-webpage | 14.8 MB PNG | 310 KB JPG |
+  | car-webpage2 | 4.1 MB PNG | 165 KB JPG |
+  | car-webpage3 | 3.3 MB PNG | 192 KB JPG |
+
 ## Deploy
 
 The site runs on Vercel as a static site — no build command needed, it serves the HTML files straight from the repo root.
