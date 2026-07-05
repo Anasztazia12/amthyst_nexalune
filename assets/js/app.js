@@ -1015,11 +1015,42 @@ if (hamburger && menu) {
     });
 }
 
+const lightbox = document.createElement('div');
+lightbox.className = 'lightbox';
+const lightboxImg = document.createElement('img');
+lightbox.appendChild(lightboxImg);
+document.body.appendChild(lightbox);
+
+const openLightbox = (src, alt) => {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.classList.add('active');
+    document.body.classList.add('lightbox-open');
+};
+
+const closeLightbox = () => {
+    lightbox.classList.remove('active');
+    document.body.classList.remove('lightbox-open');
+};
+
+lightbox.addEventListener('click', closeLightbox);
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeLightbox();
+});
+
 document.querySelectorAll('[data-carousel]').forEach((carousel) => {
     const slides = carousel.querySelectorAll('.carousel-slide');
     const dots = carousel.querySelectorAll('.carousel-dot');
     const prevButton = carousel.querySelector('.carousel-prev');
     const nextButton = carousel.querySelector('.carousel-next');
+    let dragged = false;
+
+    slides.forEach((slide) => {
+        slide.addEventListener('click', () => {
+            if (dragged) return;
+            openLightbox(slide.src, slide.alt);
+        });
+    });
 
     if (slides.length < 2) return;
 
@@ -1073,11 +1104,13 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
     carousel.addEventListener('touchstart', (event) => {
         touchStartX = event.touches[0].clientX;
         touchDeltaX = 0;
+        dragged = false;
         stopAutoplay();
     }, { passive: true });
 
     carousel.addEventListener('touchmove', (event) => {
         touchDeltaX = event.touches[0].clientX - touchStartX;
+        if (Math.abs(touchDeltaX) > 10) dragged = true;
     }, { passive: true });
 
     carousel.addEventListener('touchend', () => {
