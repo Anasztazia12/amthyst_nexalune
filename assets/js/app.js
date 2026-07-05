@@ -553,7 +553,7 @@ const translations = {
         portfolio_projects_eyebrow: 'Legutóbbi munkák',
         portfolio_h2: 'Válogatás a legutóbbi projektjeimből',
         portfolio_projects_h2: 'Weboldalak, amiket készítettem',
-        portfolio_projects_h2_apps: 'Webalkalmazások, amiket készítettem',
+        portfolio_projects_h2_apps: 'Webalkalmazások/Web Appok amiket készítettem',
         portfolio_card1_kicker: 'Eszköz',
         portfolio_card1_h3: 'Névjegykártya generátor',
         portfolio_card1_p: 'Névjegykártya készítés, JPG formátumú letöltéssel. A szerkesztési folyamat egyszerű, az exportált eredmény pedig letisztult.',
