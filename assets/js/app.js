@@ -13,7 +13,8 @@ const translations = {
         header_brand: 'Amethyst Nexalune',
         footer_brand: '© Amethyst Nexalune 2026 - Copyright',
         footer_tagline: 'Modern websites and web applications',
-        index_title: 'Amethyst Nexalune | Web Sites & Web Apps',
+        index_title: 'Amethyst Nexalune | Web Development & Web Apps / Webfejlesztés és Web Appok',
+        index_description: 'Freelance developer building fast, responsive websites, custom web apps, and UX/UI design — clean, modern products tailored to your goals and budget.',
         home_eyebrow: 'Modern responsive web design',
         home_h1: 'Websites and web apps built to feel fast, clean, and focused',
         home_lead: 'I design and build digital products for people who want a clear first impression, smooth mobile behavior, and a professional finish that feels current.',
@@ -67,7 +68,8 @@ const translations = {
         home_cta_eyebrow: 'Ready to build',
         home_cta_h2: 'Turn the idea into a clean, responsive product.',
         home_cta_btn: 'Contact me',
-        about_title: 'About | Amethyst Nexalune',
+        about_title: 'Amethyst Nexalune | About / Rólam',
+        about_description: 'Meet Anasztázia, a Web Application Developer crafting clean, modern interfaces and apps, backed by a background in healthcare, sports, and law.',
         about_hero_alt: 'Anasztázia, web developer',
         about_qr_alt: 'QR code linking to Anasztázia’s GitHub profile',
         about_digital_card: 'Digital business card',
@@ -116,7 +118,8 @@ const translations = {
         about_cta_eyebrow: 'Let\'s work together',
         about_cta_h2: 'Have a project in mind? Let\'s build something clean and fast.',
         about_cta_btn: 'Contact me',
-        portfolio_title: 'Portfolio | Amethyst Nexalune',
+        portfolio_title: 'Amethyst Nexalune | Portfolio / Portfólió',
+        portfolio_description: 'Browse a portfolio of websites and web apps combining clean design with practical, responsive behavior — from business sites to booking and budgeting apps.',
         portfolio_eyebrow: 'Selected work',
         portfolio_h1: 'Projects that combine clean design with practical behavior.',
         portfolio_lead: 'A portfolio should show more than visuals. It should show how the layout behaves, how the information is structured, and how well the interface works on smaller screens.',
@@ -215,7 +218,8 @@ const translations = {
         portfolio_cta_h2: 'Bring the next web project into a cleaner, more modern shape.',
         portfolio_cta_btn: 'Start here',
         portfolio_view_live: 'View live site',
-        contact_title: 'Contact | Amethyst Nexalune',
+        contact_title: 'Amethyst Nexalune | Contact / Kapcsolat',
+        contact_description: 'Have a website, portfolio, or web app in mind? Get in touch for a free consultation and a clear plan for structure, design, and next steps.',
         contact_eyebrow: 'Contact',
         contact_h1: 'Have a project in mind? Let’s talk it through.',
         contact_lead: 'Tell me what you’re building — a website, a portfolio, a web app — and I’ll get back to you with a clear plan for structure and design.',
@@ -253,7 +257,8 @@ const translations = {
         contact_status_success: 'Thanks! Your message is on its way — I’ll reply within 1–2 business days.',
         contact_status_error: 'Something went wrong. Please try again, or email me directly at contact@amethyst-nexalune.co.uk.',
         contact_status_captcha: 'Please complete the captcha before sending.',
-        services_title: 'Services & Packages | Amethyst Nexalune',
+        services_title: 'Amethyst Nexalune | Services / Szolgáltatások',
+        services_description: 'Website, web app, digital business card, and brand identity packages from Basic to Premium — responsive design, custom development, and pricing that scales with your project.',
         services_eyebrow: 'Pricing',
         services_h1: 'Packages built around your project size.',
         services_lead: 'Clear starting points for websites and web apps — pick the package that matches where you are now, and scale up any time the project grows.',
@@ -432,7 +437,8 @@ const translations = {
         header_brand: 'Amethyst Nexalune',
         footer_brand: ' © 2026 Amethyst Nexalune – Minden jog fenntartva',
         footer_tagline: 'Modern weboldalak és webalkalmazások',
-        index_title: 'Amethyst Nexalune | Weboldalak és webalkalmazások',
+        index_title: 'Amethyst Nexalune | Web Development & Web Apps / Webfejlesztés és Web Appok',
+        index_description: 'Modern, gyors weboldalak és webalkalmazások fejlesztése egyedi UX/UI dizájnnal — letisztult termékek a céljaidhoz és költségvetésedhez igazítva.',
         home_eyebrow: 'Modern, reszponzív webdesign',
         home_h1: 'Gyors, letisztult, fókuszált weboldalak és webappok',
         home_lead: 'Olyan digitális termékeket tervezek és készítek, amelyek erős első benyomást adnak, jól működnek mobilon, és modern, profi hatást keltenek.',
@@ -486,7 +492,8 @@ const translations = {
         home_cta_eyebrow: 'Készen áll a megvalósításra',
         home_cta_h2: 'Az ötletből legyen letisztult, reszponzív termék.',
         home_cta_btn: 'Kapcsolatfelvétel',
-        about_title: 'Rólunk | Amethyst Nexalune',
+        about_title: 'Amethyst Nexalune | About / Rólam',
+        about_description: 'Ismerd meg Anasztáziát, a Web Application Developer-t, aki letisztult, modern felületeket és appokat épít — egészségügyi, sport és jogi háttérrel.',
         about_hero_alt: 'Anasztázia, a webfejlesztő',
         about_qr_alt: 'QR kód, mely Anasztázia GitHub profiljára mutat',
         about_digital_card: 'Digitális névjegykártya',
@@ -535,7 +542,8 @@ const translations = {
         about_cta_eyebrow: 'Dolgozzunk együtt',
         about_cta_h2: 'Van egy projektötleted? Építsünk valami letisztultat és gyorsat.',
         about_cta_btn: 'Kapcsolatfelvétel',
-        portfolio_title: 'Portfólió | Amethyst Nexalune',
+        portfolio_title: 'Amethyst Nexalune | Portfolio / Portfólió',
+        portfolio_description: 'Nézd meg a portfóliót: weboldalak és webalkalmazások, amelyek letisztult designt és praktikus, reszponzív működést kombinálnak — vállalkozói oldaltól foglalási appig.',
         portfolio_eyebrow: 'Kiválasztott munkák',
         portfolio_h1: 'Letisztult design és praktikus működés együttesen.',
         portfolio_lead: 'Egy portfóliónak többet kell mutatnia a látványnál. Azt is meg kell mutatnia, hogyan viselkedik az elrendezés, hogyan szerveződik az információ, és mennyire jól működik a felület kisebb képernyőkön is.',
@@ -634,7 +642,8 @@ const translations = {
         portfolio_cta_h2: 'A következő webprojektből legyen tisztább, modernebb felület.',
         portfolio_cta_btn: 'Itt kezdd',
         portfolio_view_live: 'Élő oldal megtekintése',
-        contact_title: 'Kapcsolat | Amethyst Nexalune',
+        contact_title: 'Amethyst Nexalune | Contact / Kapcsolat',
+        contact_description: 'Weboldalt, portfóliót vagy webalkalmazást terveznél? Vedd fel velem a kapcsolatot egy ingyenes konzultációért és egy világos tervért.',
         contact_eyebrow: 'Kapcsolat',
         contact_h1: 'Van egy projektötleted? Beszéljük át.',
         contact_lead: 'Mondd el, mit szeretnél építeni — weboldalt, portfóliót vagy webalkalmazást —, és visszajelzek egy világos tervvel a szerkezetre és a designra.',
@@ -672,7 +681,8 @@ const translations = {
         contact_status_success: 'Köszönöm! Az üzeneted elindult — 1–2 munkanapon belül válaszolok.',
         contact_status_error: 'Hiba történt. Próbáld újra, vagy írj közvetlenül a contact@amethyst-nexalune.co.uk címre.',
         contact_status_captcha: 'Kérlek, oldd meg a captchát a küldés előtt.',
-        services_title: 'Szolgáltatások és csomagok | Amethyst Nexalune',
+        services_title: 'Amethyst Nexalune | Services / Szolgáltatások',
+        services_description: 'Weboldal, web app, digitális névjegykártya és arculati csomagok Basictól Premiumig — reszponzív design, egyedi fejlesztés, és a projekted méretéhez igazodó árazás.',
         services_eyebrow: 'Árazás',
         services_h1: 'Csomagok, amelyek a projekted méretéhez igazodnak.',
         services_lead: 'Világos kiindulópontok weboldalakhoz és webalkalmazásokhoz — válaszd a hozzád illő csomagot, majd bármikor léphetsz feljebb, ahogy a projekt növekszik.',
@@ -890,6 +900,13 @@ const applyLanguage = (language) => {
         const key = element.dataset.i18nAlt;
         if (dictionary[key] !== undefined) {
             element.setAttribute('alt', dictionary[key]);
+        }
+    });
+
+    document.querySelectorAll('[data-i18n-content]').forEach((element) => {
+        const key = element.dataset.i18nContent;
+        if (dictionary[key] !== undefined) {
+            element.setAttribute('content', dictionary[key]);
         }
     });
 
