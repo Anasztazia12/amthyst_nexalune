@@ -1056,13 +1056,47 @@ if (hamburger && menu) {
 
 const lightbox = document.createElement('div');
 lightbox.className = 'lightbox';
+
 const lightboxImg = document.createElement('img');
-lightbox.appendChild(lightboxImg);
+
+const lightboxClose = document.createElement('button');
+lightboxClose.type = 'button';
+lightboxClose.className = 'lightbox-close';
+lightboxClose.setAttribute('aria-label', 'Close');
+lightboxClose.innerHTML = '&times;';
+
+const lightboxPrev = document.createElement('button');
+lightboxPrev.type = 'button';
+lightboxPrev.className = 'lightbox-nav lightbox-prev';
+lightboxPrev.setAttribute('aria-label', 'Previous image');
+lightboxPrev.innerHTML = '&#10094;';
+
+const lightboxNext = document.createElement('button');
+lightboxNext.type = 'button';
+lightboxNext.className = 'lightbox-nav lightbox-next';
+lightboxNext.setAttribute('aria-label', 'Next image');
+lightboxNext.innerHTML = '&#10095;';
+
+lightbox.append(lightboxClose, lightboxPrev, lightboxImg, lightboxNext);
 document.body.appendChild(lightbox);
 
-const openLightbox = (src, alt) => {
-    lightboxImg.src = src;
-    lightboxImg.alt = alt || '';
+let lightboxSlides = [];
+let lightboxIndex = 0;
+
+const showLightboxSlide = (index) => {
+    if (!lightboxSlides.length) return;
+    lightboxIndex = (index + lightboxSlides.length) % lightboxSlides.length;
+    const slide = lightboxSlides[lightboxIndex];
+    lightboxImg.src = slide.src;
+    lightboxImg.alt = slide.alt || '';
+};
+
+const openLightbox = (slides, startIndex) => {
+    lightboxSlides = slides;
+    showLightboxSlide(startIndex);
+    const multi = slides.length > 1;
+    lightboxPrev.hidden = !multi;
+    lightboxNext.hidden = !multi;
     lightbox.classList.add('active');
     document.body.classList.add('lightbox-open');
 };
@@ -1073,8 +1107,25 @@ const closeLightbox = () => {
 };
 
 lightbox.addEventListener('click', closeLightbox);
+lightboxImg.addEventListener('click', (event) => event.stopPropagation());
+lightboxClose.addEventListener('click', (event) => {
+    event.stopPropagation();
+    closeLightbox();
+});
+lightboxPrev.addEventListener('click', (event) => {
+    event.stopPropagation();
+    showLightboxSlide(lightboxIndex - 1);
+});
+lightboxNext.addEventListener('click', (event) => {
+    event.stopPropagation();
+    showLightboxSlide(lightboxIndex + 1);
+});
+
 document.addEventListener('keydown', (event) => {
+    if (!lightbox.classList.contains('active')) return;
     if (event.key === 'Escape') closeLightbox();
+    if (event.key === 'ArrowLeft') showLightboxSlide(lightboxIndex - 1);
+    if (event.key === 'ArrowRight') showLightboxSlide(lightboxIndex + 1);
 });
 
 document.querySelectorAll('[data-carousel]').forEach((carousel) => {
@@ -1084,10 +1135,10 @@ document.querySelectorAll('[data-carousel]').forEach((carousel) => {
     const nextButton = carousel.querySelector('.carousel-next');
     let dragged = false;
 
-    slides.forEach((slide) => {
+    slides.forEach((slide, slideIndex) => {
         slide.addEventListener('click', () => {
             if (dragged) return;
-            openLightbox(slide.src, slide.alt);
+            openLightbox(Array.from(slides), slideIndex);
         });
     });
 
