@@ -337,6 +337,27 @@ img {
 
 .section.hero-section {
     padding-top: clamp(34px, 5vw, 68px);
+    position: relative;
+}
+
+.constellation-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-section .section-inner {
+    position: relative;
+    z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .constellation-canvas {
+        display: none;
+    }
 }
 
 .section.cta-section-compact {

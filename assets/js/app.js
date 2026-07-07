@@ -1434,3 +1434,135 @@ if (revealEls.length) {
     }
 }
 
+const constellationCanvas = document.getElementById('constellation-canvas');
+if (constellationCanvas && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const ctx = constellationCanvas.getContext('2d');
+    const section = constellationCanvas.closest('.hero-section');
+    const DOT_COLOR = '216, 183, 101';
+    const LINK_COLOR = '52, 194, 173';
+    const LINK_DISTANCE = 170;
+    const MOUSE_DISTANCE = 220;
+
+    let width = 0;
+    let height = 0;
+    let particles = [];
+    let mouse = { x: -9999, y: -9999, active: false };
+    let rafId = null;
+    let running = false;
+
+    function buildParticles() {
+        const area = width * height;
+        const count = Math.min(110, Math.max(32, Math.round(area / 12000)));
+        particles = Array.from({ length: count }, () => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.35,
+            vy: (Math.random() - 0.5) * 0.35,
+            r: 1.6 + Math.random() * 2,
+        }));
+    }
+
+    function resize() {
+        const rect = section.getBoundingClientRect();
+        width = rect.width;
+        height = rect.height;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        constellationCanvas.width = width * dpr;
+        constellationCanvas.height = height * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        buildParticles();
+    }
+
+    function step() {
+        ctx.clearRect(0, 0, width, height);
+
+        particles.forEach((p) => {
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0 || p.x > width) p.vx *= -1;
+            if (p.y < 0 || p.y > height) p.vy *= -1;
+            p.x = Math.min(Math.max(p.x, 0), width);
+            p.y = Math.min(Math.max(p.y, 0), height);
+        });
+
+        for (let i = 0; i < particles.length; i += 1) {
+            for (let j = i + 1; j < particles.length; j += 1) {
+                const a = particles[i];
+                const b = particles[j];
+                const dist = Math.hypot(a.x - b.x, a.y - b.y);
+                if (dist < LINK_DISTANCE) {
+                    ctx.strokeStyle = `rgba(${LINK_COLOR}, ${0.32 * (1 - dist / LINK_DISTANCE)})`;
+                    ctx.lineWidth = 1.2;
+                    ctx.beginPath();
+                    ctx.moveTo(a.x, a.y);
+                    ctx.lineTo(b.x, b.y);
+                    ctx.stroke();
+                }
+            }
+
+            if (mouse.active) {
+                const p = particles[i];
+                const dist = Math.hypot(p.x - mouse.x, p.y - mouse.y);
+                if (dist < MOUSE_DISTANCE) {
+                    ctx.strokeStyle = `rgba(${LINK_COLOR}, ${0.5 * (1 - dist / MOUSE_DISTANCE)})`;
+                    ctx.lineWidth = 1.5;
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(mouse.x, mouse.y);
+                    ctx.stroke();
+                }
+            }
+        }
+
+        particles.forEach((p) => {
+            ctx.fillStyle = `rgba(${DOT_COLOR}, 0.8)`;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        if (mouse.active) {
+            ctx.fillStyle = `rgba(${LINK_COLOR}, 0.5)`;
+            ctx.beginPath();
+            ctx.arc(mouse.x, mouse.y, 2.4, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        rafId = requestAnimationFrame(step);
+    }
+
+    function start() {
+        if (running) return;
+        running = true;
+        rafId = requestAnimationFrame(step);
+    }
+
+    function stop() {
+        running = false;
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = null;
+    }
+
+    resize();
+
+    section.addEventListener('mousemove', (event) => {
+        const rect = section.getBoundingClientRect();
+        mouse.x = event.clientX - rect.left;
+        mouse.y = event.clientY - rect.top;
+        mouse.active = true;
+    });
+    section.addEventListener('mouseleave', () => {
+        mouse.active = false;
+    });
+
+    window.addEventListener('resize', resize);
+
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver((entries) => {
+            entries.forEach((entry) => (entry.isIntersecting ? start() : stop()));
+        }, { threshold: 0 }).observe(section);
+    } else {
+        start();
+    }
+}
+
