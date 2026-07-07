@@ -118,6 +118,17 @@ const translations = {
         about_cta_eyebrow: 'Let\'s work together',
         about_cta_h2: 'Have a project in mind? Let\'s build something clean and fast.',
         about_cta_btn: 'Contact me',
+        chat_title: 'Contact us · AI assistant',
+        chat_greeting: 'Hi, I’m your AI assistant. How can I help you today?',
+        chat_input_placeholder: 'Type your message…',
+        chat_send_btn: 'Send',
+        chat_ask_name: 'Thanks for reaching out! Could I get your name?',
+        chat_ask_email: 'Nice to meet you, {name}! What’s the best email to reach you at?',
+        chat_invalid_email: 'Hmm, that doesn’t look like a valid email — could you try again?',
+        chat_ask_message: 'Perfect. What can we help you with?',
+        chat_sending: 'Sending your message…',
+        chat_success: 'Thanks! One of our colleagues will get back to you shortly.',
+        chat_error: 'Something went wrong sending that — please try again, or use the contact page.',
         portfolio_title: 'Amethyst Nexalune | Portfolio / Portfólió',
         portfolio_description: 'Browse a portfolio of websites and web apps combining clean design with practical, responsive behavior — from business sites to booking and budgeting apps.',
         portfolio_eyebrow: 'Selected work',
@@ -552,6 +563,17 @@ const translations = {
         about_cta_eyebrow: 'Dolgozzunk együtt',
         about_cta_h2: 'Van egy projektötleted? Építsünk valami letisztultat és gyorsat.',
         about_cta_btn: 'Kapcsolatfelvétel',
+        chat_title: 'Kapcsolat · AI asszisztens',
+        chat_greeting: 'Szia, az AI asszisztensed vagyok. Miben segíthetek ma?',
+        chat_input_placeholder: 'Írd ide az üzeneted…',
+        chat_send_btn: 'Küldés',
+        chat_ask_name: 'Köszönjük, hogy írtál! Elárulnád a neved?',
+        chat_ask_email: 'Örvendek, {name}! Mi az az email cím, ahol elérhetünk?',
+        chat_invalid_email: 'Hmm, ez nem tűnik érvényes email címnek — próbáld meg még egyszer.',
+        chat_ask_message: 'Remek. Miben segíthetünk?',
+        chat_sending: 'Üzenet küldése…',
+        chat_success: 'Köszönjük! Egyik kollégánk hamarosan jelentkezik.',
+        chat_error: 'Valami hiba történt a küldés közben — próbáld meg újra, vagy használd a kapcsolat oldalt.',
         portfolio_title: 'Amethyst Nexalune | Portfolio / Portfólió',
         portfolio_description: 'Nézd meg a portfóliót: weboldalak és webalkalmazások, amelyek letisztult designt és praktikus, reszponzív működést kombinálnak — vállalkozói oldaltól foglalási appig.',
         portfolio_eyebrow: 'Kiválasztott munkák',
@@ -1564,5 +1586,102 @@ if (constellationCanvas && !window.matchMedia('(prefers-reduced-motion: reduce)'
     } else {
         start();
     }
+}
+
+const chatForm = document.getElementById('chatForm');
+const chatBody = document.getElementById('chatBody');
+const chatInput = document.getElementById('chatMessage');
+
+if (chatForm && chatBody && chatInput) {
+    const CHAT_ACCESS_KEY = '7a18362d-7c64-408a-a608-72015d3f2b4e';
+    const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+    let step = 'intro';
+    const chatData = { intro: '', name: '', email: '', message: '' };
+
+    const addChatMessage = (text, sender) => {
+        const bubble = document.createElement('div');
+        bubble.className = `msg msg-${sender}`;
+        const p = document.createElement('p');
+        p.textContent = text;
+        bubble.appendChild(p);
+        chatBody.appendChild(bubble);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    };
+
+    const setChatBusy = (busy) => {
+        chatInput.disabled = busy;
+        const submitButton = chatForm.querySelector('button[type="submit"]');
+        if (submitButton) submitButton.disabled = busy;
+    };
+
+    const submitChat = async () => {
+        const dictionary = translations[currentLanguage] || translations.en;
+        step = 'sending';
+        setChatBusy(true);
+        addChatMessage(dictionary.chat_sending, 'ai');
+
+        const combinedMessage = chatData.intro ? `${chatData.intro}\n\n${chatData.message}` : chatData.message;
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                body: JSON.stringify({
+                    access_key: CHAT_ACCESS_KEY,
+                    subject: 'New message from the AI chat widget — Amethyst Nexalune',
+                    name: chatData.name,
+                    email: chatData.email,
+                    message: combinedMessage,
+                }),
+            });
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+                addChatMessage(dictionary.chat_success, 'ai');
+                step = 'done';
+            } else {
+                addChatMessage(dictionary.chat_error, 'ai');
+                step = 'message';
+                setChatBusy(false);
+            }
+        } catch (error) {
+            addChatMessage(dictionary.chat_error, 'ai');
+            step = 'message';
+            setChatBusy(false);
+        }
+    };
+
+    chatForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const value = chatInput.value.trim();
+        if (!value || step === 'done' || step === 'sending') return;
+
+        addChatMessage(value, 'user');
+        chatInput.value = '';
+
+        const dictionary = translations[currentLanguage] || translations.en;
+
+        if (step === 'intro') {
+            chatData.intro = value;
+            step = 'name';
+            addChatMessage(dictionary.chat_ask_name, 'ai');
+        } else if (step === 'name') {
+            chatData.name = value;
+            step = 'email';
+            addChatMessage(dictionary.chat_ask_email.replace('{name}', chatData.name), 'ai');
+        } else if (step === 'email') {
+            if (!isValidEmail(value)) {
+                addChatMessage(dictionary.chat_invalid_email, 'ai');
+                return;
+            }
+            chatData.email = value;
+            step = 'message';
+            addChatMessage(dictionary.chat_ask_message, 'ai');
+        } else if (step === 'message') {
+            chatData.message = value;
+            submitChat();
+        }
+    });
 }
 
