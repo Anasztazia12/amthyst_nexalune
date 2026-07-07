@@ -16,7 +16,7 @@ const translations = {
         index_title: 'Amethyst Nexalune | Web Development & Web Apps / Webfejlesztés és Web Appok',
         index_description: 'Website & web app developer — professional UX/UI websites, web apps, and digital business cards.',
         home_eyebrow: 'Modern responsive web design',
-        home_h1: 'Websites and web apps built to feel fast, clean, and focused',
+        home_h1: '<span class="highlight">Websites</span> and <span class="highlight">web apps</span> built to feel fast, clean, and focused',
         home_lead: 'I design and build digital products for people who want a clear first impression, smooth mobile behavior, and a professional finish that feels current.',
         home_btn_consultation: 'Get in touch for a free consultation',
         home_btn_packages: 'Packages and what’s included',
@@ -76,7 +76,7 @@ const translations = {
         about_digital_card_click: 'click here',
         about_eyebrow: 'About me',
         about_h1: 'Hi, I am Anasztázia',
-        about_lead: 'I’m a Web Application Developer who loves building clean, modern interfaces and apps.',
+        about_lead: 'I’m a <span class="bold">Web Application Developer</span> who loves building clean, modern interfaces and apps.',
         about_p1: 'About me — a multidisciplinary developer. Clarity and structure matter to me — I build websites and web apps that look good, work well, and are user-friendly. For me, good design isn’t about trends, it’s about making things easy.',
         about_p2: 'Before turning to web development, I worked in several fields that shaped how I think. Among other things, I’ve worked as a pharmacy dispensing assistant and a personal trainer, and I’m also qualified as a legal assistant, fitness instructor, back pain specialist instructor, and child and youth supervisor (child psychology, psychology, pedagogy), as well as holding a Mental Health First Aid and Advocacy in the Workplace certificate.',
         about_p3: 'I’ve always been interested in how digital products are built, so when I discovered web development, I dove in — and it was the right decision. My previous experience and studies give me a unique perspective: I don’t just see things through a developer’s eyes, but also as a healthcare, sports, education, and legal professional. I can design and build websites and web apps that truly fit their audience — functional, clear, and valuable.',
@@ -136,6 +136,7 @@ const translations = {
         portfolio_type7: 'Clickable, responsive digital business cards',
         portfolio_projects_eyebrow: 'Recent work',
         portfolio_h2: 'A selection from my recent projects',
+        portfolio_projects_lead: 'Click on the images to view them in full size',
         portfolio_projects_h2: 'Websites I Built',
         portfolio_projects_h2_apps: 'Web apps I Built',
         portfolio_card1_kicker: 'Tool',
@@ -449,7 +450,7 @@ const translations = {
         index_title: 'Amethyst Nexalune | Web Development & Web Apps / Webfejlesztés és Web Appok',
         index_description: 'Weboldalak, webappok készítése — profi UX/UI weboldalak és webappok, digitális névjegykártyák.',
         home_eyebrow: 'Modern, reszponzív webdesign',
-        home_h1: 'Gyors, letisztult, fókuszált weboldalak és webappok',
+        home_h1: 'Gyors, letisztult, fókuszált <span class="highlight">weboldalak</span> és <span class="highlight">webappok</span>',
         home_lead: 'Olyan digitális termékeket tervezek és készítek, amelyek erős első benyomást adnak, jól működnek mobilon, és modern, profi hatást keltenek.',
         home_btn_consultation: 'Jelentkezz ingyenes konzultációra',
         home_btn_packages: 'Csomagok és szolgáltatások',
@@ -509,7 +510,7 @@ const translations = {
         about_digital_card_click: 'Kattints ide',
         about_eyebrow: 'Rólam',
         about_h1: 'Szia! Anasztázia vagyok.',
-        about_lead: 'Webes alkalmazásfejlesztő, aki szeret letisztult, modern felületeket, appokat építeni.',
+        about_lead: '<span class="bold">Webes alkalmazásfejlesztő</span>, aki szeret letisztult, modern felületeket, appokat építeni.',
         about_p1: 'Rólam — multidiszciplináris fejlesztő. Fontos számomra az átláthatóság és a struktúra — olyan weboldalakat és webalkalmazásokat építek, amelyek jól néznek ki, jól működnek, és felhasználóbarátak. Számomra a jó design nem a trendekről szól, hanem arról, hogy könnyűvé tegyük a dolgokat.',
         about_p2: 'Mielőtt a webfejlesztés felé fordultam, több olyan területen dolgoztam, amelyek meghatározzák, hogyan gondolkodom. Többek közt gyógyszerkiadói szakasszisztensként és személyi edzőként, emellett jogi asszisztens, fitness instruktor, derékfájásra specializálódott instruktor, gyermek- és ifjúságfelügyelő (gyermeklélektan, pszichológia, pedagógia), valamint mentális elsősegély és érdekképviselet a munkahelyen tanúsítvánnyal is rendelkezem.',
         about_p3: 'Mindig is érdekelt, hogyan épülnek fel a digitális termékek, ezért amikor felfedeztem a webfejlesztést, belevágtam — és ez volt a helyes döntés. A korábbi tapasztalataim, iskolai tanulmányaim egyedi perspektívát adnak: nemcsak fejlesztői szemmel nézem a dolgokat, hanem egészségügyi, sport, pedagógiai es jogi szakemberként is. Olyan weboldalakat és webalkalmazásokat tudok tervezni és építeni, amelyek valóban illeszkednek a célközönségükhöz — funkcionálisak, érthetőek és értékteremtőek.',
@@ -569,6 +570,7 @@ const translations = {
         portfolio_type7: 'Kattintható, reszponzív digitális névjegykártyák',
         portfolio_projects_eyebrow: 'Legutóbbi munkák',
         portfolio_h2: 'Válogatás a legutóbbi projektjeimből',
+        portfolio_projects_lead: 'Kattints a képekre, hogy teljes méretben megnézhesd őket',
         portfolio_projects_h2: 'Weboldalak, amiket készítettem',
         portfolio_projects_h2_apps: 'Webalkalmazások/Web Appok amiket készítettem',
         portfolio_card1_kicker: 'Eszköz',
@@ -896,7 +898,11 @@ const applyLanguage = (language) => {
     document.querySelectorAll('[data-i18n]').forEach((element) => {
         const key = element.dataset.i18n;
         if (dictionary[key] !== undefined) {
-            element.textContent = dictionary[key];
+            if (element.hasAttribute('data-i18n-html')) {
+                element.innerHTML = dictionary[key];
+            } else {
+                element.textContent = dictionary[key];
+            }
         }
     });
 
@@ -1318,5 +1324,37 @@ if (packageModalOverlay && packageForm && packageFormStatus) {
     wireWeb3Form(packageForm, packageFormStatus, () => {
         setTimeout(closePackageModal, 2200);
     });
+}
+
+const revealEls = document.querySelectorAll('.reveal');
+if (revealEls.length) {
+    revealEls.forEach((el) => {
+        const siblings = Array.from(el.parentElement?.children || []).filter((child) => child.classList.contains('reveal'));
+        el.style.setProperty('--reveal-index', String(Math.max(siblings.indexOf(el), 0)));
+    });
+
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    el.classList.add('is-visible');
+                    if (el.classList.contains('price-card')) {
+                        el.addEventListener('transitionend', function onEntranceDone(event) {
+                            if (event.propertyName === 'opacity') {
+                                el.classList.add('reveal-done');
+                                el.removeEventListener('transitionend', onEntranceDone);
+                            }
+                        });
+                    }
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        revealEls.forEach((el) => revealObserver.observe(el));
+    } else {
+        revealEls.forEach((el) => el.classList.add('is-visible', 'reveal-done'));
+    }
 }
 
