@@ -1387,6 +1387,19 @@ if (packageModalOverlay && packageForm && packageFormStatus) {
     });
 }
 
+document.querySelectorAll('.chaos-card').forEach((card) => {
+    const angle = Math.random() * Math.PI * 2;
+    const distance = 220 + Math.random() * 160;
+    const x = Math.cos(angle) * distance;
+    const y = Math.sin(angle) * distance;
+    const rotation = (Math.random() * 24 - 12).toFixed(1);
+    const delay = Math.round(Math.random() * 250);
+    card.style.setProperty('--chaos-x', `${x.toFixed(0)}px`);
+    card.style.setProperty('--chaos-y', `${y.toFixed(0)}px`);
+    card.style.setProperty('--chaos-rot', `${rotation}deg`);
+    card.style.setProperty('--chaos-delay', `${delay}ms`);
+});
+
 const revealEls = document.querySelectorAll('.reveal');
 if (revealEls.length) {
     revealEls.forEach((el) => {
