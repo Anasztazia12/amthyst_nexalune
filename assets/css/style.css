@@ -678,6 +678,27 @@ hr {
     line-height: 1.6;
 }
 
+/* Alternating right/left slide-in, staggered a couple seconds apart. */
+.slide-item.reveal {
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(var(--reveal-index, 0) * 900ms);
+}
+
+.slide-item.reveal:not(.is-visible) {
+    transform: translateX(80px);
+}
+
+.slide-item.reveal:nth-child(even):not(.is-visible) {
+    transform: translateX(-80px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .slide-item.reveal {
+        transform: none;
+        transition: none;
+    }
+}
+
 .feature-list li::before,
 .checklist li::before {
     content: "";
