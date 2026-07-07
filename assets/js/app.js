@@ -1452,7 +1452,7 @@ if (constellationCanvas && !window.matchMedia('(prefers-reduced-motion: reduce)'
 
     function buildParticles() {
         const area = width * height;
-        const count = Math.min(110, Math.max(32, Math.round(area / 12000)));
+        const count = Math.min(55, Math.max(18, Math.round(area / 24000)));
         particles = Array.from({ length: count }, () => ({
             x: Math.random() * width,
             y: Math.random() * height,
