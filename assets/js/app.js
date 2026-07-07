@@ -123,6 +123,7 @@ const translations = {
         chat_input_placeholder: 'Type your message…',
         chat_send_btn: 'Send',
         chat_ask_name: 'Thanks for reaching out! Could I get your name?',
+        chat_invalid_name: 'That doesn’t look like a valid name — could you type your full name?',
         chat_ask_email: 'Nice to meet you, {name}! What’s the best email to reach you at?',
         chat_invalid_email: 'Hmm, that doesn’t look like a valid email — could you try again?',
         chat_ask_message: 'Perfect. What can we help you with?',
@@ -568,6 +569,7 @@ const translations = {
         chat_input_placeholder: 'Írd ide az üzeneted…',
         chat_send_btn: 'Küldés',
         chat_ask_name: 'Köszönjük, hogy írtál! Elárulnád a neved?',
+        chat_invalid_name: 'Ez nem tűnik érvényes névnek — beírnád a teljes neved?',
         chat_ask_email: 'Örvendek, {name}! Mi az az email cím, ahol elérhetünk?',
         chat_invalid_email: 'Hmm, ez nem tűnik érvényes email címnek — próbáld meg még egyszer.',
         chat_ask_message: 'Remek. Miben segíthetünk?',
@@ -1594,7 +1596,8 @@ const chatInput = document.getElementById('chatMessage');
 
 if (chatForm && chatBody && chatInput) {
     const CHAT_ACCESS_KEY = '7a18362d-7c64-408a-a608-72015d3f2b4e';
-    const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    const isValidEmail = (value) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value);
+    const isValidName = (value) => /^\p{L}[\p{L}\s'-]{1,49}$/u.test(value) && /\p{L}{2,}/u.test(value);
 
     let step = 'intro';
     const chatData = { intro: '', name: '', email: '', message: '' };
@@ -1667,6 +1670,10 @@ if (chatForm && chatBody && chatInput) {
             step = 'name';
             addChatMessage(dictionary.chat_ask_name, 'ai');
         } else if (step === 'name') {
+            if (!isValidName(value)) {
+                addChatMessage(dictionary.chat_invalid_name, 'ai');
+                return;
+            }
             chatData.name = value;
             step = 'email';
             addChatMessage(dictionary.chat_ask_email.replace('{name}', chatData.name), 'ai');
