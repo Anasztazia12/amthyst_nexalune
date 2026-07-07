@@ -76,7 +76,7 @@ const translations = {
         about_digital_card_click: 'click here',
         about_eyebrow: 'About me',
         about_h1: 'Hi, I am Anasztázia',
-        about_lead: 'I’m a <span class="bold">Web Application Developer</span> who loves building clean, modern interfaces and apps.',
+        about_lead: 'I’m a <span class="bold word-cascade">Web Application Developer</span> who loves building clean, modern interfaces and apps.',
         about_p1: 'About me — a multidisciplinary developer. Clarity and structure matter to me — I build websites and web apps that look good, work well, and are user-friendly. For me, good design isn’t about trends, it’s about making things easy.',
         about_p2: 'Before turning to web development, I worked in several fields that shaped how I think. Among other things, I’ve worked as a <span class="bold">Pharmacy Dispensing Assistant</span> and a <span class="bold">Personal Trainer</span>, and I’m also qualified as a <span class="bold">Legal Assistant</span>, <span class="bold">Fitness Instructor</span>, <span class="bold">Back Pain Specialist Instructor</span>, and <span class="bold">Child and Youth Supervisor</span> <span class="emphasis-soft">(child psychology, psychology, pedagogy)</span>, as well as holding a <span class="bold">Mental Health First Aid and Advocacy in the Workplace</span> certificate.',
         about_p3: 'I’ve always been interested in how digital products are built, so when I discovered web development, I dove in — and it was the right decision. My previous experience and studies give me a unique perspective. <span class="highlight">I don’t just see things through a developer’s eyes, but also as a healthcare, sports, education, and legal professional, I can design and build websites and web apps that truly fit their audience — functional, clear, and valuable.</span>',
@@ -510,7 +510,7 @@ const translations = {
         about_digital_card_click: 'Kattints ide',
         about_eyebrow: 'Rólam',
         about_h1: 'Szia! Anasztázia vagyok.',
-        about_lead: '<span class="bold">Webes alkalmazásfejlesztő</span>, aki szeret letisztult, modern felületeket, appokat építeni.',
+        about_lead: '<span class="bold word-cascade">Webes alkalmazásfejlesztő</span>, aki szeret letisztult, modern felületeket, appokat építeni.',
         about_p1: 'Rólam — multidiszciplináris fejlesztő. Fontos számomra az átláthatóság és a struktúra — olyan weboldalakat és webalkalmazásokat építek, amelyek jól néznek ki, jól működnek, és felhasználóbarátak. Számomra a jó design nem a trendekről szól, hanem arról, hogy könnyűvé tegyük a dolgokat.',
         about_p2: 'Mielőtt a webfejlesztés felé fordultam, több olyan területen dolgoztam, amelyek meghatározzák, hogyan gondolkodom. Többek közt <span class="bold">Gyógyszerkiadói szakasszisztensként</span> és <span class="bold">Személyi edzőként</span>, emellett <span class="bold">Jogi asszisztens</span>, <span class="bold">Fitness instruktor</span>, <span class="bold">Derékfájásra specializálódott instruktor</span>, <span class="bold">Gyermek- és ifjúságfelügyelő</span> <span class="emphasis-soft">(gyermeklélektan, pszichológia, pedagógia)</span>, valamint <span class="bold">Mentális elsősegély és érdekképviselet a munkahelyen</span> tanúsítvánnyal is rendelkezem.',
         about_p3: 'Mindig is érdekelt, hogyan épülnek fel a digitális termékek, ezért amikor felfedeztem a webfejlesztést, belevágtam — és ez volt a helyes döntés. A korábbi tapasztalataim, iskolai tanulmányaim egyedi perspektívát adnak. <span class="highlight">Nemcsak fejlesztői szemmel nézem a dolgokat, hanem egészségügyi, sport, pedagógiai és jogi szakemberként is, így olyan weboldalakat és webalkalmazásokat tudok tervezni és építeni, amelyek valóban illeszkednek a célközönségükhöz — funkcionálisak, érthetőek és értékteremtőek.</span>',
@@ -937,6 +937,7 @@ function setupWordCascade(el) {
     words.forEach((word, i) => {
         if (i >= words.length - finalWordCount) {
             word.style.setProperty('--word-index', String(Number(word.style.getPropertyValue('--word-index')) + pauseBonus));
+            word.style.setProperty('--word-scale', '2');
             word.classList.add('word-anim-final');
         }
     });
@@ -958,6 +959,7 @@ const applyLanguage = (language) => {
         if (dictionary[key] !== undefined) {
             if (element.hasAttribute('data-i18n-html')) {
                 element.innerHTML = dictionary[key];
+                element.querySelectorAll('.word-cascade').forEach((inner) => setupWordCascade(inner));
             } else {
                 element.textContent = dictionary[key];
             }
