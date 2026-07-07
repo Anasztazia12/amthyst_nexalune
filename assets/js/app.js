@@ -889,6 +889,52 @@ document.querySelectorAll('.desktop-nav a, .hamburger-content a').forEach((link)
     }
 });
 
+const WORD_CASCADE_DIRECTIONS = [
+    { x: '70px', y: '0' },
+    { x: '-70px', y: '0' },
+    { x: '0', y: '-60px' },
+    { x: '0', y: '60px' },
+    { x: '0', y: '0', scale: '0.4' },
+    { x: '50px', y: '-40px' },
+];
+
+function setupWordCascade(el) {
+    el.classList.remove('is-visible');
+
+    let index = 0;
+    function processNode(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            const frag = document.createDocumentFragment();
+            node.textContent.split(/(\s+)/).forEach((part) => {
+                if (part === '') return;
+                if (/^\s+$/.test(part)) {
+                    frag.appendChild(document.createTextNode(part));
+                    return;
+                }
+                const span = document.createElement('span');
+                span.className = 'word-anim';
+                const dir = WORD_CASCADE_DIRECTIONS[index % WORD_CASCADE_DIRECTIONS.length];
+                span.style.setProperty('--word-x', dir.x);
+                span.style.setProperty('--word-y', dir.y);
+                span.style.setProperty('--word-scale', dir.scale || '1');
+                span.style.setProperty('--word-index', String(index));
+                span.textContent = part;
+                frag.appendChild(span);
+                index += 1;
+            });
+            node.replaceWith(frag);
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+            Array.from(node.childNodes).forEach(processNode);
+        }
+    }
+    Array.from(el.childNodes).forEach(processNode);
+
+    void el.offsetHeight;
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => el.classList.add('is-visible'));
+    });
+}
+
 const applyLanguage = (language) => {
     const dictionary = translations[language] || translations.en;
 
@@ -902,6 +948,9 @@ const applyLanguage = (language) => {
                 element.innerHTML = dictionary[key];
             } else {
                 element.textContent = dictionary[key];
+            }
+            if (element.classList.contains('word-cascade')) {
+                setupWordCascade(element);
             }
         }
     });
