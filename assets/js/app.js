@@ -929,6 +929,18 @@ function setupWordCascade(el) {
     }
     Array.from(el.childNodes).forEach(processNode);
 
+    // Give the final few words an extra pause plus a slower, heavier landing,
+    // so the ending of the sentence reads as a deliberate closing beat.
+    const words = el.querySelectorAll('.word-anim');
+    const finalWordCount = Math.min(4, words.length);
+    const pauseBonus = 3;
+    words.forEach((word, i) => {
+        if (i >= words.length - finalWordCount) {
+            word.style.setProperty('--word-index', String(Number(word.style.getPropertyValue('--word-index')) + pauseBonus));
+            word.classList.add('word-anim-final');
+        }
+    });
+
     void el.offsetHeight;
     requestAnimationFrame(() => {
         requestAnimationFrame(() => el.classList.add('is-visible'));
