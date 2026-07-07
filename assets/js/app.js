@@ -130,6 +130,9 @@ const translations = {
         chat_sending: 'Sending your message…',
         chat_success: 'Thanks! One of our colleagues will get back to you shortly.',
         chat_error: 'Something went wrong sending that — please try again, or use the contact page.',
+        chat_open_aria: 'Open chat',
+        chat_close_aria: 'Close chat',
+        chat_profanity: 'Let\'s keep things friendly — could you rephrase that?',
         portfolio_title: 'Amethyst Nexalune | Portfolio / Portfólió',
         portfolio_description: 'Browse a portfolio of websites and web apps combining clean design with practical, responsive behavior — from business sites to booking and budgeting apps.',
         portfolio_eyebrow: 'Selected work',
@@ -576,6 +579,9 @@ const translations = {
         chat_sending: 'Üzenet küldése…',
         chat_success: 'Köszönjük! Egyik kollégánk hamarosan jelentkezik.',
         chat_error: 'Valami hiba történt a küldés közben — próbáld meg újra, vagy használd a kapcsolat oldalt.',
+        chat_open_aria: 'Chat megnyitása',
+        chat_close_aria: 'Chat bezárása',
+        chat_profanity: 'Maradjunk a kulturált hangnemnél — megfogalmaznád másképp?',
         portfolio_title: 'Amethyst Nexalune | Portfolio / Portfólió',
         portfolio_description: 'Nézd meg a portfóliót: weboldalak és webalkalmazások, amelyek letisztult designt és praktikus, reszponzív működést kombinálnak — vállalkozói oldaltól foglalási appig.',
         portfolio_eyebrow: 'Kiválasztott munkák',
@@ -1590,6 +1596,47 @@ if (constellationCanvas && !window.matchMedia('(prefers-reduced-motion: reduce)'
     }
 }
 
+const chatFabToggle = document.getElementById('chatFabToggle');
+const chatPanel = document.getElementById('chatPanel');
+const chatCloseBtn = document.getElementById('chatClose');
+
+if (chatFabToggle && chatPanel) {
+    const openChatPanel = () => {
+        chatPanel.classList.add('is-open');
+        chatFabToggle.setAttribute('aria-expanded', 'true');
+        const input = document.getElementById('chatMessage');
+        if (input) input.focus();
+    };
+    const closeChatPanel = () => {
+        chatPanel.classList.remove('is-open');
+        chatFabToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    chatFabToggle.addEventListener('click', () => {
+        if (chatPanel.classList.contains('is-open')) {
+            closeChatPanel();
+        } else {
+            openChatPanel();
+        }
+    });
+    chatCloseBtn?.addEventListener('click', closeChatPanel);
+    document.addEventListener('click', (event) => {
+        if (
+            chatPanel.classList.contains('is-open') &&
+            !chatPanel.contains(event.target) &&
+            !chatFabToggle.contains(event.target)
+        ) {
+            closeChatPanel();
+        }
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && chatPanel.classList.contains('is-open')) {
+            closeChatPanel();
+            chatFabToggle.focus();
+        }
+    });
+}
+
 const chatForm = document.getElementById('chatForm');
 const chatBody = document.getElementById('chatBody');
 const chatInput = document.getElementById('chatMessage');
@@ -1598,6 +1645,17 @@ if (chatForm && chatBody && chatInput) {
     const CHAT_ACCESS_KEY = '7a18362d-7c64-408a-a608-72015d3f2b4e';
     const isValidEmail = (value) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value);
     const isValidName = (value) => /^\p{L}[\p{L}\s'-]{1,49}$/u.test(value) && /\p{L}{2,}/u.test(value);
+
+    const PROFANITY_WORDS = [
+        'fuck', 'fucking', 'fucker', 'motherfucker', 'shit', 'bullshit', 'bitch', 'asshole',
+        'bastard', 'cunt', 'dick', 'dickhead', 'piss', 'slut', 'whore', 'retard', 'nigger', 'faggot',
+        'kurva', 'kurvák', 'geci', 'gecis', 'picsa', 'picsába', 'faszfej', 'fasz', 'faszom',
+        'bazdmeg', 'baszd', 'baszod', 'basszus', 'szar', 'szarom', 'köcsög', 'buzi', 'ribanc',
+    ];
+    const containsProfanity = (value) => {
+        const normalized = value.toLowerCase();
+        return PROFANITY_WORDS.some((word) => new RegExp(`(?:^|[^\\p{L}])${word}(?:[^\\p{L}]|$)`, 'iu').test(normalized));
+    };
 
     let step = 'intro';
     const chatData = { intro: '', name: '', email: '', message: '' };
@@ -1664,6 +1722,11 @@ if (chatForm && chatBody && chatInput) {
         chatInput.value = '';
 
         const dictionary = translations[currentLanguage] || translations.en;
+
+        if (step !== 'email' && containsProfanity(value)) {
+            addChatMessage(dictionary.chat_profanity, 'ai');
+            return;
+        }
 
         if (step === 'intro') {
             chatData.intro = value;
