@@ -435,7 +435,12 @@ hr {
 }
 
 .bold {
-    font-weight: 700;
+    font-weight: 800;
+}
+
+.emphasis-soft {
+    font-style: italic;
+    font-weight: 600;
 }
 
 .qr-code-link {
