@@ -504,11 +504,11 @@ hr {
 }
 
 .qr-code {
-    width: 80px;
-    height: 80px;
-    padding: 6px;
+    width: 40px;
+    height: 40px;
+    padding: 3px;
     background: #fff;
-    border-radius: 10px;
+    border-radius: 8px;
     border: 1px solid var(--gold-soft);
     box-shadow: var(--shadow);
 }
@@ -1211,9 +1211,13 @@ body.lightbox-open {
 }
 
 .project-card-body {
-    display: grid;
-    align-content: start;
+    display: flex;
+    flex-direction: column;
     gap: 12px;
+}
+
+.project-card-body .button {
+    margin-top: auto;
 }
 
 .project-points {
@@ -1496,18 +1500,76 @@ body.lightbox-open {
 }
 
 /* ==========================================================================
+   Back-to-top button
+   ========================================================================== */
+#backToTopBtn {
+    position: fixed;
+    right: 20px;
+    bottom: 110px;
+    z-index: 40;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 0;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: #07111e;
+    font: inherit;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: 0 14px 34px rgba(94, 234, 212, 0.32);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+
+#backToTopBtn::before {
+    content: "↑";
+}
+
+#backToTopBtn.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#backToTopBtn:hover,
+#backToTopBtn:focus-visible {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+    #backToTopBtn {
+        right: 14px;
+        bottom: 96px;
+        padding: 8px 14px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #backToTopBtn {
+        transition: opacity 0.25s ease, visibility 0.25s;
+        transform: none;
+    }
+}
+
+/* ==========================================================================
    AI chat widget (floating button + popup panel, present on every page)
    ========================================================================== */
 .chat-widget {
     position: fixed;
     right: 20px;
-    bottom: 20px;
+    bottom: 28px;
     z-index: 45;
 }
 
 .chat-fab {
-    width: 56px;
-    height: 56px;
+    width: 68px;
+    height: 68px;
     border-radius: 50%;
     border: 0;
     display: flex;
@@ -1516,7 +1578,7 @@ body.lightbox-open {
     background: #12121c;
     color: #fff;
     cursor: pointer;
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.36);
     transition: transform 0.2s ease;
 }
 
@@ -1530,8 +1592,8 @@ body.lightbox-open {
 }
 
 .chat-fab svg {
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
 }
 
 .contact-ai {
@@ -1763,7 +1825,7 @@ body.lightbox-open {
 @media (max-width: 640px) {
     .chat-widget {
         right: 14px;
-        bottom: 14px;
+        bottom: 20px;
     }
 
     .contact-ai {

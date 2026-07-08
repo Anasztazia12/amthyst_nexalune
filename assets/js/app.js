@@ -476,6 +476,7 @@ const translations = {
         nav_contact: 'Kapcsolat',
         header_brand: 'Amethyst Nexalune',
         footer_brand: ' © 2026 Amethyst Nexalune – Minden jog fenntartva',
+        back_to_top: 'Vissza a tetejére',
         footer_tagline: 'Modern weboldalak és webalkalmazások',
         index_title: 'Amethyst Nexalune | Web Development & Web Apps / Webfejlesztés és Web Appok',
         index_description: 'Weboldalak, webappok készítése — profi UX/UI weboldalak és webappok, digitális névjegykártyák.',
@@ -1826,6 +1827,18 @@ if (chatForm && chatBody && chatInput) {
             chatData.message = value;
             submitChat();
         }
+    });
+}
+
+const backToTopBtn = document.getElementById('backToTopBtn');
+if (backToTopBtn) {
+    const toggleBackToTop = () => {
+        backToTopBtn.classList.toggle('is-visible', window.scrollY > 400);
+    };
+    toggleBackToTop();
+    window.addEventListener('scroll', toggleBackToTop, { passive: true });
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 
