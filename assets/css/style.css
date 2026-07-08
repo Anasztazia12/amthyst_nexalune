@@ -504,11 +504,11 @@ hr {
 }
 
 .qr-code {
-    width: 34px;
-    height: 34px;
-    padding: 3px;
+    width: 80px;
+    height: 80px;
+    padding: 6px;
     background: #fff;
-    border-radius: 6px;
+    border-radius: 10px;
     border: 1px solid var(--gold-soft);
     box-shadow: var(--shadow);
 }
@@ -523,9 +523,9 @@ hr {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 34px;
-    height: 34px;
-    border-radius: 6px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
     background: #fff;
     border: 1px solid var(--gold-soft);
     box-shadow: var(--shadow);
@@ -540,8 +540,12 @@ hr {
 }
 
 .social-icon-link svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
+}
+
+.social-icon-link.github {
+    color: #181717;
 }
 
 .digital-card {
