@@ -1529,6 +1529,14 @@ if (revealEls.length) {
                             }
                         });
                     }
+                    if (el.classList.contains('tilt-card')) {
+                        el.addEventListener('transitionend', function onTiltEntranceDone(event) {
+                            if (event.propertyName === 'transform') {
+                                el.classList.add('tilt-ready');
+                                el.removeEventListener('transitionend', onTiltEntranceDone);
+                            }
+                        });
+                    }
                     observer.unobserve(el);
                 }
             });
@@ -1538,6 +1546,40 @@ if (revealEls.length) {
     } else {
         revealEls.forEach((el) => el.classList.add('is-visible', 'reveal-done'));
     }
+}
+
+const gemScene = document.querySelector('.gem-scene');
+if (gemScene && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(hover: hover)').matches) {
+    const heroSection = gemScene.closest('.hero-section');
+    const MAX_GEM_TILT = 16;
+    let gemRafId = null;
+    let gemPending = null;
+
+    const applyGemTilt = () => {
+        if (gemPending) {
+            const { px, py } = gemPending;
+            gemScene.style.setProperty('--gem-tilt-x', `${((0.5 - py) * MAX_GEM_TILT).toFixed(2)}deg`);
+            gemScene.style.setProperty('--gem-tilt-y', `${((px - 0.5) * MAX_GEM_TILT).toFixed(2)}deg`);
+        }
+        gemRafId = null;
+    };
+
+    heroSection?.addEventListener('mousemove', (event) => {
+        const rect = gemScene.getBoundingClientRect();
+        gemPending = {
+            px: (event.clientX - rect.left) / rect.width,
+            py: (event.clientY - rect.top) / rect.height,
+        };
+        if (!gemRafId) gemRafId = requestAnimationFrame(applyGemTilt);
+    });
+
+    heroSection?.addEventListener('mouseleave', () => {
+        gemPending = null;
+        if (gemRafId) cancelAnimationFrame(gemRafId);
+        gemRafId = null;
+        gemScene.style.setProperty('--gem-tilt-x', '0deg');
+        gemScene.style.setProperty('--gem-tilt-y', '0deg');
+    });
 }
 
 const constellationCanvas = document.getElementById('constellation-canvas');

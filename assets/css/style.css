@@ -361,6 +361,88 @@ img {
     }
 }
 
+/* ==========================================================================
+   Rotating 3D gem — decorative amethyst crystal in the hero panel
+   ========================================================================== */
+.gem-scene {
+    --gem-tilt-x: 0deg;
+    --gem-tilt-y: 0deg;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 26px;
+    perspective: 700px;
+}
+
+.gem-scene::before {
+    content: "";
+    position: absolute;
+    inset: -34px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(146, 92, 214, 0.42), transparent 70%);
+    filter: blur(10px);
+    z-index: 0;
+}
+
+.gem {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    animation: gem-spin 16s linear infinite;
+    will-change: transform;
+}
+
+@keyframes gem-spin {
+    from { transform: rotateX(calc(-14deg + var(--gem-tilt-x))) rotateY(var(--gem-tilt-y)); }
+    to   { transform: rotateX(calc(-14deg + var(--gem-tilt-x))) rotateY(calc(360deg + var(--gem-tilt-y))); }
+}
+
+.gem-facet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 78px;
+    height: 112px;
+    margin: -56px 0 0 -39px;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    background: linear-gradient(155deg, #cda6f2 0%, #7a45c4 55%, #35164f 100%);
+    border: 1px solid rgba(216, 183, 101, 0.45);
+    box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.18);
+    backface-visibility: hidden;
+    transform: rotateY(calc(45deg * var(--i, 0))) translateZ(58px);
+}
+
+.gem-facet:nth-child(even) {
+    background: linear-gradient(155deg, #b98be0 0%, #5c2f96 55%, #240f3d 100%);
+}
+
+.gem-facet:nth-child(3n) {
+    height: 120px;
+    margin-top: -60px;
+}
+
+@media (max-width: 960px) {
+    .gem-scene {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+    }
+
+    .gem-facet {
+        width: 62px;
+        height: 90px;
+        margin: -45px 0 0 -31px;
+        transform: rotateY(calc(45deg * var(--i, 0))) translateZ(46px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gem {
+        animation: none;
+        transform: rotateX(-14deg) rotateY(20deg);
+    }
+}
+
 .section.cta-section-compact {
     padding-top: clamp(10px, 1.5vw, 20px);
     padding-bottom: clamp(10px, 1.5vw, 20px);
@@ -1068,10 +1150,17 @@ hr {
     --glare-y: 50%;
     position: relative;
     transform-style: preserve-3d;
+    transition: box-shadow 0.4s ease;
 }
 
 .tilt-card.chaos-card.reveal.is-visible {
     transform: translate3d(0, 0, 0) rotate(0deg) perspective(1100px) rotateX(var(--tilt-rx)) rotateY(var(--tilt-ry)) scale3d(var(--tilt-scale), var(--tilt-scale), 1);
+}
+
+/* Once the fly-in entrance has finished (tilt-ready is added by app.js on
+   transitionend), swap to a snappy transition so hover-tilt tracks the
+   cursor instead of inheriting the slow 1.1s entrance easing. */
+.tilt-card.tilt-ready.chaos-card.reveal.is-visible {
     transition: transform 0.12s ease-out, box-shadow 0.4s ease;
 }
 
