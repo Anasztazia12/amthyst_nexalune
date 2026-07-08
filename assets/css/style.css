@@ -987,6 +987,8 @@ hr {
     box-shadow: var(--shadow);
     overflow: hidden;
     display: grid;
+    grid-template-rows: auto 1fr;
+    align-content: start;
     gap: 16px;
 }
 
@@ -1175,6 +1177,7 @@ body.lightbox-open {
 
 .project-card-body {
     display: grid;
+    align-content: start;
     gap: 12px;
 }
 
