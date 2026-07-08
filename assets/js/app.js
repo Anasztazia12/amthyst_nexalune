@@ -267,6 +267,8 @@ const translations = {
         contact_email_value: 'contact@amethyst-nexalune.co.uk',
         contact_focus_label: 'Focus',
         contact_focus_value: 'Web sites, web apps, and responsive UI',
+        contact_availability_label: 'Availability',
+        contact_availability_value: 'Remote — working with clients worldwide',
         contact_process_label: 'Process',
         contact_process_value: 'Clear structure, clean style, and practical interaction',
         contact_include_eyebrow: 'What to include',
@@ -731,6 +733,8 @@ const translations = {
         contact_email_value: 'contact@amethyst-nexalune.co.uk',
         contact_focus_label: 'Fókusz',
         contact_focus_value: 'Weboldalak, webappok és reszponzív UI',
+        contact_availability_label: 'Elérhetőség',
+        contact_availability_value: 'Távmunkában dolgozom — ügyfelekkel világszerte',
         contact_process_label: 'Folyamat',
         contact_process_value: 'Tiszta struktúra, letisztult stílus és gyakorlatias interakció',
         contact_include_eyebrow: 'Mit érdemes megadni',
@@ -1461,6 +1465,48 @@ document.querySelectorAll('.chaos-card').forEach((card) => {
     card.style.setProperty('--chaos-rot', `${rotation}deg`);
     card.style.setProperty('--chaos-delay', `${delay}ms`);
 });
+
+const tiltCards = document.querySelectorAll('.tilt-card');
+if (tiltCards.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(hover: hover)').matches) {
+    const MAX_TILT = 10;
+
+    tiltCards.forEach((card) => {
+        let rafId = null;
+        let pending = null;
+
+        const applyTilt = () => {
+            if (pending) {
+                const { px, py } = pending;
+                const rx = (0.5 - py) * MAX_TILT * 2;
+                const ry = (px - 0.5) * MAX_TILT * 2;
+                card.style.setProperty('--tilt-rx', `${rx.toFixed(2)}deg`);
+                card.style.setProperty('--tilt-ry', `${ry.toFixed(2)}deg`);
+                card.style.setProperty('--tilt-scale', '1.03');
+                card.style.setProperty('--glare-x', `${(px * 100).toFixed(1)}%`);
+                card.style.setProperty('--glare-y', `${(py * 100).toFixed(1)}%`);
+            }
+            rafId = null;
+        };
+
+        card.addEventListener('mousemove', (event) => {
+            const rect = card.getBoundingClientRect();
+            pending = {
+                px: (event.clientX - rect.left) / rect.width,
+                py: (event.clientY - rect.top) / rect.height,
+            };
+            if (!rafId) rafId = requestAnimationFrame(applyTilt);
+        });
+
+        card.addEventListener('mouseleave', () => {
+            pending = null;
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = null;
+            card.style.setProperty('--tilt-rx', '0deg');
+            card.style.setProperty('--tilt-ry', '0deg');
+            card.style.setProperty('--tilt-scale', '1');
+        });
+    });
+}
 
 const revealEls = document.querySelectorAll('.reveal');
 if (revealEls.length) {
