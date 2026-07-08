@@ -126,9 +126,14 @@ const translations = {
         chat_invalid_name: 'That doesn’t look like a valid name — could you type your full name?',
         chat_ask_email: 'Nice to meet you, {name}! What’s the best email to reach you at?',
         chat_invalid_email: 'Hmm, that doesn’t look like a valid email — could you try again?',
-        chat_ask_message: 'Perfect. What can we help you with?',
+        chat_ask_category: 'Perfect. What can I help you with? Pick whichever fits best:',
+        chat_category_website: 'Website',
+        chat_category_webapp: 'Web app',
+        chat_category_card: 'Digital business card',
+        chat_category_other: 'Other',
+        chat_ask_details: 'Great — could you tell me a bit more about it?',
         chat_sending: 'Sending your message…',
-        chat_success: 'Thanks! One of our colleagues will get back to you shortly.',
+        chat_success: 'Your message was sent successfully! Thank you — I’ll be in touch with you soon.',
         chat_error: 'Something went wrong sending that — please try again, or use the contact page.',
         chat_open_aria: 'Open chat',
         chat_close_aria: 'Close chat',
@@ -571,13 +576,18 @@ const translations = {
         chat_greeting: 'Szia, az AI asszisztensed vagyok. Miben segíthetek ma?',
         chat_input_placeholder: 'Írd ide az üzeneted…',
         chat_send_btn: 'Küldés',
-        chat_ask_name: 'Köszönjük, hogy írtál! Elárulnád a neved?',
+        chat_ask_name: 'Köszönöm, hogy írtál! Elárulnád a neved?',
         chat_invalid_name: 'Ez nem tűnik érvényes névnek — beírnád a teljes neved?',
         chat_ask_email: 'Örvendek, {name}! Mi az az email cím, ahol elérhetünk?',
         chat_invalid_email: 'Hmm, ez nem tűnik érvényes email címnek — próbáld meg még egyszer.',
-        chat_ask_message: 'Remek. Miben segíthetünk?',
+        chat_ask_category: 'Remek. Miben segíthetek? Válaszd ki, ami leginkább illik rá:',
+        chat_category_website: 'Weboldal',
+        chat_category_webapp: 'Web app',
+        chat_category_card: 'Digitális névjegykártya',
+        chat_category_other: 'Egyéb',
+        chat_ask_details: 'Szuper! Mesélnél bővebben róla?',
         chat_sending: 'Üzenet küldése…',
-        chat_success: 'Köszönjük! Egyik kollégánk hamarosan jelentkezik.',
+        chat_success: 'Az üzenetet sikeresen elküldtük! Köszönöm, hamarosan megkereslek.',
         chat_error: 'Valami hiba történt a küldés közben — próbáld meg újra, vagy használd a kapcsolat oldalt.',
         chat_open_aria: 'Chat megnyitása',
         chat_close_aria: 'Chat bezárása',
@@ -1600,18 +1610,20 @@ const chatFabToggle = document.getElementById('chatFabToggle');
 const chatPanel = document.getElementById('chatPanel');
 const chatCloseBtn = document.getElementById('chatClose');
 
-if (chatFabToggle && chatPanel) {
-    const openChatPanel = () => {
-        chatPanel.classList.add('is-open');
-        chatFabToggle.setAttribute('aria-expanded', 'true');
-        const input = document.getElementById('chatMessage');
-        if (input) input.focus();
-    };
-    const closeChatPanel = () => {
-        chatPanel.classList.remove('is-open');
-        chatFabToggle.setAttribute('aria-expanded', 'false');
-    };
+const openChatPanel = () => {
+    if (!chatPanel || !chatFabToggle) return;
+    chatPanel.classList.add('is-open');
+    chatFabToggle.setAttribute('aria-expanded', 'true');
+    const input = document.getElementById('chatMessage');
+    if (input) input.focus();
+};
+const closeChatPanel = () => {
+    if (!chatPanel || !chatFabToggle) return;
+    chatPanel.classList.remove('is-open');
+    chatFabToggle.setAttribute('aria-expanded', 'false');
+};
 
+if (chatFabToggle && chatPanel) {
     chatFabToggle.addEventListener('click', () => {
         if (chatPanel.classList.contains('is-open')) {
             closeChatPanel();
@@ -1621,11 +1633,9 @@ if (chatFabToggle && chatPanel) {
     });
     chatCloseBtn?.addEventListener('click', closeChatPanel);
     document.addEventListener('click', (event) => {
-        if (
-            chatPanel.classList.contains('is-open') &&
-            !chatPanel.contains(event.target) &&
-            !chatFabToggle.contains(event.target)
-        ) {
+        if (!chatPanel.classList.contains('is-open')) return;
+        const path = event.composedPath();
+        if (!path.includes(chatPanel) && !path.includes(chatFabToggle)) {
             closeChatPanel();
         }
     });
@@ -1658,7 +1668,7 @@ if (chatForm && chatBody && chatInput) {
     };
 
     let step = 'intro';
-    const chatData = { intro: '', name: '', email: '', message: '' };
+    const chatData = { intro: '', name: '', email: '', category: '', message: '' };
 
     const addChatMessage = (text, sender) => {
         const bubble = document.createElement('div');
@@ -1668,6 +1678,47 @@ if (chatForm && chatBody && chatInput) {
         bubble.appendChild(p);
         chatBody.appendChild(bubble);
         chatBody.scrollTop = chatBody.scrollHeight;
+    };
+
+    const addChatChoices = (options, onPick) => {
+        const wrap = document.createElement('div');
+        wrap.className = 'msg-choices';
+        options.forEach((option) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'chat-choice-btn';
+            btn.textContent = option;
+            btn.addEventListener('click', () => {
+                wrap.remove();
+                onPick(option);
+            });
+            wrap.appendChild(btn);
+        });
+        chatBody.appendChild(wrap);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    };
+
+    const askCategory = () => {
+        const dictionary = translations[currentLanguage] || translations.en;
+        step = 'category';
+        chatInput.disabled = true;
+        addChatMessage(dictionary.chat_ask_category, 'ai');
+        addChatChoices(
+            [
+                dictionary.chat_category_website,
+                dictionary.chat_category_webapp,
+                dictionary.chat_category_card,
+                dictionary.chat_category_other,
+            ],
+            (option) => {
+                chatInput.disabled = false;
+                chatInput.focus();
+                addChatMessage(option, 'user');
+                chatData.category = option;
+                step = 'details';
+                addChatMessage(dictionary.chat_ask_details, 'ai');
+            },
+        );
     };
 
     const setChatBusy = (busy) => {
@@ -1682,7 +1733,11 @@ if (chatForm && chatBody && chatInput) {
         setChatBusy(true);
         addChatMessage(dictionary.chat_sending, 'ai');
 
-        const combinedMessage = chatData.intro ? `${chatData.intro}\n\n${chatData.message}` : chatData.message;
+        const parts = [];
+        if (chatData.category) parts.push(`${chatData.category}`);
+        if (chatData.intro) parts.push(chatData.intro);
+        if (chatData.message) parts.push(chatData.message);
+        const combinedMessage = parts.join('\n\n');
 
         try {
             const response = await fetch('https://api.web3forms.com/submit', {
@@ -1701,14 +1756,15 @@ if (chatForm && chatBody && chatInput) {
             if (response.ok && result.success) {
                 addChatMessage(dictionary.chat_success, 'ai');
                 step = 'done';
+                setTimeout(closeChatPanel, 2600);
             } else {
                 addChatMessage(dictionary.chat_error, 'ai');
-                step = 'message';
+                step = 'details';
                 setChatBusy(false);
             }
         } catch (error) {
             addChatMessage(dictionary.chat_error, 'ai');
-            step = 'message';
+            step = 'details';
             setChatBusy(false);
         }
     };
@@ -1716,7 +1772,7 @@ if (chatForm && chatBody && chatInput) {
     chatForm.addEventListener('submit', (event) => {
         event.preventDefault();
         const value = chatInput.value.trim();
-        if (!value || step === 'done' || step === 'sending') return;
+        if (!value || step === 'done' || step === 'sending' || step === 'category') return;
 
         addChatMessage(value, 'user');
         chatInput.value = '';
@@ -1746,9 +1802,8 @@ if (chatForm && chatBody && chatInput) {
                 return;
             }
             chatData.email = value;
-            step = 'message';
-            addChatMessage(dictionary.chat_ask_message, 'ai');
-        } else if (step === 'message') {
+            askCategory();
+        } else if (step === 'details') {
             chatData.message = value;
             submitChat();
         }
