@@ -1150,7 +1150,6 @@ hr {
     --glare-y: 50%;
     position: relative;
     transform-style: preserve-3d;
-    transition: box-shadow 0.4s ease;
 }
 
 .tilt-card.chaos-card.reveal.is-visible {
@@ -1159,9 +1158,11 @@ hr {
 
 /* Once the fly-in entrance has finished (tilt-ready is added by app.js on
    transitionend), swap to a snappy transition so hover-tilt tracks the
-   cursor instead of inheriting the slow 1.1s entrance easing. */
+   cursor instead of inheriting the slow 1.1s entrance easing. box-shadow is
+   intentionally left untransitioned (a paint-only property) so hover doesn't
+   register as a non-composited animation. */
 .tilt-card.tilt-ready.chaos-card.reveal.is-visible {
-    transition: transform 0.12s ease-out, box-shadow 0.4s ease;
+    transition: transform 0.12s ease-out;
 }
 
 .tilt-card:hover {
@@ -1268,23 +1269,37 @@ hr {
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 2px;
 }
 
+/* The button is sized to the 24px touch-target minimum; the visible dot
+   is a smaller ::before centered inside it so the pill stays dainty. */
 .carousel-dot {
-    width: 7px;
-    height: 7px;
+    position: relative;
+    width: 24px;
+    height: 24px;
     padding: 0;
     border: 0;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.45);
+    background: transparent;
     cursor: pointer;
-    transition: width 0.2s ease, background 0.2s ease;
 }
 
-.carousel-dot.active {
+.carousel-dot::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 18px;
+    height: 7px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.45);
+    transform: translate(-50%, -50%) scaleX(0.389);
+    transition: transform 0.2s ease;
+}
+
+.carousel-dot.active::before {
     background: var(--accent-strong);
+    transform: translate(-50%, -50%) scaleX(1);
 }
 
 .carousel-slide {
