@@ -1095,17 +1095,14 @@ hr {
 }
 
 .price-list-extra-label {
-    margin: 0;
+    margin: 4px 0 0;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border);
     color: var(--muted);
     font-size: 0.78rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-}
-
-.price-list-extra {
-    padding-bottom: 12px;
-    border-bottom: 1px dashed var(--border);
 }
 
 .price-card .button {
@@ -1778,11 +1775,9 @@ body.lightbox-open {
     transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
 }
 
-#backToTopBtn::before {
-    content: "↑";
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 1;
+#backToTopBtn svg {
+    width: 22px;
+    height: 22px;
 }
 
 #backToTopBtn.is-visible {
@@ -1818,7 +1813,7 @@ body.lightbox-open {
 .chat-widget {
     position: fixed;
     right: 20px;
-    bottom: 28px;
+    top: 90px;
     z-index: 45;
 }
 
@@ -1854,7 +1849,7 @@ body.lightbox-open {
 .contact-ai {
     position: absolute;
     right: 0;
-    bottom: calc(100% + 14px);
+    top: calc(100% + 14px);
     width: min(360px, calc(100vw - 40px));
     display: flex;
     flex-direction: column;
@@ -1865,8 +1860,8 @@ body.lightbox-open {
     overflow: hidden;
     visibility: hidden;
     opacity: 0;
-    transform: translateY(16px) scale(0.96);
-    transform-origin: bottom right;
+    transform: translateY(-16px) scale(0.96);
+    transform-origin: top right;
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
 }
 
@@ -2080,7 +2075,7 @@ body.lightbox-open {
 @media (max-width: 640px) {
     .chat-widget {
         right: 14px;
-        bottom: 20px;
+        top: 78px;
     }
 
     .contact-ai {
