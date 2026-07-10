@@ -509,10 +509,17 @@ img {
 }
 
 .section-heading h2,
-.hero-panel h2,
 .cta-card h2,
 .split-grid h2 {
     font-size: clamp(1.8rem, 3.2vw, 3.1rem);
+}
+
+/* Narrower than the other h2 contexts above — this one lives in the
+   hero sidebar card, where the full section-heading size overflows
+   longer titles (e.g. "My IT qualifications/certifications"). */
+.hero-panel h2 {
+    font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+    overflow-wrap: break-word;
 }
 
 .lead,
