@@ -1094,6 +1094,20 @@ hr {
     background: linear-gradient(135deg, var(--accent), var(--accent-strong));
 }
 
+.price-list-extra-label {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.price-list-extra {
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--border);
+}
+
 .price-card .button {
     margin-top: auto;
     width: 100%;
@@ -1747,15 +1761,15 @@ body.lightbox-open {
     z-index: 40;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 10px 16px;
-    border-radius: 999px;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
     border: 0;
     background: linear-gradient(135deg, var(--accent), var(--accent-strong));
     color: #07111e;
     font: inherit;
-    font-weight: 700;
-    font-size: 0.85rem;
     cursor: pointer;
     box-shadow: 0 14px 34px rgba(94, 234, 212, 0.32);
     opacity: 0;
@@ -1766,6 +1780,9 @@ body.lightbox-open {
 
 #backToTopBtn::before {
     content: "↑";
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1;
 }
 
 #backToTopBtn.is-visible {
@@ -1783,8 +1800,8 @@ body.lightbox-open {
     #backToTopBtn {
         right: 14px;
         bottom: 96px;
-        padding: 8px 14px;
-        font-size: 0.8rem;
+        width: 40px;
+        height: 40px;
     }
 }
 
