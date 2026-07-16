@@ -1900,18 +1900,46 @@ body.lightbox-open {
     height: 11px;
     border-radius: 50%;
     flex-shrink: 0;
+    animation: dot-cycle 3s linear infinite;
 }
 
 .contact-ai .dot-green {
-    background: #34c2ad;
+    animation-delay: -1s;
 }
 
 .contact-ai .dot-yellow {
-    background: #d8b765;
+    animation-delay: -2s;
 }
 
 .contact-ai .dot-red {
-    background: #e2704a;
+    animation-delay: 0s;
+}
+
+@keyframes dot-cycle {
+    0%, 100% {
+        background-color: #34c2ad;
+    }
+    33.333% {
+        background-color: #d8b765;
+    }
+    66.666% {
+        background-color: #e2704a;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contact-ai .dot {
+        animation: none;
+    }
+    .contact-ai .dot-green {
+        background: #34c2ad;
+    }
+    .contact-ai .dot-yellow {
+        background: #d8b765;
+    }
+    .contact-ai .dot-red {
+        background: #e2704a;
+    }
 }
 
 .contact-ai-title {
