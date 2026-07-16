@@ -1904,7 +1904,7 @@ body.lightbox-open {
 }
 
 .contact-ai .dot-green {
-    animation-delay: -1s;
+    animation-delay: 0s;
 }
 
 .contact-ai .dot-yellow {
@@ -1912,7 +1912,7 @@ body.lightbox-open {
 }
 
 .contact-ai .dot-red {
-    animation-delay: 0s;
+    animation-delay: -1s;
 }
 
 @keyframes dot-cycle {
