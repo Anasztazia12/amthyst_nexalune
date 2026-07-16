@@ -1851,7 +1851,7 @@ body.lightbox-open {
     right: 0;
     top: calc(100% + 14px);
     width: min(360px, calc(100vw - 40px));
-    max-height: calc(100vh - 130px);
+    max-height: calc(100vh - 192px);
     display: flex;
     flex-direction: column;
     border-radius: var(--radius-lg);

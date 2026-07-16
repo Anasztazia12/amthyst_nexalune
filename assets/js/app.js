@@ -1971,7 +1971,12 @@ if (chatForm && chatBody && chatInput) {
             askCategory();
         } else if (step === 'details') {
             chatData.message = value;
-            submitChat();
+            setChatBusy(true);
+            askAI(value).then((reply) => {
+                setChatBusy(false);
+                if (reply) addChatMessage(reply, 'ai');
+                submitChat();
+            });
         }
     });
 }

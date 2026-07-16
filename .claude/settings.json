@@ -45,7 +45,10 @@
       "Bash(npx -y http-server -p 8998 -s)",
       "Bash(sed -i s/8997/8998/ C:/Users/rkara/AppData/Local/Temp/claude/c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune/b6c7bd51-ce61-4ab6-bd18-83a742c52a56/scratchpad/dots_step_test.js)",
       "PowerShell(Get-NetTCPConnection -LocalPort 8998 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue })",
-      "Bash(npx -y http-server -p 8999 -s)"
+      "Bash(npx -y http-server -p 8999 -s)",
+      "Bash(node C:/Users/rkara/AppData/Local/Temp/claude/c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune/b6c7bd51-ce61-4ab6-bd18-83a742c52a56/scratchpad/short_test.js C:/Users/rkara/AppData/Local/Temp/claude/c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune/b6c7bd51-ce61-4ab6-bd18-83a742c52a56/scratchpad/short_chat.png)",
+      "Bash(node C:/Users/rkara/AppData/Local/Temp/claude/c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune/b6c7bd51-ce61-4ab6-bd18-83a742c52a56/scratchpad/short_test.js C:/Users/rkara/AppData/Local/Temp/claude/c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune/b6c7bd51-ce61-4ab6-bd18-83a742c52a56/scratchpad/short_chat2.png)",
+      "PowerShell(Get-NetTCPConnection -LocalPort 8999 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue })"
     ],
     "additionalDirectories": [
       "C:\\Users\\rkara\\AppData\\Local\\Temp\\claude\\c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune\\12dc7269-2192-400e-9d6c-9c94ac1e5011\\scratchpad"
