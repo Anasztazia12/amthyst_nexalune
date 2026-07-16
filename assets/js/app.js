@@ -1787,7 +1787,7 @@ if (chatForm && chatBody && chatInput) {
             const response = await fetch(AI_WORKER_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: userText, history: aiHistory, lang: currentLanguage }),
+                body: JSON.stringify({ message: userText, history: aiHistory, lang: chatLanguage }),
             });
             if (!response.ok) return null;
             const data = await response.json();
@@ -1877,7 +1877,7 @@ if (chatForm && chatBody && chatInput) {
     };
 
     const submitChat = async () => {
-        const dictionary = translations[currentLanguage] || translations.en;
+        const dictionary = translations[chatLanguage] || translations.en;
         step = 'sending';
         setChatBusy(true);
         addChatMessage(dictionary.chat_sending, 'ai');
@@ -1926,7 +1926,10 @@ if (chatForm && chatBody && chatInput) {
         addChatMessage(value, 'user');
         chatInput.value = '';
 
-        const dictionary = translations[currentLanguage] || translations.en;
+        if (step === 'intro') {
+            chatLanguage = detectChatLanguage(value);
+        }
+        const dictionary = translations[chatLanguage] || translations.en;
 
         if (step !== 'email' && containsProfanity(value)) {
             addChatMessage(dictionary.chat_profanity, 'ai');
