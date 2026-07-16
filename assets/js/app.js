@@ -607,7 +607,7 @@ const translations = {
         chat_greeting: 'Szia, az AI asszisztensed vagyok. Miben segíthetek ma?',
         chat_input_placeholder: 'Írd ide az üzeneted…',
         chat_send_btn: 'Küldés',
-        chat_ask_name: 'Köszönöm, hogy írtál! Elárulnád a neved?',
+        chat_ask_name: 'Köszönöm, hogy írtál! Elkérhetem a neved? Megadnád?',
         chat_invalid_name: 'Ez nem tűnik érvényes névnek — beírnád a teljes neved?',
         chat_ask_email: 'Örvendek, {name}! Mi az az email cím, ahol elérhetünk?',
         chat_invalid_email: 'Hmm, ez nem tűnik érvényes email címnek — próbáld meg még egyszer.',
@@ -1799,7 +1799,15 @@ if (chatForm && chatBody && chatInput) {
         }
     };
     const isValidEmail = (value) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value);
-    const isValidName = (value) => /^\p{L}[\p{L}\s'-]{1,49}$/u.test(value) && /\p{L}{2,}/u.test(value);
+    const NON_NAME_WORDS = /\b(weboldal|weboldalak|webalkalmaz[aá]s|webshop|webapp|marka|m[aá]rka|[aá]r|[aá]rak|[aá]raj[aá]nlat|[aá]raj[aá]nlatot|szeretn[eé]k|szeretn[eé]nk|[eé]rdekel|[eé]rdekelnek|[eé]rdekl[oő]dn[eé]k|k[eé]rd[eé]s|k[eé]rd[eé]sem|milyen|mennyi|mennyibe|hogyan|tudn[aá]tok|tudsz|tudna|kellene|kell|seg[ií]ts[eé]g|website|websites|webpage|price|prices|pricing|cost|costs|quote|want|need|interested|question|help|hello|hi|szia|hell[oó]|sziasztok)\b/iu;
+    const isValidName = (value) => {
+        const trimmed = value.trim();
+        if (!/^\p{L}[\p{L}\s'-]{1,49}$/u.test(trimmed)) return false;
+        if (!/\p{L}{2,}/u.test(trimmed)) return false;
+        if (trimmed.split(/\s+/).length > 3) return false;
+        if (NON_NAME_WORDS.test(trimmed)) return false;
+        return true;
+    };
 
     const PROFANITY_WORDS = [
         'fuck', 'fucking', 'fucker', 'motherfucker', 'shit', 'bullshit', 'bitch', 'asshole',
@@ -1941,9 +1949,9 @@ if (chatForm && chatBody && chatInput) {
             setChatBusy(true);
             askAI(value).then((reply) => {
                 setChatBusy(false);
-                if (reply) addChatMessage(reply, 'ai');
                 step = 'name';
-                addChatMessage(dictionary.chat_ask_name, 'ai');
+                const combined = reply ? `${reply}\n\n${dictionary.chat_ask_name}` : dictionary.chat_ask_name;
+                addChatMessage(combined, 'ai');
                 chatInput.focus();
             });
         } else if (step === 'name') {

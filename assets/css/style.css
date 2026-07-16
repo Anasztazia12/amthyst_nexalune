@@ -1851,6 +1851,7 @@ body.lightbox-open {
     right: 0;
     top: calc(100% + 14px);
     width: min(360px, calc(100vw - 40px));
+    max-height: calc(100vh - 130px);
     display: flex;
     flex-direction: column;
     border-radius: var(--radius-lg);
@@ -1878,6 +1879,7 @@ body.lightbox-open {
     padding: 14px 18px;
     background: rgba(14, 18, 34, 0.9);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
 }
 
 .contact-ai-close {
@@ -1962,7 +1964,8 @@ body.lightbox-open {
     flex-direction: column;
     gap: 10px;
     padding: 18px;
-    min-height: 220px;
+    flex: 1 1 auto;
+    min-height: 120px;
     max-height: 380px;
     overflow-y: auto;
 }
@@ -1977,6 +1980,7 @@ body.lightbox-open {
 
 .contact-ai .msg p {
     margin: 0;
+    white-space: pre-line;
 }
 
 .contact-ai .msg-ai {
@@ -2031,6 +2035,7 @@ body.lightbox-open {
     gap: 10px;
     padding: 14px;
     border-top: 1px solid var(--border);
+    flex-shrink: 0;
 }
 
 .contact-ai-input input {
