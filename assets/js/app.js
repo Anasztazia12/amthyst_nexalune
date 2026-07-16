@@ -142,6 +142,7 @@ const translations = {
         chat_category_card: 'Digital business card',
         chat_category_other: 'Other',
         chat_ask_details: 'Great — could you tell me a bit more about it?',
+        chat_ask_more_details: 'Thanks! Could you write a bit more about exactly what you need, so we can prepare a more accurate offer?',
         chat_sending: 'Sending your message…',
         chat_success: 'Your message was sent successfully! Thank you — I’ll be in touch with you soon.',
         chat_error: 'Something went wrong sending that — please try again, or use the contact page.',
@@ -617,6 +618,7 @@ const translations = {
         chat_category_card: 'Digitális névjegykártya',
         chat_category_other: 'Egyéb',
         chat_ask_details: 'Szuper! Mesélnél bővebben róla?',
+        chat_ask_more_details: 'Köszönöm! Írnál még pár szót arról, pontosan mire lenne szükséged, hogy pontosabb ajánlatot tudjunk adni?',
         chat_sending: 'Üzenet küldése…',
         chat_success: 'Az üzenetet sikeresen elküldtük! Köszönöm, hamarosan megkereslek.',
         chat_error: 'Valami hiba történt a küldés közben — próbáld meg újra, vagy használd a kapcsolat oldalt.',
@@ -1823,11 +1825,12 @@ if (chatForm && chatBody && chatInput) {
     let step = 'intro';
     let chatLanguage = currentLanguage;
     const chatData = { intro: '', name: '', email: '', category: '', message: '' };
+    const chatTranscript = [];
 
     const HU_HINT_PATTERN = /[áéíóöőúüű]|\b(szia|helló|üdv|mennyibe|weboldal|árajánlat|köszönöm|kérdés|hogyan|van|nem|igen)\b/i;
     const detectChatLanguage = (text) => (HU_HINT_PATTERN.test(text) ? 'hu' : 'en');
 
-    const addChatMessage = (text, sender) => {
+    const addChatMessage = (text, sender, record = true) => {
         const bubble = document.createElement('div');
         bubble.className = `msg msg-${sender}`;
         const p = document.createElement('p');
@@ -1835,6 +1838,7 @@ if (chatForm && chatBody && chatInput) {
         bubble.appendChild(p);
         chatBody.appendChild(bubble);
         chatBody.scrollTop = chatBody.scrollHeight;
+        if (record) chatTranscript.push({ sender, text });
     };
 
     const addChatChoices = (options, onPick) => {
@@ -1888,13 +1892,15 @@ if (chatForm && chatBody && chatInput) {
         const dictionary = translations[chatLanguage] || translations.en;
         step = 'sending';
         setChatBusy(true);
-        addChatMessage(dictionary.chat_sending, 'ai');
 
-        const parts = [];
-        if (chatData.category) parts.push(`${chatData.category}`);
-        if (chatData.intro) parts.push(chatData.intro);
-        if (chatData.message) parts.push(chatData.message);
-        const combinedMessage = parts.join('\n\n');
+        const transcriptText = chatTranscript
+            .map((entry) => `${entry.sender === 'user' ? 'Visitor' : 'Assistant'}: ${entry.text}`)
+            .join('\n\n');
+        const combinedMessage = chatData.category
+            ? `Category: ${chatData.category}\n\n${transcriptText}`
+            : transcriptText;
+
+        addChatMessage(dictionary.chat_sending, 'ai', false);
 
         try {
             const response = await fetch('https://api.web3forms.com/submit', {
@@ -1911,16 +1917,16 @@ if (chatForm && chatBody && chatInput) {
             const result = await response.json();
 
             if (response.ok && result.success) {
-                addChatMessage(dictionary.chat_success, 'ai');
+                addChatMessage(dictionary.chat_success, 'ai', false);
                 step = 'done';
                 setTimeout(closeChatPanel, 2600);
             } else {
-                addChatMessage(dictionary.chat_error, 'ai');
+                addChatMessage(dictionary.chat_error, 'ai', false);
                 step = 'details';
                 setChatBusy(false);
             }
         } catch (error) {
-            addChatMessage(dictionary.chat_error, 'ai');
+            addChatMessage(dictionary.chat_error, 'ai', false);
             step = 'details';
             setChatBusy(false);
         }
@@ -1974,9 +1980,14 @@ if (chatForm && chatBody && chatInput) {
             setChatBusy(true);
             askAI(value).then((reply) => {
                 setChatBusy(false);
-                if (reply) addChatMessage(reply, 'ai');
-                submitChat();
+                step = 'more-details';
+                const combined = reply ? `${reply}\n\n${dictionary.chat_ask_more_details}` : dictionary.chat_ask_more_details;
+                addChatMessage(combined, 'ai');
+                chatInput.focus();
             });
+        } else if (step === 'more-details') {
+            chatData.message = `${chatData.message}\n\n${value}`;
+            submitChat();
         }
     });
 }
