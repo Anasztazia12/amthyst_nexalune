@@ -1779,8 +1779,7 @@ const chatInput = document.getElementById('chatMessage');
 
 if (chatForm && chatBody && chatInput) {
     const CHAT_ACCESS_KEY = '7a18362d-7c64-408a-a608-72015d3f2b4e';
-    // Replace with your deployed Worker URL (see cloudflare-worker/worker.js).
-    const AI_WORKER_URL = 'https://amethyst-nexalune-chat.YOUR-SUBDOMAIN.workers.dev';
+    const AI_WORKER_URL = 'https://amethyst-nexalune-chat.kickstartfitness-co-uk.workers.dev';
     const aiHistory = [];
 
     const askAI = async (userText) => {
