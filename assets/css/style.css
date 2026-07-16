@@ -1900,7 +1900,7 @@ body.lightbox-open {
     height: 12px;
     border-radius: 50%;
     flex-shrink: 0;
-    animation: dot-cycle 3s steps(1, jump-none) infinite;
+    animation: dot-cycle 3s linear infinite;
 }
 
 .contact-ai .dot-green {
@@ -1916,15 +1916,15 @@ body.lightbox-open {
 }
 
 @keyframes dot-cycle {
-    0% {
+    0%, 33.32% {
         background-color: #34c2ad;
         box-shadow: 0 0 5px 0 rgba(52, 194, 173, 0.7);
     }
-    33.333% {
+    33.33%, 66.65% {
         background-color: #d8b765;
         box-shadow: 0 0 5px 0 rgba(216, 183, 101, 0.7);
     }
-    66.666% {
+    66.66%, 99.98% {
         background-color: #e2704a;
         box-shadow: 0 0 5px 0 rgba(226, 112, 74, 0.7);
     }
