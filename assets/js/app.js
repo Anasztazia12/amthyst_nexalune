@@ -1738,6 +1738,20 @@ const chatFabToggle = document.getElementById('chatFabToggle');
 const chatPanel = document.getElementById('chatPanel');
 const chatCloseBtn = document.getElementById('chatClose');
 
+const chatWidgetEl = document.querySelector('.chat-widget');
+const topbarEl = document.querySelector('.topbar');
+const positionChatWidget = () => {
+    if (!chatWidgetEl || !topbarEl) return;
+    const bottom = topbarEl.getBoundingClientRect().bottom;
+    chatWidgetEl.style.top = `${Math.max(bottom, 0) + 12}px`;
+};
+positionChatWidget();
+window.addEventListener('resize', positionChatWidget);
+window.addEventListener('load', positionChatWidget);
+if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(positionChatWidget);
+}
+
 const openChatPanel = () => {
     if (!chatPanel || !chatFabToggle) return;
     chatPanel.classList.add('is-open');
