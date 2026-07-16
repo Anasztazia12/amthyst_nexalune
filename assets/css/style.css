@@ -1825,10 +1825,10 @@ body.lightbox-open {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #12121c;
-    color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: #07111e;
     cursor: pointer;
-    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.36);
+    box-shadow: 0 16px 34px rgba(94, 234, 212, 0.32);
     transition: transform 0.2s ease;
 }
 
