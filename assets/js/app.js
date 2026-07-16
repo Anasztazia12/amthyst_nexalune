@@ -1779,6 +1779,26 @@ const chatInput = document.getElementById('chatMessage');
 
 if (chatForm && chatBody && chatInput) {
     const CHAT_ACCESS_KEY = '7a18362d-7c64-408a-a608-72015d3f2b4e';
+    // Replace with your deployed Worker URL (see cloudflare-worker/worker.js).
+    const AI_WORKER_URL = 'https://amethyst-nexalune-chat.YOUR-SUBDOMAIN.workers.dev';
+    const aiHistory = [];
+
+    const askAI = async (userText) => {
+        try {
+            const response = await fetch(AI_WORKER_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userText, history: aiHistory }),
+            });
+            if (!response.ok) return null;
+            const data = await response.json();
+            if (!data.reply) return null;
+            aiHistory.push({ role: 'user', content: userText }, { role: 'assistant', content: data.reply });
+            return data.reply;
+        } catch {
+            return null;
+        }
+    };
     const isValidEmail = (value) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value);
     const isValidName = (value) => /^\p{L}[\p{L}\s'-]{1,49}$/u.test(value) && /\p{L}{2,}/u.test(value);
 
@@ -1912,8 +1932,14 @@ if (chatForm && chatBody && chatInput) {
 
         if (step === 'intro') {
             chatData.intro = value;
-            step = 'name';
-            addChatMessage(dictionary.chat_ask_name, 'ai');
+            setChatBusy(true);
+            askAI(value).then((reply) => {
+                setChatBusy(false);
+                if (reply) addChatMessage(reply, 'ai');
+                step = 'name';
+                addChatMessage(dictionary.chat_ask_name, 'ai');
+                chatInput.focus();
+            });
         } else if (step === 'name') {
             if (!isValidName(value)) {
                 addChatMessage(dictionary.chat_invalid_name, 'ai');
