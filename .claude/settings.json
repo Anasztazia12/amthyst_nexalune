@@ -22,7 +22,11 @@
       "Bash(curl -s -X POST https://amethyst-nexalune-chat.kickstartfitness-co-uk.workers.dev -H 'Content-Type: application/json' -H 'Origin: https://www.amethyst-nexalune.co.uk' -d '{\"message\":\"Kb mennyibe kerülne egy 1-2 oldalas weboldal?\"}')",
       "Bash(curl -s -X POST https://amethyst-nexalune-chat.kickstartfitness-co-uk.workers.dev -H 'Content-Type: application/json' -H 'Origin: https://www.amethyst-nexalune.co.uk' -d '{\"message\":\"Roughly how much would a 1-2 page website cost?\"}')",
       "Bash(curl -s -X POST https://amethyst-nexalune-chat.kickstartfitness-co-uk.workers.dev -H 'Content-Type: application/json' -H 'Origin: https://www.amethyst-nexalune.co.uk' -d '{\"message\":\"I just need a super simple single-page website, how much would that be?\"}')",
-      "Bash(curl -s -X POST https://amethyst-nexalune-chat.kickstartfitness-co-uk.workers.dev -H 'Content-Type: application/json' -H 'Origin: https://www.amethyst-nexalune.co.uk' -d '{\"message\":\"Milyen szolgáltatásokat kínálsz?\"}')"
+      "Bash(curl -s -X POST https://amethyst-nexalune-chat.kickstartfitness-co-uk.workers.dev -H 'Content-Type: application/json' -H 'Origin: https://www.amethyst-nexalune.co.uk' -d '{\"message\":\"Milyen szolgáltatásokat kínálsz?\"}')",
+      "Bash(curl -s -X POST https://amethyst-nexalune-chat.kickstartfitness-co-uk.workers.dev -H 'Content-Type: application/json' -H 'Origin: https://www.amethyst-nexalune.co.uk' -d '{\"message\":\"Csak egy egyszeru 1 oldalas landing page kellene, mennyi ido alatt keszul el?\"}')",
+      "Bash(npx -y http-server -p 8993 -s)",
+      "Bash(node C:/Users/rkara/AppData/Local/Temp/claude/c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune/b6c7bd51-ce61-4ab6-bd18-83a742c52a56/scratchpad/shot_mobile.js C:/Users/rkara/AppData/Local/Temp/claude/c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune/b6c7bd51-ce61-4ab6-bd18-83a742c52a56/scratchpad/mobile_chat.png)",
+      "Bash(node C:/Users/rkara/AppData/Local/Temp/claude/c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune/b6c7bd51-ce61-4ab6-bd18-83a742c52a56/scratchpad/shot_mobile.js C:/Users/rkara/AppData/Local/Temp/claude/c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune/b6c7bd51-ce61-4ab6-bd18-83a742c52a56/scratchpad/mobile_chat2.png)"
     ],
     "additionalDirectories": [
       "C:\\Users\\rkara\\AppData\\Local\\Temp\\claude\\c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune\\12dc7269-2192-400e-9d6c-9c94ac1e5011\\scratchpad"

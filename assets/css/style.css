@@ -2083,7 +2083,8 @@ body.lightbox-open {
     }
 
     .contact-ai-body {
-        max-height: 50vh;
+        min-height: 160px;
+        max-height: 38vh;
     }
 
     .topbar {
