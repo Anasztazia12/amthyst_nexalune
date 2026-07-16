@@ -17,7 +17,10 @@
       "Bash(claude plugin *)",
       "PowerShell(Get-Command claude -ErrorAction SilentlyContinue)",
       "Bash(curl -s -X POST https://amethyst-nexalune-chat.kickstartfitness-co-uk.workers.dev -H 'Content-Type: application/json' -H 'Origin: https://www.amethyst-nexalune.co.uk' -d '{\"message\":\"How much does a basic website cost?\"}')",
-      "Bash(curl -s -o /dev/null -w '%{http_code}\\\\n' -X POST https://amethyst-nexalune-chat.kickstartfitness-co-uk.workers.dev -H 'Content-Type: application/json' -H 'Origin: https://evil-example.com' -d '{\"message\":\"test\"}')"
+      "Bash(curl -s -o /dev/null -w '%{http_code}\\\\n' -X POST https://amethyst-nexalune-chat.kickstartfitness-co-uk.workers.dev -H 'Content-Type: application/json' -H 'Origin: https://evil-example.com' -d '{\"message\":\"test\"}')",
+      "Bash(npx wrangler *)",
+      "Bash(curl -s -X POST https://amethyst-nexalune-chat.kickstartfitness-co-uk.workers.dev -H 'Content-Type: application/json' -H 'Origin: https://www.amethyst-nexalune.co.uk' -d '{\"message\":\"Kb mennyibe kerülne egy 1-2 oldalas weboldal?\"}')",
+      "Bash(curl -s -X POST https://amethyst-nexalune-chat.kickstartfitness-co-uk.workers.dev -H 'Content-Type: application/json' -H 'Origin: https://www.amethyst-nexalune.co.uk' -d '{\"message\":\"Roughly how much would a 1-2 page website cost?\"}')"
     ],
     "additionalDirectories": [
       "C:\\Users\\rkara\\AppData\\Local\\Temp\\claude\\c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune\\12dc7269-2192-400e-9d6c-9c94ac1e5011\\scratchpad"

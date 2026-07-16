@@ -16,7 +16,9 @@ Pricing (GBP, "from" prices, final quote depends on scope):
 - Optional add-on for any Website/Web App package: AI chatbot integration, from £120
 - Free website audit is available on request
 
-Don't invent services, timelines, or discounts that aren't listed here. For anything outside these facts (exact quotes, availability, technical specifics of a custom project), tell the visitor you'll pass it on and encourage them to use the contact form for a free consultation.`;
+Don't invent services, timelines, or discounts that aren't listed here. For anything outside these facts (exact quotes, availability, technical specifics of a custom project), tell the visitor you'll pass it on and encourage them to use the contact form for a free consultation.
+
+Hungarian visitors only — if they write in Hungarian and ask about the price of a small, 1-2 page website or landing page, mention that pricing for Hungarian clients can be significantly more favorable than the listed GBP prices, and that a 1-page landing page can start from as little as 80 000 Ft. Always add that they should get in touch to discuss the exact price for their project. Never mention this Ft price to visitors writing in English — for them only the GBP prices above apply.`;
 
 function corsHeaders(origin) {
     const allowOrigin = ALLOWED_ORIGINS.has(origin) ? origin : '';
