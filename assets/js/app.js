@@ -1787,7 +1787,7 @@ if (chatForm && chatBody && chatInput) {
             const response = await fetch(AI_WORKER_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: userText, history: aiHistory }),
+                body: JSON.stringify({ message: userText, history: aiHistory, lang: currentLanguage }),
             });
             if (!response.ok) return null;
             const data = await response.json();
@@ -1813,7 +1813,11 @@ if (chatForm && chatBody && chatInput) {
     };
 
     let step = 'intro';
+    let chatLanguage = currentLanguage;
     const chatData = { intro: '', name: '', email: '', category: '', message: '' };
+
+    const HU_HINT_PATTERN = /[áéíóöőúüű]|\b(szia|helló|üdv|mennyibe|weboldal|árajánlat|köszönöm|kérdés|hogyan|van|nem|igen)\b/i;
+    const detectChatLanguage = (text) => (HU_HINT_PATTERN.test(text) ? 'hu' : 'en');
 
     const addChatMessage = (text, sender) => {
         const bubble = document.createElement('div');
@@ -1844,7 +1848,7 @@ if (chatForm && chatBody && chatInput) {
     };
 
     const askCategory = () => {
-        const dictionary = translations[currentLanguage] || translations.en;
+        const dictionary = translations[chatLanguage] || translations.en;
         step = 'category';
         chatInput.disabled = true;
         addChatMessage(dictionary.chat_ask_category, 'ai');
