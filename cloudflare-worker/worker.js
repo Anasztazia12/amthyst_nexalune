@@ -79,6 +79,7 @@ export default {
         }
 
         const lang = body.lang === 'hu' ? 'hu' : 'en';
+        const langReminder = lang === 'hu' ? '\n\n(Válaszolj magyarul, még akkor is, ha ez az üzenet más nyelven van.)' : '\n\n(Reply in English, even if this message is in another language.)';
 
         // history: short array of { role: 'user' | 'assistant', content: string } from the client, capped for cost control.
         const history = Array.isArray(body.history) ? body.history.slice(-6) : [];
@@ -87,7 +88,7 @@ export default {
             ...history
                 .filter((m) => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')
                 .map((m) => ({ role: m.role, content: m.content.slice(0, 600) })),
-            { role: 'user', content: message },
+            { role: 'user', content: message + langReminder },
         ];
 
         const groqResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
