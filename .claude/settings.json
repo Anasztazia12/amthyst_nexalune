@@ -51,7 +51,13 @@
       "PowerShell(Get-NetTCPConnection -LocalPort 8999 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue })",
       "Bash(npx -y http-server -p 9001 -s)",
       "Bash(node C:/Users/rkara/AppData/Local/Temp/claude/c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune/b6c7bd51-ce61-4ab6-bd18-83a742c52a56/scratchpad/mobile_overlap.js C:/Users/rkara/AppData/Local/Temp/claude/c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune/b6c7bd51-ce61-4ab6-bd18-83a742c52a56/scratchpad/mobile_overlap2.png)",
-      "PowerShell(Get-NetTCPConnection -LocalPort 9001 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue })"
+      "PowerShell(Get-NetTCPConnection -LocalPort 9001 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue })",
+      "Bash(grep -v \"^.*//\")",
+      "Bash(npx -y http-server -p 9002 -s)",
+      "Bash(node C:/Users/rkara/AppData/Local/Temp/claude/c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune/b6c7bd51-ce61-4ab6-bd18-83a742c52a56/scratchpad/cta_btn_shot.js C:/Users/rkara/AppData/Local/Temp/claude/c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune/b6c7bd51-ce61-4ab6-bd18-83a742c52a56/scratchpad/cta_btn.png)",
+      "Bash(node C:/Users/rkara/AppData/Local/Temp/claude/c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune/b6c7bd51-ce61-4ab6-bd18-83a742c52a56/scratchpad/cta_btn_shot.js C:/Users/rkara/AppData/Local/Temp/claude/c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune/b6c7bd51-ce61-4ab6-bd18-83a742c52a56/scratchpad/cta_btn_fixed.png)",
+      "Bash(node C:/Users/rkara/AppData/Local/Temp/claude/c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune/b6c7bd51-ce61-4ab6-bd18-83a742c52a56/scratchpad/cta_btn_shot2.js C:/Users/rkara/AppData/Local/Temp/claude/c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune/b6c7bd51-ce61-4ab6-bd18-83a742c52a56/scratchpad/cta_btn_980.png)",
+      "PowerShell(Get-NetTCPConnection -LocalPort 9002 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue })"
     ],
     "additionalDirectories": [
       "C:\\Users\\rkara\\AppData\\Local\\Temp\\claude\\c--Users-rkara-OneDrive-Asztali-g-p-Amethyst-Nexalune\\12dc7269-2192-400e-9d6c-9c94ac1e5011\\scratchpad"
